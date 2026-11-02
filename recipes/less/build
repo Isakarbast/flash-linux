@@ -1,0 +1,5 @@
+cd less-710
+./configure --prefix=/usr \
+    --sysconfdir=/etc
+make
+make DESTDIR="$DESTDIR" install

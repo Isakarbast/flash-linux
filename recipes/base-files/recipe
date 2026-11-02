@@ -1,0 +1,7 @@
+name        = base-files
+version     = 1
+release     = 1
+description = Basic system configuration: os-release, shell profile, hostname, issue
+arch        = noarch
+source      = os-release issue profile locale.sh shells locale.conf hostname bashrc bash_profile
+sha256      = dcae9bc838f4ff35416445ce39164c78d0eb4acb737034afccbe94d408a1b885 da0388cfda150bc8d0fc830fdcb99cce9ca5709415b1d4bdf04170ad3a2ffdda ba0ef3df0120fd666cedc7815e5adcb67a188a8abd63ef0180248dd6fe20a33e 6036861eac43524c450f74a5d6fac15930bbc39bbe956f06f3c49283a2a24ccc 4ec4e8c524a4f10ca5898ccfaa6d29e7e08aff3a681f6bafbb62e7bec91aa154 033252d5100cbb0028d7c15e075f63e4eb5ff7f1a923cd5cb547bcfd6b024f5b eb2953a6f5f79fad850c67cedff673a76126206ab02ec2d31ea0668429eb2082 19be863afdcb66a88e7ea3b2f9ffa1c4259d7e5caed4cae8641a46c85dd3bf66 f0e7ea2cc275f3176913610ac6a1592afce0ec09b9950c50e7567fefd7847270

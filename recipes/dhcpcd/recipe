@@ -1,0 +1,6 @@
+name        = dhcpcd
+version     = 10.5.2
+release     = 1
+description = DHCP client: gets an IP address and DNS servers on wired and wireless networks
+source      = https://github.com/NetworkConfiguration/dhcpcd/releases/download/v10.5.2/dhcpcd-10.5.2.tar.xz dhcpcd.initd
+sha256      = 3e476657fdb6eeb38b277da3a48d0ac0113ecce5858ebdcddff2b629faed52b4 3518e22db20cbd8b65ce951d23835e4bed2bfd90ac89e7ca8ca0cfb56cb16c5a

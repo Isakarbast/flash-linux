@@ -1,0 +1,4 @@
+cd diffutils-3.12
+./configure --prefix=/usr
+make
+make DESTDIR="$DESTDIR" install

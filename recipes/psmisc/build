@@ -1,0 +1,4 @@
+cd psmisc-23.7
+./configure --prefix=/usr
+make
+make DESTDIR="$DESTDIR" install

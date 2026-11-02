@@ -1,0 +1,4 @@
+cd zstd-1.5.7
+make prefix=/usr
+make prefix=/usr DESTDIR="$DESTDIR" install
+rm -f "$DESTDIR/usr/lib/libzstd.a"

@@ -1,0 +1,18 @@
+cd eudev-3.2.15
+./configure --prefix=/usr \
+    --sysconfdir=/etc \
+    --bindir=/usr/bin \
+    --sbindir=/usr/bin \
+    --libdir=/usr/lib \
+    --with-rootprefix=/usr \
+    --with-rootlibdir=/usr/lib \
+    --disable-static \
+    --disable-manpages
+make
+make DESTDIR="$DESTDIR" install
+
+install -Dm755 ../udev.initd "$DESTDIR/etc/init.d/udev"
+install -Dm755 ../udev-trigger.initd "$DESTDIR/etc/init.d/udev-trigger"
+mkdir -p "$DESTDIR/etc/runlevels/sysinit"
+ln -s /etc/init.d/udev "$DESTDIR/etc/runlevels/sysinit/udev"
+ln -s /etc/init.d/udev-trigger "$DESTDIR/etc/runlevels/sysinit/udev-trigger"

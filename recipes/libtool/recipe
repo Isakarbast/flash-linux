@@ -1,0 +1,6 @@
+name        = libtool
+version     = 2.6.2
+release     = 1
+description = Generic library support script
+source      = https://ftpmirror.gnu.org/libtool/libtool-2.6.2.tar.xz
+sha256      = 2ef1067c16c97db930fd740cc9bc3d3ba9a583804ae5ac42cc3e8719e49e191e

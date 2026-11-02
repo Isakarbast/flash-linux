@@ -1,0 +1,8 @@
+cd kmod-34.3
+mkdir build
+cd build
+meson setup --prefix=/usr .. \
+    --buildtype=release \
+    -D manpages=false
+ninja
+DESTDIR="$DESTDIR" ninja install

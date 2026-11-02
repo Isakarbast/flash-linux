@@ -1,0 +1,2 @@
+cd iana-etc-20261015
+install -Dm644 services protocols -t "$DESTDIR/etc"

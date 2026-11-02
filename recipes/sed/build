@@ -1,0 +1,4 @@
+cd sed-4.10
+./configure --prefix=/usr
+make
+make DESTDIR="$DESTDIR" install

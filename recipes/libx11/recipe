@@ -1,0 +1,6 @@
+name        = libx11
+version     = 1.8.14
+release     = 1
+description = X11 client-side library
+source      = https://xorg.freedesktop.org/releases/individual/lib/libX11-1.8.14.tar.xz
+sha256      = bbc78c46217174655c2b32b138ad119f3ac15f50808b4d0b3a2677a4b1afc950

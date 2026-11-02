@@ -1,0 +1,14 @@
+cd e2fsprogs-1.47.4
+mkdir build
+cd build
+../configure --prefix=/usr \
+    --sysconfdir=/etc \
+    --enable-elf-shlibs \
+    --disable-libblkid \
+    --disable-libuuid \
+    --disable-uuidd \
+    --disable-fsck
+make
+make DESTDIR="$DESTDIR" install
+rm -f "$DESTDIR"/usr/lib/{libcom_err,libe2p,libext2fs,libss}.a
+sed 's/metadata_csum_seed,//' -i "$DESTDIR/etc/mke2fs.conf"

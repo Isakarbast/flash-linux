@@ -1,0 +1,6 @@
+name        = openrc
+version     = 0.64.1
+release     = 1
+description = Init system and service manager (PID 1 via openrc-init, services in /etc/init.d)
+source      = https://github.com/OpenRC/openrc/archive/0.64.1/openrc-0.64.1.tar.gz
+sha256      = 56d6d24c7fd2ca15d1abd1fb82ce5430629a71acb2c3fa12760300243dbd0baa

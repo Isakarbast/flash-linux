@@ -1,0 +1,24 @@
+cd gcc-16.2.0
+sed -e '/m64=/s/lib64/lib/' -i.orig gcc/config/i386/t-linux64
+mkdir build
+cd build
+../configure --prefix=/usr \
+    LD=ld \
+    --enable-languages=c,c++ \
+    --enable-default-pie \
+    --enable-default-ssp \
+    --enable-host-pie \
+    --enable-targets=all \
+    --disable-multilib \
+    --disable-bootstrap \
+    --disable-fixincludes \
+    --with-system-zlib
+make
+make DESTDIR="$DESTDIR" install
+ln -sr "$DESTDIR/usr/bin/cpp" "$DESTDIR/usr/lib"
+ln -s gcc "$DESTDIR/usr/bin/cc"
+ln -s gcc.1 "$DESTDIR/usr/share/man/man1/cc.1"
+mkdir -p "$DESTDIR/usr/lib/bfd-plugins"
+ln -sf ../../libexec/gcc/x86_64-pc-linux-gnu/16.2.0/liblto_plugin.so "$DESTDIR/usr/lib/bfd-plugins/"
+mkdir -p "$DESTDIR/usr/share/gdb/auto-load/usr/lib"
+mv "$DESTDIR"/usr/lib/*gdb.py "$DESTDIR/usr/share/gdb/auto-load/usr/lib"

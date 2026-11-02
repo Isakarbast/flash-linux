@@ -1,0 +1,6 @@
+[ "${ROOT:-/}" = / ] || exit 0
+# dhcpcd drops privileges to this user.
+grep -q '^dhcpcd:' /etc/group || groupadd -g 52 dhcpcd
+grep -q '^dhcpcd:' /etc/passwd ||
+    useradd -c 'dhcpcd privilege separation' -d /var/lib/dhcpcd -g dhcpcd -s /usr/bin/nologin -u 52 dhcpcd
+install -d -o dhcpcd -g dhcpcd -m 700 /var/lib/dhcpcd

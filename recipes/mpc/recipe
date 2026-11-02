@@ -1,0 +1,6 @@
+name        = mpc
+version     = 1.4.1
+release     = 1
+description = Multiple-precision complex arithmetic library
+source      = https://ftpmirror.gnu.org/mpc/mpc-1.4.1.tar.xz
+sha256      = 91204cd32f164bd3b7c992d4a6a8ce6519511aadab30f78b6982d0bf8d73e931

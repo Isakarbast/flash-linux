@@ -1,0 +1,4 @@
+cd file-5.48
+./configure --prefix=/usr
+make
+make DESTDIR="$DESTDIR" install

@@ -1,0 +1,5 @@
+cd cpio-2.15
+# cpio 2.15 predates C23 (gcc 15+'s default), where "int f()" means no arguments.
+CFLAGS="$CFLAGS -std=gnu17" ./configure --prefix=/usr --enable-mt --with-rmt=/usr/lib/tar/rmt
+make
+make DESTDIR="$DESTDIR" install

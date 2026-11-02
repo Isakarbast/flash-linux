@@ -1,0 +1,14 @@
+cd grub-2.16
+# GRUB's EFI image is built with its own flags.
+unset CFLAGS CPPFLAGS CXXFLAGS LDFLAGS
+./configure --prefix=/usr \
+    --sysconfdir=/etc \
+    --target=x86_64 \
+    --with-platform=efi \
+    --disable-efiemu \
+    --disable-werror
+make
+make DESTDIR="$DESTDIR" install
+mkdir -p "$DESTDIR/usr/share/bash-completion/completions"
+mv "$DESTDIR/etc/bash_completion.d/grub" "$DESTDIR/usr/share/bash-completion/completions/grub" 2>/dev/null || true
+rmdir "$DESTDIR/etc/bash_completion.d" 2>/dev/null || true

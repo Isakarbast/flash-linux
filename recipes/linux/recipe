@@ -1,0 +1,10 @@
+name        = linux
+version     = 7.3.1
+release     = 2
+description = The Linux kernel and its modules
+source      = https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-7.3.1.tar.xz config-fedora
+sha256      = fa595aad93734f829c963c2a90ef7c3673224fd7fdae7b49406e397cde2de231 b5092319ae10690f0a95fb948244851a978379af79501b106c82bfb3a591ed7b
+
+linux-devel.description = Build files for out-of-tree kernel modules (e.g. NVIDIA)
+linux-devel.depends     = linux
+linux-devel.files       = usr/lib/modules/7.3.1/build

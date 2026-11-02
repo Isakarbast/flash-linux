@@ -1,0 +1,72 @@
+v=$version
+# Kernel to build the modules for: the newest one with build files installed.
+kver=$(ls -d /usr/lib/modules/*/build | sort -V | tail -1 | cut -d/ -f5)
+
+# ---- kernel modules (open source, for Turing and newer GPUs)
+cd "NVIDIA-kernel-module-source-$v"
+( unset CFLAGS CXXFLAGS LDFLAGS
+  make SYSSRC="/usr/lib/modules/$kver/build" modules )
+install -Dm644 -t "$DESTDIR/usr/lib/modules/$kver/updates/nvidia" kernel-open/*.ko
+cd ..
+
+# ---- userspace libraries and tools (laid out like Arch's nvidia-utils)
+# The .run file is a shell script followed by a zstd-compressed tar archive;
+# unpack the archive directly instead of running NVIDIA's installer script.
+run="NVIDIA-Linux-x86_64-$v.run"
+skip=$(head -n 20 "$run" | sed -n 's/^skip=//p')
+mkdir "NVIDIA-Linux-x86_64-$v"
+tail -n +"$skip" "$run" | zstd -dc | tar --no-same-owner -xf - -C "NVIDIA-Linux-x86_64-$v"
+cd "NVIDIA-Linux-x86_64-$v"
+lib="$DESTDIR/usr/lib"
+L() { install -Dm755 "$1" "$lib/${2:-}$1"; }
+
+# OpenGL / EGL / GLES through libglvnd
+for f in libGLX_nvidia libEGL_nvidia libGLESv1_CM_nvidia libGLESv2_nvidia \
+         libnvidia-glcore libnvidia-eglcore libnvidia-glsi libnvidia-tls \
+         libnvidia-glvkspirv libnvidia-gpucomp libnvidia-allocator; do
+    L "$f.so.$v"
+done
+install -Dm644 10_nvidia.json "$DESTDIR/usr/share/glvnd/egl_vendor.d/10_nvidia.json"
+mkdir -p "$lib/gbm"
+ln -s "../libnvidia-allocator.so.$v" "$lib/gbm/nvidia-drm_gbm.so"
+
+# Vulkan
+install -Dm644 nvidia_icd.json "$DESTDIR/usr/share/vulkan/icd.d/nvidia_icd.json"
+install -Dm644 nvidia_layers.json "$DESTDIR/usr/share/vulkan/implicit_layer.d/nvidia_layers.json"
+
+# Video decode/encode, CUDA, ray tracing, DLSS (NGX), management
+for f in libnvidia-fbc libnvidia-encode libnvidia-cfg libnvidia-ml libnvidia-fmdrv \
+         libnvcuvid libcuda libcudadebugger libnvidia-nvvm libnvidia-ptxjitcompiler \
+         libnvoptix libnvidia-rtcore libnvidia-ngx libnvidia-opticalflow \
+         libnvidia-sandboxutils libnvidia-present libnvidia-tileiras; do
+    L "$f.so.$v"
+done
+L libnvidia-api.so.1
+L libnvidia-nvvm70.so.4
+L "libvdpau_nvidia.so.$v" vdpau/
+install -Dm755 nvoptix.bin "$DESTDIR/usr/share/nvidia/nvoptix.bin"
+install -Dm755 -t "$lib/nvidia/wine" _nvngx.dll nvngx.dll nvngx_dlssg.dll
+
+# GSP firmware the open kernel modules load
+install -Dm644 -t "$DESTDIR/usr/lib/firmware/nvidia/$v" firmware/*.bin
+
+# Tools
+install -Dm755 -t "$DESTDIR/usr/bin" nvidia-smi nvidia-debugdump nvidia-ngx-updater \
+    nvidia-cuda-mps-server nvidia-cuda-mps-control nvidia-bug-report.sh
+install -Dm4755 nvidia-modprobe "$DESTDIR/usr/bin/nvidia-modprobe"
+install -Dm644 -t "$DESTDIR/usr/share/man/man1" nvidia-smi.1.gz nvidia-modprobe.1.gz
+install -Dm644 "nvidia-application-profiles-$v-rc" "$DESTDIR/usr/share/nvidia/nvidia-application-profiles-$v-rc"
+install -Dm644 LICENSE "$DESTDIR/usr/share/licenses/nvidia/LICENSE"
+
+install -Dm644 ../nvidia.rules "$DESTDIR/usr/lib/udev/rules.d/60-nvidia.rules"
+install -Dm644 ../nvidia.conf "$DESTDIR/usr/lib/modprobe.d/nvidia.conf"
+
+# soname links (libfoo.so.1 -> libfoo.so.615.78.08, libfoo.so -> libfoo.so.1)
+find "$lib" -maxdepth 2 -type f -name '*.so*' | while read -r f; do
+    so=$(readelf -d "$f" | sed -n 's/.*SONAME.*\[\(.*\)\]/\1/p')
+    [ -n "$so" ] || continue
+    d=$(dirname "$f")
+    [ -e "$d/$so" ] || ln -s "$(basename "$f")" "$d/$so"
+    base=${so%%.so*}.so
+    [ -e "$d/$base" ] || ln -s "$so" "$d/$base"
+done

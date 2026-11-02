@@ -1,0 +1,6 @@
+name        = bzip2
+version     = 1.0.8
+release     = 1
+description = Block-sorting file compressor
+source      = https://www.sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz https://www.linuxfromscratch.org/patches/lfs/development/bzip2-1.0.8-install_docs-1.patch
+sha256      = ab5a03176ee106d3f0fa90e381da478ddae405918153cca248e682cd0c4a2269 35e3bbd9642af51fef2a8a83afba040d272da42d7e3a251d8e43255a7b496702

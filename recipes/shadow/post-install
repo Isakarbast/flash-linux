@@ -1,0 +1,9 @@
+[ "${ROOT:-/}" = / ] || exit 0
+pwconv
+grpconv
+mkdir -p /etc/default
+if [ ! -s /etc/default/useradd ]; then
+    useradd -D --gid 100
+    sed -i '/MAIL/s/yes/no/' /etc/default/useradd
+fi
+touch /etc/subuid /etc/subgid

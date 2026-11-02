@@ -1,0 +1,14 @@
+#!/sbin/openrc-run
+# DHCP on every network interface (enable with: rc-update add dhcpcd default)
+
+description="DHCP client"
+command=/usr/bin/dhcpcd
+command_args="-q -b ${dhcpcd_args}"
+pidfile=/run/dhcpcd/pid
+
+depend() {
+	provide net
+	need localmount
+	use logger
+	after bootmisc modules
+}

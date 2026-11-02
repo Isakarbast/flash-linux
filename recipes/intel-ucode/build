@@ -1,0 +1,9 @@
+cd Intel-Linux-Processor-Microcode-Data-Files-microcode-20260925
+# Early-load image: the kernel picks the microcode out of this cpio archive
+# before anything else runs. GRUB loads it as the first initrd.
+mkdir -p early/kernel/x86/microcode
+cat intel-ucode/* > early/kernel/x86/microcode/GenuineIntel.bin
+( cd early && find . | cpio -o -H newc -R 0:0 ) > intel-ucode.img
+install -Dm644 intel-ucode.img "$DESTDIR/boot/intel-ucode.img"
+install -dm755 "$DESTDIR/usr/lib/firmware/intel-ucode"
+install -m644 intel-ucode/* "$DESTDIR/usr/lib/firmware/intel-ucode/"

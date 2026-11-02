@@ -1,0 +1,6 @@
+name        = kbd
+version     = 2.10.0
+release     = 1
+description = Console keymaps and fonts
+source      = https://www.kernel.org/pub/linux/utils/kbd/kbd-2.10.0.tar.xz https://www.linuxfromscratch.org/patches/lfs/development/kbd-2.10.0-backspace-1.patch
+sha256      = 6e5ca4f8d76ee9e3a8db700b667f13e12aac9933828a64e1aaad93d26be9b479 8be28dcb11420624a500f2ea4fe975f771174bffee50e54ec8cd295a2dec104e

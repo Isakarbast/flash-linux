@@ -1,0 +1,4 @@
+cd texinfo-7.3
+./configure --prefix=/usr
+make
+make DESTDIR="$DESTDIR" install

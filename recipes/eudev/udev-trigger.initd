@@ -1,0 +1,20 @@
+#!/sbin/openrc-run
+# Replay the devices the kernel found before udevd started, so their drivers
+# load and their /dev entries get the right names and permissions.
+
+description="Populate /dev with existing devices"
+
+depend() {
+	need udev
+	provide dev-settle
+	before checkfs fsck localmount modules
+	keyword -docker -lxc -vserver
+}
+
+start() {
+	ebegin "Populating /dev with existing devices"
+	udevadm trigger --type=subsystems --action=add
+	udevadm trigger --type=devices --action=add
+	udevadm settle --timeout=30
+	eend $?
+}

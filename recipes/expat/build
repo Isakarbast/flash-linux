@@ -1,0 +1,6 @@
+cd expat-2.9.0
+./configure --prefix=/usr \
+    --disable-static \
+    --docdir=/usr/share/doc/expat-2.9.0
+make
+make DESTDIR="$DESTDIR" install

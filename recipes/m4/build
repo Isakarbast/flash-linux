@@ -1,0 +1,4 @@
+cd m4-1.4.21
+./configure --prefix=/usr
+make
+make DESTDIR="$DESTDIR" install

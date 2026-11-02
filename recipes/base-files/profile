@@ -1,0 +1,12 @@
+# /etc/profile: login shell setup for every user.
+
+PATH=/usr/local/bin:/usr/bin
+export PATH
+umask 022
+
+for f in /etc/profile.d/*.sh; do
+    [ -r "$f" ] && . "$f"
+done
+unset f
+
+# Interactive bash login shells also read ~/.bashrc via ~/.bash_profile.

@@ -1,0 +1,4 @@
+cd patch-2.8.1
+./configure --prefix=/usr
+make
+make DESTDIR="$DESTDIR" install

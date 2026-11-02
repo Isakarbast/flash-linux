@@ -1,0 +1,9 @@
+cd openssl-4.1.0
+./config --prefix=/usr \
+    --openssldir=/etc/ssl \
+    --libdir=lib \
+    shared \
+    zlib-dynamic
+make
+make DESTDIR="$DESTDIR" INSTALL_LIBS= MANSUFFIX=ssl install
+mv "$DESTDIR/usr/share/doc/openssl" "$DESTDIR/usr/share/doc/openssl-4.1.0"

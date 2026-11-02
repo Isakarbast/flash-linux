@@ -1,0 +1,3 @@
+# Refresh the shared library cache when libraries change.
+paths = usr/lib/lib*.so* usr/local/lib/lib*.so*
+exec  = ldconfig

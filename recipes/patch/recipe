@@ -1,0 +1,6 @@
+name        = patch
+version     = 2.8.1
+release     = 1
+description = GNU patch
+source      = https://ftpmirror.gnu.org/patch/patch-2.8.1.tar.xz
+sha256      = 3240c7959c5347c8ed347e3c4201c0337bf4240d5cf09d68889e58eeaba30e17

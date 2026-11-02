@@ -1,0 +1,7 @@
+name        = automake
+version     = 1.19
+release     = 1
+description = GNU Makefile generator
+depends     = autoconf perl
+source      = https://ftpmirror.gnu.org/automake/automake-1.19.tar.xz
+sha256      = e3e2c2e3abf37898138db5b6c1d1dc35c9160c5978be7947d2c741705251d445

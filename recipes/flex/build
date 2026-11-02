@@ -1,0 +1,7 @@
+cd flex-2.6.4
+./configure --prefix=/usr \
+    --disable-static \
+    --docdir=/usr/share/doc/flex-2.6.4
+make
+make DESTDIR="$DESTDIR" install
+ln -s flex "$DESTDIR/usr/bin/lex"

@@ -1,0 +1,4 @@
+[ "${ROOT:-/}" = / ] || exit 0
+for k in /usr/lib/modules/*/updates/nvidia; do
+    depmod "$(echo "$k" | cut -d/ -f5)"
+done

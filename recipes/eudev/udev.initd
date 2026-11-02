@@ -1,0 +1,24 @@
+#!/sbin/openrc-run
+# Start the eudev daemon, which handles device events from the kernel.
+
+description="Device manager"
+
+depend() {
+	need sysfs devfs
+	provide dev
+	before checkfs fsck
+	keyword -docker -lxc -vserver
+}
+
+start() {
+	ebegin "Starting udev"
+	echo "" > /proc/sys/kernel/hotplug 2>/dev/null
+	udevd --daemon
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping udev"
+	udevadm control --exit
+	eend $?
+}

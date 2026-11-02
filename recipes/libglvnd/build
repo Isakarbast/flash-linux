@@ -1,0 +1,4 @@
+cd libglvnd-v1.7.0
+meson setup build --prefix=/usr --buildtype=release -Dgles1=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

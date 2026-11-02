@@ -1,0 +1,9 @@
+#!/bin/sh
+# locale-gen: compile the locales listed in /etc/locale.gen.
+set -e
+mkdir -p /usr/lib/locale
+grep -Ev '^[[:space:]]*(#|$)' /etc/locale.gen | while read -r locale charset; do
+    input=$(echo "$locale" | sed 's/\.[^@]*//')
+    echo "Generating $locale"
+    localedef -i "$input" -f "$charset" "$locale"
+done

@@ -1,0 +1,15 @@
+cd openrc-0.64.1
+# sysvinit=true makes OpenRC a complete init: /sbin/init -> openrc-init,
+# reboot/poweroff/shutdown, and agetty login consoles on tty1-6.
+meson setup build --prefix=/usr --sysconfdir=/etc \
+    --buildtype=release \
+    -Dsysvinit=true \
+    -Dpam=false \
+    -Dselinux=disabled \
+    -Daudit=disabled \
+    -Dnewnet=false \
+    -Dbash-completions=true \
+    -Dzsh-completions=false \
+    -Dpkgconfig=true
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

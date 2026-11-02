@@ -1,0 +1,44 @@
+name        = linux-firmware
+version     = 20261019
+release     = 3
+description = Firmware shared by many drivers (vendor-specific firmware is in linux-firmware-*)
+arch        = noarch
+options     = !strip
+source      = https://cdn.kernel.org/pub/linux/kernel/firmware/linux-firmware-20261019.tar.xz
+sha256      = a10d1ab5baf2c74ba92e8c7cf313e691696c26bddfa6df00db795e48d70cd4ca
+
+linux-firmware-amdgpu.description = AMD Radeon GPU firmware (amdgpu) and AMD NPU/TEE
+linux-firmware-amdgpu.files = usr/lib/firmware/amdgpu usr/lib/firmware/amdnpu usr/lib/firmware/amdtee usr/lib/firmware/amd
+
+linux-firmware-radeon.description = Older AMD/ATI Radeon GPU firmware (radeon)
+linux-firmware-radeon.files = usr/lib/firmware/radeon
+
+linux-firmware-intel.description = Intel firmware: GPU (i915, xe), Wi-Fi, Bluetooth, audio DSP
+linux-firmware-intel.files = usr/lib/firmware/intel usr/lib/firmware/i915 usr/lib/firmware/xe usr/lib/firmware/iwlwifi-*
+
+linux-firmware-nvidia.description = NVIDIA GPU firmware for the open-source nouveau driver
+linux-firmware-nvidia.files = usr/lib/firmware/nvidia
+
+linux-firmware-realtek.description = Realtek Wi-Fi, Bluetooth and Ethernet firmware
+linux-firmware-realtek.files = usr/lib/firmware/rtw88 usr/lib/firmware/rtw89 usr/lib/firmware/rtl_nic usr/lib/firmware/rtl_bt usr/lib/firmware/rtlwifi usr/lib/firmware/realtek usr/lib/firmware/rt2*.bin* usr/lib/firmware/rt3*.bin* usr/lib/firmware/rt73.bin*
+
+linux-firmware-mediatek.description = MediaTek Wi-Fi and Bluetooth firmware
+linux-firmware-mediatek.files = usr/lib/firmware/mediatek
+
+linux-firmware-atheros.description = Qualcomm Atheros Wi-Fi and Bluetooth firmware
+linux-firmware-atheros.files = usr/lib/firmware/ath10k usr/lib/firmware/ath11k usr/lib/firmware/ath12k usr/lib/firmware/ath6k usr/lib/firmware/ath9k_htc usr/lib/firmware/ar3k usr/lib/firmware/qca usr/lib/firmware/ar5523.bin* usr/lib/firmware/ar7010*.fw* usr/lib/firmware/ar9170*.fw* usr/lib/firmware/ar9271.fw* usr/lib/firmware/htc_*.fw*
+
+linux-firmware-broadcom.description = Broadcom/Cypress Wi-Fi, Bluetooth and Ethernet firmware
+linux-firmware-broadcom.files = usr/lib/firmware/brcm usr/lib/firmware/cypress usr/lib/firmware/bnx2 usr/lib/firmware/bnx2x usr/lib/firmware/tigon
+
+linux-firmware-qcom.description = Qualcomm SoC firmware
+linux-firmware-qcom.files = usr/lib/firmware/qcom
+
+linux-firmware-cirrus.description = Cirrus Logic audio firmware
+linux-firmware-cirrus.files = usr/lib/firmware/cirrus usr/lib/firmware/cs42l43.bin*
+
+linux-firmware-mellanox.description = Mellanox network adapter firmware
+linux-firmware-mellanox.files = usr/lib/firmware/mellanox
+
+linux-firmware-netronome.description = Netronome network adapter firmware
+linux-firmware-netronome.files = usr/lib/firmware/netronome

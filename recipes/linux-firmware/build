@@ -1,0 +1,3 @@
+cd linux-firmware-20261019
+# copy-firmware.sh only runs in parallel with GNU parallel, so no -j here.
+make MAKEFLAGS= DESTDIR="$DESTDIR" FIRMWAREDIR=/usr/lib/firmware install-zst

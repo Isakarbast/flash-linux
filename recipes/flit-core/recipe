@@ -1,0 +1,8 @@
+name        = flit-core
+version     = 4.2.0
+release     = 1
+description = Python build backend for simple packages
+depends     = python
+arch        = noarch
+source      = https://pypi.org/packages/source/f/flit-core/flit_core-4.2.0.tar.gz
+sha256      = 84e4e4d8fdd45ba2613800a3ebc6834de26d47ec9746efc3719f94181137b460

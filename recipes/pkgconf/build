@@ -1,0 +1,8 @@
+cd pkgconf-3.0.10
+./configure --prefix=/usr \
+    --disable-static \
+    --docdir=/usr/share/doc/pkgconf-3.0.10
+make
+make DESTDIR="$DESTDIR" install
+ln -s pkgconf "$DESTDIR/usr/bin/pkg-config"
+ln -s pkgconf.1 "$DESTDIR/usr/share/man/man1/pkg-config.1"

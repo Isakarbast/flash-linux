@@ -1,0 +1,4 @@
+cd gzip-1.15
+./configure --prefix=/usr
+make
+make DESTDIR="$DESTDIR" install

@@ -1,0 +1,6 @@
+name        = libcap
+version     = 2.78
+release     = 1
+description = POSIX capabilities library and tools
+source      = https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.78.tar.xz
+sha256      = 0d621e562fd932ccf67b9660fb018e468a683d7b827541df27813228c996bb11

@@ -1,0 +1,5 @@
+cd automake-1.19
+./configure --prefix=/usr \
+    --docdir=/usr/share/doc/automake-1.19
+make
+make DESTDIR="$DESTDIR" install

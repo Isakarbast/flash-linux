@@ -1,0 +1,6 @@
+name        = cpio
+version     = 2.15
+release     = 1
+description = GNU cpio archiver
+source      = https://ftpmirror.gnu.org/cpio/cpio-2.15.tar.bz2
+sha256      = 937610b97c329a1ec9268553fb780037bcfff0dcffe9725ebc4fd9c1aa9075db

@@ -1,0 +1,4 @@
+cd xcb-proto-1.17.0
+./configure --prefix=/usr
+make
+make DESTDIR="$DESTDIR" install

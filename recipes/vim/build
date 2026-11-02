@@ -1,0 +1,20 @@
+cd vim-9.2.1225
+echo '#define SYS_VIMRC_FILE "/etc/vimrc"' >> src/feature.h
+# vim's configure reads $srcdir, which fpm sets to its own build dir.
+unset srcdir
+./configure --prefix=/usr
+make
+make DESTDIR="$DESTDIR" install
+ln -s vim "$DESTDIR/usr/bin/vi"
+ln -s vim.1 "$DESTDIR/usr/share/man/man1/vi.1"
+mkdir -p "$DESTDIR/etc"
+cat > "$DESTDIR/etc/vimrc" <<'EOF'
+" System-wide vim settings.
+source $VIMRUNTIME/defaults.vim
+let skip_defaults_vim=1
+
+set nocompatible
+set backspace=2
+set mouse=
+syntax on
+EOF

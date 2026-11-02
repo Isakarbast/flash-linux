@@ -1,0 +1,5 @@
+cd libtool-2.6.2
+./configure --prefix=/usr
+make
+make DESTDIR="$DESTDIR" install
+rm -f "$DESTDIR/usr/lib/libltdl.a"

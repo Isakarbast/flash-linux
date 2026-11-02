@@ -1,0 +1,10 @@
+cd dhcpcd-10.5.2
+./configure --prefix=/usr \
+    --sysconfdir=/etc \
+    --libexecdir=/usr/lib/dhcpcd \
+    --dbdir=/var/lib/dhcpcd \
+    --runstatedir=/run \
+    --privsepuser=dhcpcd
+make
+make DESTDIR="$DESTDIR" install
+install -Dm755 ../dhcpcd.initd "$DESTDIR/etc/init.d/dhcpcd"

@@ -1,0 +1,4 @@
+cd autoconf-2.73
+./configure --prefix=/usr
+make
+make DESTDIR="$DESTDIR" install
