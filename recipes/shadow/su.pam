@@ -1,0 +1,6 @@
+# /etc/pam.d/su
+auth      sufficient  pam_rootok.so
+auth      include     system-auth
+account   include     system-account
+session   required    pam_env.so
+session   include     system-session

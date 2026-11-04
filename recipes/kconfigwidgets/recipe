@@ -1,0 +1,7 @@
+name        = kconfigwidgets
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kconfigwidgets
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kconfigwidgets-6.29.0.tar.xz
+sha256      = 449d7b4df04209669b8ad00c74fbf7e0d14cb103fbfa12a642995057cc56b35d

@@ -1,0 +1,7 @@
+name        = kde-cli-tools
+version     = 6.7.4
+release     = 1
+description = KDE Plasma: kde-cli-tools
+depends     = qt6
+source      = https://download.kde.org/stable/plasma/6.7.4/kde-cli-tools-6.7.4.tar.xz
+sha256      = 9b93730cbea9eecd2b17c84603c1496d18d08749d2861f87a7552f463d7aecb0

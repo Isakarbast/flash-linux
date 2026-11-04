@@ -1,0 +1,7 @@
+name        = spirv-llvm-translator
+version     = 23.1.2
+release     = 1
+description = Translates between LLVM IR and SPIR-V (needed for mesa's Intel drivers)
+depends     = llvm
+source      = https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/v23.1.2/SPIRV-LLVM-Translator-23.1.2.tar.gz
+sha256      = b657254b5e0a2dda7914a8cb1eace467f22847d75d877b83829026c1452f827a

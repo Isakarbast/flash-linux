@@ -1,0 +1,6 @@
+name        = aspell
+version     = 0.60.8.3
+release     = 1
+description = Spell checker library (KDE's spell checking uses it)
+source      = https://ftpmirror.gnu.org/aspell/aspell-0.60.8.3.tar.gz
+sha256      = 0534eae11132405120d11e46bf595bd5dd189bc124ba77a5dd6aae861b48a162

@@ -1,0 +1,7 @@
+name        = kded
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kded
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kded-6.29.0.tar.xz
+sha256      = cb0d1ebc1e96cd90dbd6733e875e1f66e6d99fad9c40cbd3c41c5c3b3e11b882

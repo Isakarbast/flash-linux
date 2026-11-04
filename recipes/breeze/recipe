@@ -1,0 +1,7 @@
+name        = breeze
+version     = 6.7.4
+release     = 1
+description = KDE Plasma: Breeze window decoration and widget style
+depends     = qt6
+source      = https://download.kde.org/stable/plasma/6.7.4/breeze-6.7.4.tar.xz
+sha256      = 31dc88f924a5f5c979f09275ccc897cb0001bda45604561c8f18eb35b2e38b5a

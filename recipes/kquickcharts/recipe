@@ -1,0 +1,7 @@
+name        = kquickcharts
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kquickcharts
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kquickcharts-6.29.0.tar.xz
+sha256      = a72a2188605ad765b0f3dd5aae2c9c8863fa0b27a0010a0a7756f92cff53d380

@@ -1,0 +1,6 @@
+name        = shared-mime-info
+version     = 2.5.1
+release     = 1
+description = File type database (which program opens which file)
+source      = https://gitlab.freedesktop.org/xdg/shared-mime-info/-/archive/2.5.1/shared-mime-info-2.5.1.tar.gz mime.hook
+sha256      = ea248ea157b7fa0165f4fe282c84919fa84c3f175553642f229c8f1ab7539128 e5fc87f5013013a7e4bc34e0a14ae9fe5293742f042e9fa0761dd2f0a85faa0b

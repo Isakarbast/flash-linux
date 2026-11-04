@@ -1,0 +1,18 @@
+cd pipewire-1.6.11
+meson setup build --prefix=/usr --buildtype=release \
+    -Dsession-managers="[]" \
+    -Dlogind=enabled -Dlogind-provider=libelogind \
+    -Dlibsystemd=disabled -Dsystemd-system-service=disabled -Dsystemd-user-service=disabled \
+    -Dpipewire-alsa=enabled -Dalsa=enabled \
+    -Dpipewire-jack=enabled -Djack-devel=true -Djack=disabled \
+    -Dbluez5=disabled -Dgstreamer=disabled -Dffmpeg=disabled -Dlibcamera=disabled \
+    -Dlibpulse=disabled -Davahi=disabled -Droc=disabled -Dsdl2=disabled \
+    -Dx11=disabled -Dlibcanberra=disabled -Decho-cancel-webrtc=disabled \
+    -Dflatpak=disabled -Dselinux=disabled \
+    -Dexamples=disabled -Dtests=disabled -Ddocs=disabled -Dman=disabled
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install
+# Route ALSA programs through PipeWire.
+mkdir -p "$DESTDIR/etc/alsa/conf.d"
+ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf "$DESTDIR/etc/alsa/conf.d/50-pipewire.conf"
+ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf "$DESTDIR/etc/alsa/conf.d/99-pipewire-default.conf"

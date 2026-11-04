@@ -1,0 +1,6 @@
+name        = gstreamer
+version     = 1.28.8
+release     = 1
+description = GStreamer multimedia framework
+source      = https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.28.8.tar.xz
+sha256      = baa8e86985ad6417cc0ad6e7b79ff2884c6779c8b1c7a6240e7121822c86e524

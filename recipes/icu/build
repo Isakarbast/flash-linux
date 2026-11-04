@@ -1,0 +1,4 @@
+cd icu/source
+./configure --prefix=/usr
+make
+make DESTDIR="$DESTDIR" install

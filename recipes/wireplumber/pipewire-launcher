@@ -1,0 +1,25 @@
+#!/bin/sh
+# pipewire-launcher: start PipeWire, WirePlumber and the PulseAudio replacement
+# for this login session (there is no systemd --user to do it). Started by the
+# desktop's autostart; safe to run again, it restarts them.
+
+# Outside a desktop (e.g. on a text console) there is no session bus yet;
+# start one for PipeWire and WirePlumber.
+if [ -z "${DBUS_SESSION_BUS_ADDRESS:-}" ]; then
+    exec dbus-run-session -- "$0" "$@"
+fi
+# PipeWire needs a private runtime directory; elogind creates one per login.
+if [ -z "${XDG_RUNTIME_DIR:-}" ]; then
+    echo "pipewire-launcher: XDG_RUNTIME_DIR is not set (log in through a normal session)" >&2
+    exit 1
+fi
+
+pkill -u "$(id -u)" -x pipewire-pulse 2>/dev/null
+pkill -u "$(id -u)" -x wireplumber 2>/dev/null
+pkill -u "$(id -u)" -x pipewire 2>/dev/null
+
+pipewire &
+sleep 1
+wireplumber &
+pipewire-pulse &
+wait

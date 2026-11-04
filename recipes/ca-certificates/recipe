@@ -1,0 +1,7 @@
+name        = ca-certificates
+version     = 20261020
+release     = 1
+description = Mozilla's trusted root certificates for TLS (curl, openssl, git, ...)
+arch        = noarch
+source      = https://curl.se/ca/cacert-2026-10-20.pem
+sha256      = 796f1389bfea13c0ed78f663b765baaff54a508e5483786bd6ece73c5e3e3cbe

@@ -1,0 +1,6 @@
+name        = dav1d
+version     = 1.5.4
+release     = 1
+description = Fast AV1 video decoder
+source      = https://code.videolan.org/videolan/dav1d/-/archive/1.5.4/dav1d-1.5.4.tar.gz
+sha256      = a1d5b63d2d38ec9bd03acf643caa51fa22edd1e89c5a109c4807717216bbec07

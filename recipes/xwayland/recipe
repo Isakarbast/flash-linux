@@ -1,0 +1,7 @@
+name        = xwayland
+version     = 24.1.14
+release     = 1
+description = X server for running X11 programs and games on Wayland
+depends     = xkbcomp mesa libepoxy
+source      = https://www.x.org/pub/individual/xserver/xwayland-24.1.14.tar.xz
+sha256      = 4eb6b98d678299a4b96138d886345b294130695760345ef84596225a8224078a

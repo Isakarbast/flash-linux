@@ -1,0 +1,10 @@
+cd double-conversion-3.4.0
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_BUILD_TYPE=Release \
+    -D \
+    CMAKE_POLICY_VERSION_MINIMUM=3.5 \
+    -D \
+    BUILD_SHARED_LIBS=ON \
+    -D \
+    BUILD_TESTING=OFF
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

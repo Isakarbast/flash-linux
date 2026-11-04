@@ -1,6 +1,7 @@
 cd sqlite-autoconf-3540100
 ./configure --prefix=/usr \
     --disable-static \
+    --soname=legacy \
     --enable-fts4 --enable-fts5 \
     CPPFLAGS="-D SQLITE_ENABLE_COLUMN_METADATA=1 \
               -D SQLITE_ENABLE_UNLOCK_NOTIFY=1 \

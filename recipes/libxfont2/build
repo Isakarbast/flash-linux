@@ -1,0 +1,4 @@
+cd libXfont2-2.0.9
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static --disable-devel-docs
+make
+make DESTDIR="$DESTDIR" install

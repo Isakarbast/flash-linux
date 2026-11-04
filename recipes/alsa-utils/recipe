@@ -1,0 +1,7 @@
+name        = alsa-utils
+version     = 1.2.16
+release     = 1
+description = ALSA tools: alsamixer, aplay, amixer, alsactl
+depends     = alsa-lib
+source      = https://www.alsa-project.org/files/pub/utils/alsa-utils-1.2.16.tar.bz2
+sha256      = 092399d5e8749a1d5e188e393157521cec4b75693b60ebb79bbce728cff2232c

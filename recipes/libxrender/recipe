@@ -1,0 +1,6 @@
+name        = libxrender
+version     = 0.9.13
+release     = 1
+description = X rendering extension library
+source      = https://www.x.org/pub/individual/lib/libXrender-0.9.13.tar.xz
+sha256      = 3fe88c609df6782e1e7af2e4de36b2563d70cd70ff7dcb1cda561ad64912bb64

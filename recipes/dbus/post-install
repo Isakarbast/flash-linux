@@ -1,0 +1,10 @@
+[ "${ROOT:-/}" = / ] || exit 0
+grep -q '^messagebus:' /etc/group  || groupadd -g 81 messagebus
+grep -q '^messagebus:' /etc/passwd ||
+    useradd -c 'D-Bus message daemon' -d /run/dbus -u 81 -g messagebus -s /usr/bin/nologin messagebus
+# Packages are stored with root ownership; the helper must belong to messagebus.
+chown root:messagebus /usr/libexec/dbus-daemon-launch-helper
+chmod 4750 /usr/libexec/dbus-daemon-launch-helper
+dbus-uuidgen --ensure
+# elogind and others read the same ID from /etc/machine-id.
+[ -e /etc/machine-id ] || ln -s /var/lib/dbus/machine-id /etc/machine-id

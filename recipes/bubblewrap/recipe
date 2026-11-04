@@ -1,0 +1,6 @@
+name        = bubblewrap
+version     = 0.13.1
+release     = 1
+description = Unprivileged sandboxing tool (used by portals and fpm's build sandbox)
+source      = https://github.com/containers/bubblewrap/releases/download/v0.13.1/bubblewrap-0.13.1.tar.xz
+sha256      = 0e85c8702248b8dd64144f594147553650cdd0e4c951690345faace79c217c4d

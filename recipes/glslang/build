@@ -1,0 +1,10 @@
+cd glslang-16.6.0
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_BUILD_TYPE=Release \
+    -D \
+    ALLOW_EXTERNAL_SPIRV_TOOLS=ON \
+    -D \
+    BUILD_SHARED_LIBS=ON \
+    -D \
+    GLSLANG_TESTS=OFF
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

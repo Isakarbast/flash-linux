@@ -1,0 +1,10 @@
+cd Linux-PAM-1.7.3
+meson setup build --prefix=/usr --buildtype=release \
+    -Ddocdir=/usr/share/doc/Linux-PAM-1.7.3 -Ddocs=disabled
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install
+chmod 4755 "$DESTDIR/usr/sbin/unix_chkpwd"
+rm -rf "${DESTDIR:?}/usr/lib/systemd"
+for f in system-account system-auth system-session system-password other; do
+    install -Dm644 "../$f" "$DESTDIR/etc/pam.d/$f"
+done

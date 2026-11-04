@@ -1,0 +1,7 @@
+name        = solid
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: solid
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/solid-6.29.0.tar.xz
+sha256      = 1f46e8a508cc39ae20736861b2d19a73148333f2e23495c115aa2680538a86c2

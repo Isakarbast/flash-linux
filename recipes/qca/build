@@ -1,0 +1,13 @@
+cd qca-2.3.12
+sed -i '/toTry$/a\      "/etc/ssl/certs/ca-certificates.crt"' CMakeLists.txt
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_BUILD_TYPE=Release -D CMAKE_SKIP_INSTALL_RPATH=ON -W no-author \
+    -D \
+    QT6=ON \
+    -D \
+    QCA_INSTALL_IN_QT_PREFIX=ON \
+    -D \
+    QCA_MAN_INSTALL_DIR:PATH=/usr/share/man \
+    -D \
+    BUILD_TESTS=OFF
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

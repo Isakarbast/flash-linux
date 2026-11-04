@@ -1,0 +1,5 @@
+cd wayland-protocols-1.49
+meson setup build --prefix=/usr --buildtype=release \
+    -Dtests=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

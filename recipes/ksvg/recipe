@@ -1,0 +1,7 @@
+name        = ksvg
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: ksvg
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/ksvg-6.29.0.tar.xz
+sha256      = 1c9cf9e9d286c1682cecba41d2a44898009da3d01d54c3403c40c4868d8c19dc

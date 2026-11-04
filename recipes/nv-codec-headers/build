@@ -1,0 +1,3 @@
+cd nv-codec-headers-13.1.15.0
+make PREFIX=/usr
+make PREFIX=/usr DESTDIR="$DESTDIR" install

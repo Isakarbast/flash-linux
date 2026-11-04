@@ -1,0 +1,16 @@
+cd cups-2.4.20
+patch -Np1 -i ../cups-2.4.20-upstream_fix-1.patch
+./configure --libdir=/usr/lib \
+    --with-rcdir=/usr/share/cups/unused-initscripts \
+    --with-rundir=/run/cups \
+    --with-system-groups=lpadmin \
+    --with-docdir=/usr/share/cups/doc-2.4.20 \
+    --disable-static
+make
+# CUPS's installer takes BUILDROOT where others take DESTDIR.
+make BUILDROOT="$DESTDIR" install
+rm -rf "${DESTDIR:?}/usr/share/cups/unused-initscripts" "${DESTDIR:?}/run" "${DESTDIR:?}/var/run" \
+       "${DESTDIR:?}/usr/lib/systemd"
+echo "ServerName /run/cups/cups.sock" > "$DESTDIR/etc/cups/client.conf"
+install -Dm644 ../cups.pam "$DESTDIR/etc/pam.d/cups"
+install -Dm755 ../cupsd.initd "$DESTDIR/etc/init.d/cupsd"

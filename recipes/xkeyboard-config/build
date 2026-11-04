@@ -1,0 +1,4 @@
+cd xkeyboard-config-2.48
+meson setup build --prefix=/usr --buildtype=release
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

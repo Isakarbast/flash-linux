@@ -1,0 +1,7 @@
+name        = sddm
+version     = 0.21.0
+release     = 1
+description = Graphical login screen (running on KWin under Wayland)
+depends     = qt6 linux-pam elogind
+source      = https://github.com/sddm/sddm/archive/v0.21.0/sddm-0.21.0.tar.gz sddm.pam sddm-autologin.pam sddm-greeter.pam 10-wayland.conf sddm.initd
+sha256      = f895de2683627e969e4849dbfbbb2b500787481ca5ba0de6d6dfdae5f1549abf 4d9be0cd9e5734ae93e4e51a775c17dc60d5c523d96605d15e13b78feea910fa 149b1204f1725b94f9f2508ccd11a24c2cc79b5a01b75022cd8626461f401a85 57ec87034f5009faaa7d4974d9a3944fd8cbaf9714bc3cb21c1f3e467e39e1bf d4c0ac1b207119ec8dfd227fe1a631b536129e2926cafd43c610a1518321eeb6 7daa4b4c52e3ffc3cf1473a14e719ee6eb535b52f2b2de9af8029821aaf82656

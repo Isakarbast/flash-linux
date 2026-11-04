@@ -1,0 +1,14 @@
+cd polkit-128
+# systemd/sysusers/tmpfiles files aren't used on this system; they're left out
+# of the package below.
+meson setup build --prefix=/usr --buildtype=release \
+    -Dos_type=lfs \
+    -Dsession_tracking=elogind \
+    -Dauthfw=pam \
+    -Dsystemdsystemunitdir=/usr/lib/systemd/system \
+    -Dintrospection=false \
+    -Dman=false -Dgtk_doc=false \
+    -Dexamples=false -Dtests=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install
+rm -rf "${DESTDIR:?}/usr/lib/systemd" "${DESTDIR:?}/usr/lib/sysusers.d" "${DESTDIR:?}/usr/lib/tmpfiles.d"

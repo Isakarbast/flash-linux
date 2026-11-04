@@ -1,0 +1,7 @@
+name        = kidletime
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kidletime
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kidletime-6.29.0.tar.xz
+sha256      = 484002b1da719c72e6b6859422cf0d4351fbb61665aab04c3c2451edc320946b

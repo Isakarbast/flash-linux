@@ -1,0 +1,7 @@
+name        = kactivitymanagerd
+version     = 6.7.4
+release     = 1
+description = KDE Plasma: kactivitymanagerd
+depends     = qt6
+source      = https://download.kde.org/stable/plasma/6.7.4/kactivitymanagerd-6.7.4.tar.xz
+sha256      = b2e9c2537ddcc243774d41355428335167c2bb8e9fc48143c4e467528536c87f

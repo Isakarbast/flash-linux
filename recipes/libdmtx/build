@@ -1,0 +1,5 @@
+cd libdmtx-0.7.8
+sed -i 's/3.5/3.10/' CMakeLists.txt
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_BUILD_TYPE=Release -D CMAKE_SKIP_INSTALL_RPATH=ON -W no-author
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

@@ -1,0 +1,7 @@
+name        = qqc2-desktop-style
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: qqc2-desktop-style
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/qqc2-desktop-style-6.29.0.tar.xz
+sha256      = dfb815380b4297c28ef9e4bc8e3ab350b6fbf7b78e0677c3e2e3d4ca319ae336

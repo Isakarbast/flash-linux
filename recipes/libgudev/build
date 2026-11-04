@@ -1,0 +1,5 @@
+cd libgudev-238
+meson setup build --prefix=/usr --buildtype=release \
+    -Dtests=disabled -Dintrospection=disabled -Dvapi=disabled -Dgtk_doc=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

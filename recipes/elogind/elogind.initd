@@ -1,0 +1,12 @@
+#!/sbin/openrc-run
+# elogind: logins, seats and power actions (enable with: rc-update add elogind boot)
+
+description="Login and seat manager"
+supervisor=supervise-daemon
+command=/usr/libexec/elogind
+
+depend() {
+	need dbus
+	use logger
+	before xdm
+}

@@ -1,0 +1,8 @@
+cd ModemManager-1.24.2
+meson setup build --prefix=/usr --buildtype=release \
+    -Dmbim=false -Dqmi=false -Dqrtr=false \
+    -Dsystemdsystemunitdir=no -Dsystemd_suspend_resume=false -Dsystemd_journal=false \
+    -Dintrospection=false -Dvapi=false -Dman=false -Dgtk_doc=false \
+    -Dbash_completion=false -Dtests=false -Dexamples=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

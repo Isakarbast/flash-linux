@@ -1,0 +1,7 @@
+name        = kdoctools
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kdoctools
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kdoctools-6.29.0.tar.xz
+sha256      = 1e1cb8bbf53e4f0482a916e1db9e202c8a8e8f4f2264dbcf98e837876ef83fae

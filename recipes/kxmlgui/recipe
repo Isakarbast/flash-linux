@@ -1,0 +1,7 @@
+name        = kxmlgui
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kxmlgui
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kxmlgui-6.29.0.tar.xz
+sha256      = 3e143362bf0f646cecf39fc0a59eb322de7fd8379966ae46eeecf41e4cf2719b

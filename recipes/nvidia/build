@@ -30,6 +30,16 @@ install -Dm644 10_nvidia.json "$DESTDIR/usr/share/glvnd/egl_vendor.d/10_nvidia.j
 mkdir -p "$lib/gbm"
 ln -s "../libnvidia-allocator.so.$v" "$lib/gbm/nvidia-drm_gbm.so"
 
+# EGL external platforms: Wayland, GBM, XCB and Xlib (what KWin and XWayland
+# use on NVIDIA; Arch ships these as egl-wayland, egl-gbm and egl-x11).
+for f in libnvidia-egl-wayland.so.1.1.20 libnvidia-egl-wayland2.so.1.0.2 \
+         libnvidia-egl-gbm.so.1.1.3 libnvidia-egl-xcb.so.1.0.6 libnvidia-egl-xlib.so.1.0.6; do
+    L "$f"
+done
+install -Dm644 -t "$DESTDIR/usr/share/egl/egl_external_platform.d" \
+    09_nvidia_wayland2.json 10_nvidia_wayland.json 15_nvidia_gbm.json \
+    20_nvidia_xcb.json 20_nvidia_xlib.json
+
 # Vulkan
 install -Dm644 nvidia_icd.json "$DESTDIR/usr/share/vulkan/icd.d/nvidia_icd.json"
 install -Dm644 nvidia_layers.json "$DESTDIR/usr/share/vulkan/implicit_layer.d/nvidia_layers.json"

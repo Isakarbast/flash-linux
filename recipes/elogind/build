@@ -1,0 +1,24 @@
+cd elogind-257.16
+sed 's/Parser()/Parser(resolve_entities=True)/' -i tools/xml_helper.py
+meson setup build --prefix=/usr --buildtype=release \
+    -Dman=disabled -Dhtml=disabled \
+    -Ddocdir=/usr/share/doc/elogind-257.16 \
+    -Dcgroup-controller=elogind \
+    -Ddev-kvm-mode=0660 \
+    -Ddbuspolicydir=/etc/dbus-1/system.d \
+    -Dhalt-path=/usr/bin/halt \
+    -Dpoweroff-path=/usr/bin/poweroff \
+    -Dreboot-path=/usr/bin/reboot \
+    -Dnologin-path=/usr/bin/nologin \
+    -Dpam=enabled -Dpolkit=enabled \
+    -Dtests=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install
+# Programs that look for libsystemd find elogind's compatible library.
+ln -s libelogind.pc "$DESTDIR/usr/lib/pkgconfig/libsystemd.pc"
+ln -sn elogind "$DESTDIR/usr/include/systemd"
+# Don't kill a user's programs (tmux, screen, ...) when they log out.
+sed -e '/\[Login\]/a KillUserProcesses=no' -i "$DESTDIR/etc/elogind/logind.conf"
+install -Dm644 ../elogind-user.pam "$DESTDIR/etc/pam.d/elogind-user"
+install -Dm755 ../elogind.initd "$DESTDIR/etc/init.d/elogind"
+rm -rf "${DESTDIR:?}/run" "${DESTDIR:?}/usr/lib/systemd"

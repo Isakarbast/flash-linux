@@ -1,0 +1,4 @@
+cd libpciaccess-0.19
+meson setup build --prefix=/usr --buildtype=release
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

@@ -1,0 +1,6 @@
+cd cmake-4.4.5
+sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake
+# Bundled third-party libraries, so cmake needs nothing beyond the base system.
+./bootstrap --prefix=/usr --mandir=/share/man --docdir=/share/doc/cmake-4.4.5 --parallel="$JOBS"
+make
+make DESTDIR="$DESTDIR" install

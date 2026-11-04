@@ -1,0 +1,5 @@
+cd pulseaudio-17.0
+meson setup build --prefix=/usr --buildtype=release \
+    -Ddaemon=false -Dclient=true -Ddatabase=gdbm -Ddoxygen=false -Dman=false -Dbluez5=disabled -Dtests=false -Dgtk=disabled -Dsystemd=disabled
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

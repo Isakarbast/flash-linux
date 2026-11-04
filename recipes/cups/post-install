@@ -1,0 +1,9 @@
+[ "${ROOT:-/}" = / ] || exit 0
+grep -q '^lpadmin:' /etc/group || groupadd -g 120 lpadmin
+grep -q '^lp:' /etc/passwd ||
+    useradd -c 'Print service user' -d /var/spool/cups -g lp -u 9 -s /usr/bin/nologin lp
+# Packages are stored with root ownership; CUPS keeps its config and spool group lp.
+for d in /etc/cups /var/spool/cups /var/cache/cups; do
+    [ -d "$d" ] && chgrp -R lp "$d"
+done
+true

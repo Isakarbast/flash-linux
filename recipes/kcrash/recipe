@@ -1,0 +1,7 @@
+name        = kcrash
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kcrash
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kcrash-6.29.0.tar.xz
+sha256      = decb363261fe5f6df984fa0cfa42243aca9eea352045b18ffe1b86a0bd5b1736

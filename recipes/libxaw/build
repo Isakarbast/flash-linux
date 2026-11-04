@@ -1,0 +1,4 @@
+cd libXaw-1.0.16
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static
+make
+make DESTDIR="$DESTDIR" install

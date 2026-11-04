@@ -1,0 +1,7 @@
+name        = oxygen-icons
+version     = 6.29.0
+release     = 1
+description = Oxygen icon theme (fallback icons for KDE)
+arch        = noarch
+source      = https://download.kde.org/stable/frameworks/6.29/oxygen-icons-6.29.0.tar.xz
+sha256      = 3d365f052087de1b5f870a4ecee083a6eb6e5f9174925152331110025113367a

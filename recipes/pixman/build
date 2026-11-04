@@ -1,0 +1,4 @@
+cd pixman-0.46.4
+meson setup build --prefix=/usr --buildtype=release
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

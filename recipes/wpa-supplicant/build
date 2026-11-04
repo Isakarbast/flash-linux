@@ -1,0 +1,9 @@
+cd wpa_supplicant-2.12
+cp ../wpa_supplicant.config wpa_supplicant/.config
+cd wpa_supplicant
+make BINDIR=/usr/sbin LIBDIR=/usr/lib
+install -Dm755 -t "$DESTDIR/usr/sbin" wpa_cli wpa_passphrase wpa_supplicant
+install -Dm644 -t "$DESTDIR/usr/share/man/man5" doc/docbook/wpa_supplicant.conf.5
+install -Dm644 -t "$DESTDIR/usr/share/man/man8" doc/docbook/wpa_cli.8 doc/docbook/wpa_passphrase.8 doc/docbook/wpa_supplicant.8
+install -Dm644 dbus/fi.w1.wpa_supplicant1.service "$DESTDIR/usr/share/dbus-1/system-services/fi.w1.wpa_supplicant1.service"
+install -Dm644 dbus/dbus-wpa_supplicant.conf "$DESTDIR/usr/share/dbus-1/system.d/wpa_supplicant.conf"

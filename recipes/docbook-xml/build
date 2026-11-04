@@ -1,0 +1,13 @@
+mkdir docbook-xml && cd docbook-xml
+python3 -m zipfile -e ../docbook-xml-4.5.zip .
+d="$DESTDIR/usr/share/xml/docbook/xml-dtd-4.5"
+install -d "$d"
+cp -af --no-preserve=ownership catalog.xml docbook.cat *.dtd ent/ *.mod "$d"
+for v in 4.5 4.4 4.3 4.2 4.1.2; do
+    [ "$v" = 4.5 ] || xmlcatalog --noout --add public "-//OASIS//DTD DocBook XML V$v//EN" \
+        "http://www.oasis-open.org/docbook/xml/$v/docbookx.dtd" "$d/catalog.xml"
+    xmlcatalog --noout --add rewriteSystem "http://www.oasis-open.org/docbook/xml/$v" \
+        "file:///usr/share/xml/docbook/xml-dtd-4.5" "$d/catalog.xml"
+    xmlcatalog --noout --add rewriteURI "http://www.oasis-open.org/docbook/xml/$v" \
+        "file:///usr/share/xml/docbook/xml-dtd-4.5" "$d/catalog.xml"
+done

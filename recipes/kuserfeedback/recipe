@@ -1,0 +1,7 @@
+name        = kuserfeedback
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kuserfeedback
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kuserfeedback-6.29.0.tar.xz
+sha256      = 36fd747bd0c8a22e3e542a4d0f05e4a85101953e19d80839a3c9cd67b5d1ac9f

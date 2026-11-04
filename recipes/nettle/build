@@ -1,0 +1,5 @@
+cd nettle-4.0
+./configure --prefix=/usr --disable-static
+make
+make DESTDIR="$DESTDIR" install
+chmod 755 "$DESTDIR"/usr/lib/lib{hogweed,nettle}.so

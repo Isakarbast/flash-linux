@@ -1,0 +1,5 @@
+cd gstreamer-1.28.8
+meson setup build --prefix=/usr --buildtype=release \
+    -Dgst_debug=false -Dtests=disabled -Dexamples=disabled -Dintrospection=disabled -Ddoc=disabled -Dbenchmarks=disabled
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

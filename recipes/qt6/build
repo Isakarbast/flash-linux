@@ -1,0 +1,26 @@
+cd qt-everywhere-src-6.12.0
+# Not needed for KDE Plasma; QtWebEngine alone would need Node.js and hours more.
+rm -rf qtwebengine qtwebview qt3d qtquick3dphysics qtopcua
+# Arch-style layout: tools in /usr/lib/qt6/bin, versioned links (qmake6, ...) in /usr/bin.
+./configure -prefix /usr \
+    -sysconfdir /etc/xdg \
+    -dbus-linked -openssl-linked \
+    -system-sqlite \
+    -nomake examples -nomake tests \
+    -no-rpath -no-sbom -syslog \
+    -- \
+    -D FEATURE_cups=ON \
+    -D INSTALL_BINDIR=lib/qt6/bin \
+    -D INSTALL_PUBLICBINDIR=bin \
+    -D INSTALL_LIBEXECDIR=lib/qt6 \
+    -D INSTALL_ARCHDATADIR=lib/qt6 \
+    -D INSTALL_DATADIR=share/qt6 \
+    -D INSTALL_INCLUDEDIR=include/qt6 \
+    -D INSTALL_MKSPECSDIR=lib/qt6/mkspecs \
+    -D INSTALL_DOCDIR=share/doc/qt6 \
+    -D INSTALL_EXAMPLESDIR=share/doc/qt6/examples
+ninja
+DESTDIR="$DESTDIR" ninja install
+find "$DESTDIR/usr" -name '*.prl' -exec sed -i -e '/^QMAKE_PRL_BUILD_DIR/d' {} \;
+# Not in Qt's own list of public tools, but KDE scripts call it (as Arch does).
+ln -s ../lib/qt6/bin/qtpaths6 "$DESTDIR/usr/bin/qtpaths6"

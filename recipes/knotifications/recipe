@@ -1,0 +1,7 @@
+name        = knotifications
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: knotifications
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/knotifications-6.29.0.tar.xz
+sha256      = 883e0139fcbc692070287e47de5368c78eb91c8bdbb52fb6f8398183f6aace8f

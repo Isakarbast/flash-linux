@@ -1,0 +1,10 @@
+cd kscreenlocker-6.7.4
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_INSTALL_LIBEXECDIR=lib \
+    -D CMAKE_SKIP_INSTALL_RPATH=ON -D CMAKE_BUILD_TYPE=Release \
+    -D BUILD_QT5=OFF -D BUILD_TESTING=OFF -W no-author
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install
+cd build
+install -Dm644 ../../kde.pam "$DESTDIR/etc/pam.d/kde"
+install -Dm644 ../../kscreensaver.pam "$DESTDIR/etc/pam.d/kscreensaver"
+rm -rf "${DESTDIR:?}/usr/lib/systemd" "${DESTDIR:?}/usr/lib/sysusers.d" "${DESTDIR:?}/usr/lib/tmpfiles.d"

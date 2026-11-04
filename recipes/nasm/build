@@ -1,0 +1,4 @@
+cd nasm-3.02
+./configure --prefix=/usr
+make
+make DESTDIR="$DESTDIR" install

@@ -1,0 +1,7 @@
+name        = kpty
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kpty
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kpty-6.29.0.tar.xz
+sha256      = e0ae0fe539a94cf9a01d3526c17eb74bfe1fc7a263bb780b33e0b6b005deb607

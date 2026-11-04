@@ -1,0 +1,7 @@
+name        = kguiaddons
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kguiaddons
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kguiaddons-6.29.0.tar.xz
+sha256      = 6d0c4a4ddc7d4833ae537b1bf146896beba76135ec4b8bcf2a9525e33e39b3a4

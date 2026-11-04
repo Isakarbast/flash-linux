@@ -1,0 +1,6 @@
+name        = lua
+version     = 5.4.8
+release     = 1
+description = Lua scripting language (WirePlumber's policy scripts are written in it)
+source      = https://www.lua.org/ftp/lua-5.4.8.tar.gz https://www.linuxfromscratch.org/patches/blfs/svn/lua-5.4.8-shared_library-1.patch lua.pc
+sha256      = 4f18ddae154e793e46eeab727c59ef1c0c0c2b744e7b94219710d76f530629ae 44324a802822f0a35d095aaad2f5f58fa7b1821ae87ae44dbcfc8a23fcd2e67e 7b264806d05221c07ba59e93143f461389f26d2f939a56fa11d07931df67e4aa

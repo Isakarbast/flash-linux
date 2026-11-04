@@ -1,0 +1,5 @@
+cd libxkbcommon-1.13.2
+patch -Np1 -i ../libxkbcommon-1.13.2-upstream_fix-1.patch
+meson setup build --prefix=/usr --buildtype=release -Denable-docs=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

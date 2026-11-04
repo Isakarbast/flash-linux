@@ -1,0 +1,7 @@
+name        = ki18n
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: ki18n
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/ki18n-6.29.0.tar.xz
+sha256      = 9037f3caa67768869f00ee257dbb35b81febe6ad600ed0bd3ffdf293c36252ba

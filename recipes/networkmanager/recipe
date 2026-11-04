@@ -1,0 +1,7 @@
+name        = networkmanager
+version     = 1.58.1
+release     = 1
+description = Network connection manager (wired, Wi-Fi, VPN); what KDE's network applet controls
+depends     = libndp gnutls dbus elogind polkit wpa-supplicant
+source      = https://gitlab.freedesktop.org/NetworkManager/NetworkManager/-/releases/1.58.1/downloads/NetworkManager-1.58.1.tar.xz NetworkManager.conf privacy.conf NetworkManager.initd
+sha256      = 262864cfd198123d3e5dbe91937441b97ee9059d6d712e1a5bfbb1c54668d14d 775834a124c726091e8488a94956050ca3719cc706f00ead87dcd4035daeffce 670af3816690c80f22d47a0db99b0327dc4b54f8fb4ccf8cfd965f570cd7d909 09929ad8a59b2c286a565c620124b1c6924c44ced81e16d57043145817d78834

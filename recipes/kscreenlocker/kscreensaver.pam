@@ -1,0 +1,3 @@
+# /etc/pam.d/kscreensaver
+auth    include system-auth
+account include system-account

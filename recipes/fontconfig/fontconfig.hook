@@ -1,0 +1,3 @@
+# Rebuild the font cache when fonts are installed or removed.
+paths = usr/share/fonts/*
+exec  = fc-cache -s

@@ -1,0 +1,8 @@
+cd kpipewire-6.7.4
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_INSTALL_LIBEXECDIR=lib \
+    -D CMAKE_SKIP_INSTALL_RPATH=ON -D CMAKE_BUILD_TYPE=Release \
+    -D BUILD_QT5=OFF -D BUILD_TESTING=OFF -W no-author
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install
+cd build
+rm -rf "${DESTDIR:?}/usr/lib/systemd" "${DESTDIR:?}/usr/lib/sysusers.d" "${DESTDIR:?}/usr/lib/tmpfiles.d"

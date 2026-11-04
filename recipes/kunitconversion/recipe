@@ -1,0 +1,7 @@
+name        = kunitconversion
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kunitconversion
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kunitconversion-6.29.0.tar.xz
+sha256      = cfb2bc59a293dd4895dc07504b6b80ce29855222206fcc76d9c4ff8f4be5c5ec

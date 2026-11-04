@@ -1,6 +1,7 @@
 name        = shadow
 version     = 4.20.3
-release     = 1
+release     = 2
 description = Password and account management tools
-source      = https://github.com/shadow-maint/shadow/releases/download/4.20.3/shadow-4.20.3.tar.xz
-sha256      = 623be9429f64fa2165bfc5957c6a642ec309c5cf23c0d53855c99f7591922297
+depends     = linux-pam
+source      = https://github.com/shadow-maint/shadow/releases/download/4.20.3/shadow-4.20.3.tar.xz login.pam passwd.pam su.pam admin.pam chpasswd.pam
+sha256      = 623be9429f64fa2165bfc5957c6a642ec309c5cf23c0d53855c99f7591922297 c7854113e04825b5eaa77010c8abf801dd1df9de46706022077ed3953595bc9c b3e20121ef57552f0ec86f19fe9978c8cdbedaeb053880851a9836c57a5f69b1 90567826f63863f382b58840e59d4eda7679a536e1ac02fc0b2ae8712d7cd1a4 33f290a7e0657272bc5b81808240cc928e69c75ebf16a94ea1952c40ebd04cbc dda23a4c7c25105aae8e2e290cc6d5a30988e0f2fc2e40d970a8e1dc78ab5aef

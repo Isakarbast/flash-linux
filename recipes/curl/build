@@ -1,0 +1,8 @@
+cd curl-8.23.0
+./configure --prefix=/usr \
+    --disable-static \
+    --with-openssl \
+    --without-libpsl \
+    --with-ca-bundle=/etc/ssl/certs/ca-certificates.crt
+make
+make DESTDIR="$DESTDIR" install

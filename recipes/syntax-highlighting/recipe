@@ -1,0 +1,7 @@
+name        = syntax-highlighting
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: syntax-highlighting
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/syntax-highlighting-6.29.0.tar.xz
+sha256      = 924c4cfab4043ede9a40bc55721a62515c7b83c6b84c0bdcc29cd3cdf89b09b4

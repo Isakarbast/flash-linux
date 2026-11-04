@@ -1,6 +1,7 @@
 name        = sudo
 version     = 1.9.17p2
-release     = 2
+release     = 3
 description = Run commands as root (members of the wheel group may use it)
-source      = https://www.sudo.ws/dist/sudo-1.9.17p2.tar.gz
-sha256      = 4a38a1ab3adb1199257edc2a7c4a2bd714665eb605b04368843b06dada2cfcfb
+depends     = linux-pam
+source      = https://www.sudo.ws/dist/sudo-1.9.17p2.tar.gz sudo.pam
+sha256      = 4a38a1ab3adb1199257edc2a7c4a2bd714665eb605b04368843b06dada2cfcfb 14265567a8b5ae8dbbacb2792c152064ca651714079dcdfbc5723847aaed38e3

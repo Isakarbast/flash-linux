@@ -1,0 +1,5 @@
+cd aspell-0.60.8.3
+./configure --prefix=/usr --disable-static
+make
+make DESTDIR="$DESTDIR" install
+ln -sfn aspell-0.60 "$DESTDIR/usr/lib/aspell"

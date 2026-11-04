@@ -1,0 +1,9 @@
+[ "${ROOT:-/}" = / ] || exit 0
+# Register the DTDs in the system XML catalog (shared with docbook-xsl).
+install -d /etc/xml
+[ -e /etc/xml/catalog ] || xmlcatalog --noout --create /etc/xml/catalog
+c=file:///usr/share/xml/docbook/xml-dtd-4.5/catalog.xml
+xmlcatalog --noout --add delegatePublic "-//OASIS//ENTITIES DocBook XML" $c /etc/xml/catalog
+xmlcatalog --noout --add delegatePublic "-//OASIS//DTD DocBook XML" $c /etc/xml/catalog
+xmlcatalog --noout --add delegateSystem "http://www.oasis-open.org/docbook/" $c /etc/xml/catalog
+xmlcatalog --noout --add delegateURI "http://www.oasis-open.org/docbook/" $c /etc/xml/catalog

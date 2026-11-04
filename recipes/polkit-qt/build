@@ -1,0 +1,6 @@
+cd polkit-qt-1-0.201.1
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_BUILD_TYPE=Release -D CMAKE_SKIP_INSTALL_RPATH=ON -W no-author \
+    -D \
+    QT_MAJOR_VERSION=6
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

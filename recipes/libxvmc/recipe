@@ -1,0 +1,6 @@
+name        = libxvmc
+version     = 1.0.15
+release     = 1
+description = X video motion compensation library
+source      = https://www.x.org/pub/individual/lib/libXvMC-1.0.15.tar.xz
+sha256      = 4f518afde3d7fd435346af7b368d2f73517f3d5f82647c962caf3f7bb8ff7078

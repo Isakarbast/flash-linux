@@ -1,0 +1,7 @@
+name        = kwallet
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kwallet
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kwallet-6.29.0.tar.xz
+sha256      = 66a47fc170ea074cce8b916fa313f309d7c9497bd2132e0598d4b63bbad2ac88

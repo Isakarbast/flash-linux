@@ -1,0 +1,5 @@
+cd harfbuzz-15.0.0
+meson setup build --prefix=/usr --buildtype=release \
+    -Dgraphite2=disabled -Dcairo=disabled -Dtests=disabled -Ddocs=disabled -Dintrospection=disabled
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

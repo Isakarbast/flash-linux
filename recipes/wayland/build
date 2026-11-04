@@ -1,0 +1,5 @@
+cd wayland-1.26.0
+meson setup build --prefix=/usr --buildtype=release \
+    -Ddocumentation=false -Dtests=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

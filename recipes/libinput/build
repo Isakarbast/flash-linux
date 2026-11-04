@@ -1,0 +1,6 @@
+cd libinput-1.32.0
+meson setup build --prefix=/usr --buildtype=release \
+    -Ddebug-gui=false -Dtests=false -Dlibwacom=false -Ddocumentation=false \
+    -Dudev-dir=/usr/lib/udev
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

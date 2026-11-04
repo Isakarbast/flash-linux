@@ -1,0 +1,8 @@
+name        = docbook-xml
+version     = 4.5
+release     = 1
+description = DocBook XML DTDs (used to build KDE documentation)
+depends     = libxml2
+arch        = noarch
+source      = https://archive.docbook.org/xml/4.5/docbook-xml-4.5.zip
+sha256      = 4e4e037a2b83c98c6c94818390d4bdd3f6e10f6ec62dd79188594e26190dc7b4

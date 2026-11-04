@@ -1,0 +1,7 @@
+name        = kitemmodels
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kitemmodels
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kitemmodels-6.29.0.tar.xz
+sha256      = 517040fbadcd8206d04f63c190ebc2c2300c17c868becb4b8f0b54eac69303b9

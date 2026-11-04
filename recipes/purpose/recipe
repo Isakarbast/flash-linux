@@ -1,0 +1,7 @@
+name        = purpose
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: purpose
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/purpose-6.29.0.tar.xz
+sha256      = 743445e6a1b3aee156aec6e84ac8d36161124784f9e5730b69b868fdd6fb79c2

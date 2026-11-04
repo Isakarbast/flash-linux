@@ -1,0 +1,8 @@
+name        = elogind
+version     = 257.16
+release     = 1
+description = Login and seat manager (logind without systemd): device access, suspend, shutdown for the desktop
+depends     = dbus linux-pam
+makedepends = jinja2
+source      = https://github.com/elogind/elogind/archive/v257.16/elogind-257.16.tar.gz elogind.initd elogind-user.pam
+sha256      = 3c8146409bfb9daa77f272212c2b0bf0ae727c782ec87ece0d2d25e0e5bf5f4c 830fbfd15a5329d3f91ac29f0c2499389582886f6eebf17a7bcee2f85d6217fb 241d926e3489673a6b4a8598c3880296b2614c8ee635cd8140adb11549072d13

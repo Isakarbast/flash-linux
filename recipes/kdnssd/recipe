@@ -1,0 +1,7 @@
+name        = kdnssd
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kdnssd
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kdnssd-6.29.0.tar.xz
+sha256      = c48b0c7a06bbcc27e181d9d6f7aeafc2c8bcd4d828497a1e4ddeb252f6fd9674

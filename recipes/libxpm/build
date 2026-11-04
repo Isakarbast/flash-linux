@@ -1,0 +1,4 @@
+cd libXpm-3.5.20
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static --disable-open-zfile
+make
+make DESTDIR="$DESTDIR" install

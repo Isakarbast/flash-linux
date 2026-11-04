@@ -14,7 +14,8 @@ HERE=$(cd "$(dirname "$0")" && pwd)
 
 mount_vfs
 trap umount_vfs EXIT
-chroot "$LFS" /usr/bin/env -i \
+# Private mount namespace so fpm's bwrap sandbox works (Fedora's / is shared).
+unshare --mount --propagation private chroot "$LFS" /usr/bin/env -i \
     HOME=/root TERM="${TERM:-dumb}" PATH=/usr/bin \
     PS1='(new system) \u:\w\$ ' \
     MAKEFLAGS="-j$(nproc)" \

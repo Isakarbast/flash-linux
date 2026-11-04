@@ -1,0 +1,6 @@
+name        = linux-pam
+version     = 1.7.3
+release     = 1
+description = Pluggable Authentication Modules: how login, sudo, polkit and the lock screen check passwords
+source      = https://github.com/linux-pam/linux-pam/releases/download/v1.7.3/Linux-PAM-1.7.3.tar.xz system-account system-auth system-session system-password other
+sha256      = 2ce4765fd49df6693771ef2941f81e33d8ee14b94a81a5c7b369aa3b137b85a5 1c9624b2a5b00bba0ba6de5d322d5b5ed040deb9cd0b8be5262c66969592a4fe 44f1ef1074a9056c59d4dc2f3005fc8cf17486a74e147af1593e936dfef89b44 6880a1d4f388e4b0cb9946b412244293d64af895bd6a1bb6f47e977626450f88 1ee3d2fe8d27d12783b455273a10807e9d2bf91db45e8fbc0e46079b0ee89a7b 16969eb4b35287d0e9bbd9e1ae62dee8356cb4d854e68cf29189a3049ceb22a4

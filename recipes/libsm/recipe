@@ -1,0 +1,6 @@
+name        = libsm
+version     = 1.2.6
+release     = 1
+description = X session management library
+source      = https://www.x.org/pub/individual/lib/libSM-1.2.6.tar.xz
+sha256      = be7c0abdb15cbfd29ac62573c1c82e877f9d4047ad15321e7ea97d1e43d835be

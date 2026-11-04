@@ -1,0 +1,4 @@
+cd libusb-1.0.30
+./configure --prefix=/usr --disable-static
+make
+make DESTDIR="$DESTDIR" install

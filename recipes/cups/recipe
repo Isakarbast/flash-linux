@@ -1,0 +1,7 @@
+name        = cups
+version     = 2.4.20
+release     = 1
+description = CUPS printing system (Qt and the print dialog use its library; the print server is off by default)
+depends     = gnutls dbus libusb linux-pam
+source      = https://github.com/OpenPrinting/cups/releases/download/v2.4.20/cups-2.4.20-source.tar.gz https://www.linuxfromscratch.org/patches/blfs/svn/cups-2.4.20-upstream_fix-1.patch cups.pam cupsd.initd
+sha256      = ab4d9cd7f3e58060091d2b24972223d6401675f11c49b65abf4f6ef31dea22ff 04dbc411f655e6308417515a577925f8c0ee9236a7bde80c976fa45bb76d2ec1 0ee403c0acd8848646ef0d900eccc7cbc6822c18315e68639a8a4ca24175d0a3 a7cdee57c659ed34b79013d17961fe0f342978c07ff6c3c2142d3994665af4eb

@@ -1,0 +1,5 @@
+cd libqrencode-4.1.1
+sh autogen.sh
+./configure --prefix=/usr --disable-static
+make
+make DESTDIR="$DESTDIR" install

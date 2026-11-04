@@ -1,0 +1,7 @@
+name        = kfilemetadata
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kfilemetadata
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kfilemetadata-6.29.0.tar.xz
+sha256      = c8a4bbbb3e6876caa9357a151afbd66e06336f7a4a27b54a94497cf4cafa96ac

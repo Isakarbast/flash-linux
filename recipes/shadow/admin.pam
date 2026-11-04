@@ -1,0 +1,4 @@
+# /etc/pam.d/@PROGRAM@: root only (or with the root password).
+auth      sufficient  pam_rootok.so
+auth      include     system-auth
+account   include     system-account

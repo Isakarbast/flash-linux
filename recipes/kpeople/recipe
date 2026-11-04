@@ -1,0 +1,7 @@
+name        = kpeople
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kpeople
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kpeople-6.29.0.tar.xz
+sha256      = cb8900532f6c1ba6a4711b3d98e4d2b1c23bf2deb5588262f35554344fe574ca

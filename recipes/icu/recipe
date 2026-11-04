@@ -1,0 +1,6 @@
+name        = icu
+version     = 79.1
+release     = 1
+description = Unicode and localisation library (text breaking, collation; used by Qt and KDE)
+source      = https://github.com/unicode-org/icu/releases/download/release-79.1/icu4c-79.1-sources.tgz
+sha256      = 06fa63ecb521048f8082f12ad988f6b678d90cbd88aafce24cbc94902b191d99

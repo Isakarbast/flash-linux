@@ -1,0 +1,21 @@
+cd NetworkManager-1.58.1
+grep -rl '^#!.*python$' | xargs sed -i '1s/python/&3/'
+meson setup build --prefix=/usr --buildtype=release \
+    -Dcrypto=gnutls \
+    -Dsession_tracking=elogind -Dsuspend_resume=elogind \
+    -Dpolkit=true \
+    -Dconfig_wifi_backend_default=wpa_supplicant -Diwd=false \
+    -Dconfig_dhcp_default=internal -Dconfig_dns_rc_manager_default=file \
+    -Dconfig_plugins_default=keyfile \
+    -Dlibaudit=no -Dselinux=false -Dsystemd_journal=false \
+    -Dsystemdsystemunitdir=no -Dsystemdsystemgeneratordir=no \
+    -Dppp=false -Dmodem_manager=false -Dofono=false -Dbluez5_dun=false \
+    -Dovs=false -Dteamdctl=false -Dnbft=false -Dclat=false -Debpf=false \
+    -Dnm_cloud_setup=false -Dnmtui=false -Dqt=false -Dlibpsl=false \
+    -Dintrospection=false -Dvapi=false -Ddocs=false -Dman=false -Dtests=no
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install
+install -Dm644 ../NetworkManager.conf "$DESTDIR/etc/NetworkManager/NetworkManager.conf"
+install -Dm644 ../privacy.conf "$DESTDIR/usr/lib/NetworkManager/conf.d/50-privacy.conf"
+install -Dm755 ../NetworkManager.initd "$DESTDIR/etc/init.d/NetworkManager"
+rm -rf "${DESTDIR:?}/var/run" "${DESTDIR:?}/run"

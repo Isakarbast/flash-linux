@@ -1,0 +1,14 @@
+#!/sbin/openrc-run
+# NetworkManager (enable with: rc-update add NetworkManager default)
+
+description="Network connection manager"
+supervisor=supervise-daemon
+command=/usr/sbin/NetworkManager
+command_args="--no-daemon"
+
+depend() {
+	need dbus
+	provide net
+	after elogind
+	use logger
+}

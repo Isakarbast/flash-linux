@@ -1,0 +1,7 @@
+name        = plasma-workspace
+version     = 6.7.4
+release     = 1
+description = KDE Plasma: Plasma workspace: panel, desktop shell, session startup
+depends     = qt6
+source      = https://download.kde.org/stable/plasma/6.7.4/plasma-workspace-6.7.4.tar.xz
+sha256      = 21ec3c002929eb65377a1ae0eb105b9ab6f608049dac5493e188f51bd50398d5

@@ -1,0 +1,9 @@
+cd dbus-1.16.2
+meson setup build --prefix=/usr --buildtype=release \
+    --wrap-mode=nofallback \
+    -Dsystemd=disabled \
+    -Ddoxygen_docs=disabled -Dxml_docs=disabled -Dmodular_tests=disabled
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install
+rm -rf "${DESTDIR:?}/run" "${DESTDIR:?}/var/run"
+install -Dm755 ../dbus.initd "$DESTDIR/etc/init.d/dbus"

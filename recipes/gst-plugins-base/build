@@ -1,0 +1,5 @@
+cd gst-plugins-base-1.28.8
+meson setup build --prefix=/usr --buildtype=release --wrap-mode=nodownload \
+    -Dtests=disabled -Dexamples=disabled -Dintrospection=disabled -Ddoc=disabled
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

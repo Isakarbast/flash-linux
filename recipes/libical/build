@@ -1,0 +1,7 @@
+cd libical-4.0.7
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_BUILD_TYPE=Release \
+    -D LIBICAL_STATIC=NO -D LIBICAL_BUILD_DOCS=false -D LIBICAL_GLIB_VAPI=false \
+    -D LIBICAL_JAVA_BINDINGS=OFF -D LIBICAL_GOBJECT_INTROSPECTION=false -D LIBICAL_BUILD_TESTING=OFF
+# The build has a race between generated headers; build in one job like BLFS.
+ninja -C build -j1
+DESTDIR="$DESTDIR" ninja -C build install

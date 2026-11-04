@@ -1,0 +1,7 @@
+name        = kpackage
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kpackage
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kpackage-6.29.0.tar.xz
+sha256      = aee3405475bfed6187abc483df6baf48e89b2b2505ee0acc1c8d37728fb9c786

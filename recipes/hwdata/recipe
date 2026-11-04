@@ -1,0 +1,7 @@
+name        = hwdata
+version     = 0.412
+release     = 1
+description = Hardware identification databases (monitor names for KWin)
+arch        = noarch
+source      = https://github.com/vcrhonek/hwdata/archive/v0.412/hwdata-0.412.tar.gz
+sha256      = f0c64cd7e31d70a5fb3a52e53ab50a61e74c0421a6381eaa45114eec3bde5fe7

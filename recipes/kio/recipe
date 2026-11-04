@@ -1,0 +1,7 @@
+name        = kio
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kio
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kio-6.29.0.tar.xz
+sha256      = 9f06313cd7d6cdde8db43067126d650fc5cc904b6f0b89159274a03e4805a91a

@@ -1,0 +1,7 @@
+name        = kcolorscheme
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kcolorscheme
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kcolorscheme-6.29.0.tar.xz
+sha256      = a868d9c62d402474ba063735f674967826aa905f0b9a5a176999588cde57d662

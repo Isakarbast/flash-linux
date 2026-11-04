@@ -1,0 +1,30 @@
+cd sddm-0.21.0
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_LIBEXECDIR=lib -D CMAKE_SKIP_INSTALL_RPATH=ON -D BUILD_TESTING=OFF -W no-author \
+    -D \
+    CMAKE_POLICY_VERSION_MINIMUM=3.5 \
+    -D \
+    ENABLE_JOURNALD=OFF \
+    -D \
+    NO_SYSTEMD=ON \
+    -D \
+    RUNTIME_DIR=/run/sddm \
+    -D \
+    USE_ELOGIND=ON \
+    -D \
+    BUILD_MAN_PAGES=OFF \
+    -D \
+    BUILD_WITH_QT6=ON \
+    -D \
+    DATA_INSTALL_DIR=/usr/share/sddm \
+    -D \
+    DBUS_CONFIG_FILENAME=sddm_org.freedesktop.DisplayManager.conf
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install
+p="$DESTDIR/etc/pam.d"
+install -Dm644 ../sddm.pam "$p/sddm"
+install -Dm644 ../sddm-autologin.pam "$p/sddm-autologin"
+install -Dm644 ../sddm-greeter.pam "$p/sddm-greeter"
+install -Dm644 ../10-wayland.conf "$DESTDIR/usr/lib/sddm/sddm.conf.d/10-wayland.conf"
+install -Dm755 ../sddm.initd "$DESTDIR/etc/init.d/sddm"
+rm -rf "${DESTDIR:?}/run" "${DESTDIR:?}/var/run"
+rm -rf "${DESTDIR:?}/usr/lib/systemd" "${DESTDIR:?}/usr/lib/sysusers.d" "${DESTDIR:?}/usr/lib/tmpfiles.d"

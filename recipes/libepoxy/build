@@ -1,0 +1,5 @@
+cd libepoxy-1.5.10
+meson setup build --prefix=/usr --buildtype=release \
+    -Dtests=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

@@ -1,0 +1,4 @@
+cd alsa-utils-1.2.16
+./configure --prefix=/usr --disable-alsaconf --disable-bat --disable-xmlto --with-curses=ncursesw
+make
+make DESTDIR="$DESTDIR" install

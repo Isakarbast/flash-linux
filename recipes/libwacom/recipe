@@ -1,0 +1,7 @@
+name        = libwacom
+version     = 2.20.0
+release     = 1
+description = Graphics tablet database (used by libinput and Plasma's tablet settings)
+depends     = libevdev libgudev
+source      = https://github.com/linuxwacom/libwacom/releases/download/libwacom-2.20.0/libwacom-2.20.0.tar.xz
+sha256      = 370b45b5e05a91960df0aeb9c9481ae05846aab92ab2d4ec66945a0da4216888

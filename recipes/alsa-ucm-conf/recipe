@@ -1,0 +1,7 @@
+name        = alsa-ucm-conf
+version     = 1.2.16.1
+release     = 1
+description = ALSA use-case profiles (needed for many laptop and Intel SOF sound chips)
+arch        = noarch
+source      = https://www.alsa-project.org/files/pub/lib/alsa-ucm-conf-1.2.16.1.tar.bz2
+sha256      = cf3d1c07e089a83c4ece2c20f05dd6a8aab7fcd108768c38811386880575492b

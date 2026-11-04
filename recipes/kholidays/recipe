@@ -1,0 +1,7 @@
+name        = kholidays
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kholidays
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kholidays-6.29.0.tar.xz
+sha256      = bcb204c0cca063b071e4bc986ef418b03b57e28cfc7fea45e368d1cb8b56b3f2

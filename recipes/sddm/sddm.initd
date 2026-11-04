@@ -1,0 +1,12 @@
+#!/sbin/openrc-run
+# SDDM graphical login (enable with: rc-update add sddm default)
+
+description="Graphical login screen"
+supervisor=supervise-daemon
+command=/usr/bin/sddm
+
+depend() {
+	need dbus elogind localmount
+	after bootmisc agetty
+	use NetworkManager
+}

@@ -1,0 +1,4 @@
+cd libpng-1.6.59
+./configure --prefix=/usr --disable-static
+make
+make DESTDIR="$DESTDIR" install

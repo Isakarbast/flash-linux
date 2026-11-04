@@ -1,0 +1,3 @@
+cd dejavu-fonts-ttf-2.37
+install -Dm644 -t "$DESTDIR/usr/share/fonts/dejavu" ttf/*.ttf
+install -Dm644 -t "$DESTDIR/usr/share/fontconfig/conf.avail" fontconfig/*.conf

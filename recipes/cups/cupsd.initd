@@ -1,0 +1,13 @@
+#!/sbin/openrc-run
+# CUPS print server (not started by default; enable with: rc-update add cupsd default)
+
+description="CUPS print server"
+supervisor=supervise-daemon
+command=/usr/sbin/cupsd
+command_args="-f"
+
+depend() {
+	need localmount dbus
+	use net
+	after logger
+}

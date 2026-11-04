@@ -1,0 +1,5 @@
+cd libdrm-2.4.134
+meson setup build --prefix=/usr --buildtype=release \
+    -Dudev=true -Dvalgrind=disabled -Dtests=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

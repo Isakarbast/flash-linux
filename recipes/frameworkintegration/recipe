@@ -1,0 +1,7 @@
+name        = frameworkintegration
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: frameworkintegration
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/frameworkintegration-6.29.0.tar.xz
+sha256      = be01225efe9063e4c4a23dae47ebafed437f1cd06d73ab2de77dfb99e35785b8

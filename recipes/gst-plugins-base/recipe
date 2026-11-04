@@ -1,0 +1,7 @@
+name        = gst-plugins-base
+version     = 1.28.8
+release     = 1
+description = GStreamer base plugins and helper libraries
+depends     = gstreamer
+source      = https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.28.8.tar.xz
+sha256      = ade70e3381fcbb024f1f20aa9ede9b5654aeed39d5bd70b1a98f53015e501117

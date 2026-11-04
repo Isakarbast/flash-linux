@@ -14,5 +14,5 @@ cd build
     --enable-default-hash-style=gnu
 make tooldir=/usr
 make tooldir=/usr DESTDIR="$DESTDIR" install
-rm -rf "$DESTDIR"/usr/lib/lib{bfd,ctf,ctf-nobfd,gprofng,opcodes,sframe}.a \
-       "$DESTDIR/usr/share/doc/gprofng"
+rm -rf "${DESTDIR:?}"/usr/lib/lib{bfd,ctf,ctf-nobfd,gprofng,opcodes,sframe}.a \
+       "${DESTDIR:?}/usr/share/doc/gprofng"

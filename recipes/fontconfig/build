@@ -1,0 +1,6 @@
+cd fontconfig-2.18.3
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
+    --disable-docs --docdir=/usr/share/doc/fontconfig-2.18.3
+make
+make DESTDIR="$DESTDIR" install
+install -Dm644 ../fontconfig.hook "$DESTDIR/usr/share/fpm/hooks/fontconfig.hook"

@@ -1,0 +1,4 @@
+cd libwacom-2.20.0
+meson setup build --prefix=/usr --buildtype=release -Dtests=disabled
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

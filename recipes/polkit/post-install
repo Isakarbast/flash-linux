@@ -1,0 +1,8 @@
+[ "${ROOT:-/}" = / ] || exit 0
+grep -q '^polkitd:' /etc/group  || groupadd -g 102 polkitd
+grep -q '^polkitd:' /etc/passwd ||
+    useradd -c 'PolicyKit daemon' -d /etc/polkit-1 -u 102 -g polkitd -s /usr/bin/nologin polkitd
+# Packages are stored with root ownership; polkitd must be able to read its rules.
+chown root:polkitd /etc/polkit-1/rules.d
+chmod 750 /etc/polkit-1/rules.d
+chmod 4755 /usr/bin/pkexec /usr/lib/polkit-1/polkit-agent-helper-1

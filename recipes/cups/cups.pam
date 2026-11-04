@@ -1,0 +1,4 @@
+# /etc/pam.d/cups: printer administration through the CUPS web interface
+auth    include system-auth
+account include system-account
+session include system-session

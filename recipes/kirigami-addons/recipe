@@ -1,0 +1,6 @@
+name        = kirigami-addons
+version     = 1.13.1
+release     = 1
+description = Extra Kirigami components used by Plasma and KDE apps
+source      = https://download.kde.org/stable/kirigami-addons/kirigami-addons-1.13.1.tar.xz
+sha256      = 76026f0abe8c948208ce75a02a9ecac60c618ac5288ca546e09da64bc4af7050

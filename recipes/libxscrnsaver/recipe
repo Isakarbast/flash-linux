@@ -1,0 +1,6 @@
+name        = libxscrnsaver
+version     = 1.2.5
+release     = 1
+description = X screen saver extension library
+source      = https://www.x.org/pub/individual/lib/libXScrnSaver-1.2.5.tar.xz
+sha256      = 5057365f847253e0e275871441e10ff7846c8322a5d88e1e187d326de1cd8d00

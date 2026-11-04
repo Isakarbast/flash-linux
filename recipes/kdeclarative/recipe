@@ -1,0 +1,7 @@
+name        = kdeclarative
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kdeclarative
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kdeclarative-6.29.0.tar.xz
+sha256      = 2051e7a9c357106617ae0c666d2c4331c59f3b07b54a55a1063e7af705d82100

@@ -1,0 +1,7 @@
+name        = kcompletion
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kcompletion
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kcompletion-6.29.0.tar.xz
+sha256      = b039608f79f445a6ccc383ce57bd240699e334613814374006c8a01dc6bc1250

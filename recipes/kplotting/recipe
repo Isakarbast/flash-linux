@@ -1,0 +1,7 @@
+name        = kplotting
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kplotting
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kplotting-6.29.0.tar.xz
+sha256      = 2666c7608349e109ae5e0a39d6e336ddec61d5a02a2a0a2edcfb6fefaef3ea92

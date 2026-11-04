@@ -1,0 +1,7 @@
+name        = wireplumber
+version     = 0.5.19
+release     = 2
+description = PipeWire session manager, plus the launcher that starts PipeWire when you log in
+depends     = pipewire lua
+source      = https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/0.5.19/wireplumber-0.5.19.tar.bz2 pipewire-launcher pipewire.desktop
+sha256      = e743070200e3788b8a46b5cd35438170dea4458302cfa3bb04ab4a9495ad14a4 90f8d2979aa912a930d67474d30451356e45de0c451e07fb3a86d6ff873c5851 339773456f1b21245fdc3b6179a857ec29c95437251b694f96b5621fb016a284

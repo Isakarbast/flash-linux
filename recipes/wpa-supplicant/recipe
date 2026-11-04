@@ -1,0 +1,7 @@
+name        = wpa-supplicant
+version     = 2.12
+release     = 1
+description = Wi-Fi authentication (WPA2/WPA3, enterprise); NetworkManager drives it over D-Bus
+depends     = libnl dbus
+source      = https://w1.fi/releases/wpa_supplicant-2.12.tar.gz wpa_supplicant.config
+sha256      = 08e23937e16d0155e55cab2b51f51fbe10d80a1aa91c4e15442645059b737ef6 682a3870c03be13c32c3905a7d17e1214d8c904fea5c227eeca2f609495f3132

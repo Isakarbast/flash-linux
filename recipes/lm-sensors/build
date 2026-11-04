@@ -1,0 +1,3 @@
+cd lm-sensors-3-6-2
+make PREFIX=/usr BUILD_STATIC_LIB=0 MANDIR=/usr/share/man
+make PREFIX=/usr BUILD_STATIC_LIB=0 MANDIR=/usr/share/man DESTDIR="$DESTDIR" install

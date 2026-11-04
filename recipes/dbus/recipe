@@ -1,0 +1,6 @@
+name        = dbus
+version     = 1.16.2
+release     = 1
+description = D-Bus message bus: how system services and desktop programs talk to each other
+source      = https://dbus.freedesktop.org/releases/dbus/dbus-1.16.2.tar.xz dbus.initd
+sha256      = 0ba2a1a4b16afe7bceb2c07e9ce99a8c2c3508e5dec290dbb643384bd6beb7e2 97093b271e3eb0b630481a5cbdc695e6281d6c5f03ab4802c17068face2dde1f

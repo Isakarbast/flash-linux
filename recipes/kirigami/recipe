@@ -1,0 +1,7 @@
+name        = kirigami
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kirigami
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kirigami-6.29.0.tar.xz
+sha256      = ec5943b4d7efdc18c506ea0db543acdcd5313452615c66d72a1d5ff8d428296a

@@ -1,0 +1,4 @@
+cd gnutls-3.8.13
+./configure --prefix=/usr --disable-static --docdir=/usr/share/doc/gnutls-3.8.13 --without-p11-kit --with-included-libtasn1 --with-default-trust-file=/etc/ssl/certs/ca-certificates.crt
+make
+make DESTDIR="$DESTDIR" install

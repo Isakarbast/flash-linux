@@ -1,0 +1,6 @@
+cd Vulkan-Loader-vulkan-sdk-1.4.363.0
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_BUILD_TYPE=Release \
+    -D \
+    CMAKE_SKIP_INSTALL_RPATH=ON
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

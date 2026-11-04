@@ -1,0 +1,6 @@
+name        = libxft
+version     = 2.3.9
+release     = 1
+description = FreeType-based font drawing library for X
+source      = https://www.x.org/pub/individual/lib/libXft-2.3.9.tar.xz
+sha256      = 60a25b78945ed6932635b3bb1899a517d31df7456e69867ffba27f89ff3976f5

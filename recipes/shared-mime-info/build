@@ -1,0 +1,5 @@
+cd shared-mime-info-2.5.1
+meson setup build --prefix=/usr --buildtype=release -Dupdate-mimedb=false -Dbuild-tests=false -Dbuild-spec=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install
+install -Dm644 ../mime.hook "$DESTDIR/usr/share/fpm/hooks/mime.hook"

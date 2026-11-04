@@ -1,0 +1,9 @@
+cd wireplumber-0.5.19
+meson setup build --prefix=/usr --buildtype=release \
+    -Dsystem-lua=true -Delogind=enabled -Dsystemd=disabled \
+    -Dsystemd-system-service=false -Dsystemd-user-service=false \
+    -Dintrospection=disabled -Ddoc=disabled -Dtests=false -Ddbus-tests=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install
+install -Dm755 ../pipewire-launcher "$DESTDIR/usr/bin/pipewire-launcher"
+install -Dm644 ../pipewire.desktop "$DESTDIR/etc/xdg/autostart/pipewire.desktop"

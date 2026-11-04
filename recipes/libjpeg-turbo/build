@@ -1,0 +1,12 @@
+cd libjpeg-turbo-3.2.1
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_BUILD_TYPE=Release \
+    -D \
+    ENABLE_STATIC=FALSE \
+    -D \
+    CMAKE_INSTALL_DEFAULT_LIBDIR=lib \
+    -D \
+    CMAKE_SKIP_INSTALL_RPATH=ON \
+    -D \
+    CMAKE_INSTALL_DOCDIR=/usr/share/doc/libjpeg-turbo-3.2.1
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

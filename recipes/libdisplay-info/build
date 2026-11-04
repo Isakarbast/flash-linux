@@ -1,0 +1,4 @@
+cd libdisplay-info-0.4.0
+meson setup build --prefix=/usr --buildtype=release
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

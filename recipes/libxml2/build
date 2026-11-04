@@ -1,0 +1,6 @@
+cd libxml2-2.15.4
+sed -i "/'git'/,+3d" meson.build
+meson setup build --prefix=/usr --buildtype=release -Dhistory=enabled -Dicu=disabled
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install
+sed "s/--static/--shared/" -i "$DESTDIR/usr/bin/xml2-config"

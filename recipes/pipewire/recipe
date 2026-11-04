@@ -1,0 +1,7 @@
+name        = pipewire
+version     = 1.6.11
+release     = 1
+description = PipeWire: sound and video server (replaces PulseAudio and JACK), with pipewire-pulse and pipewire-alsa
+depends     = alsa-lib dbus elogind
+source      = https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/1.6.11/pipewire-1.6.11.tar.bz2
+sha256      = 0b32fbbece4591376b45dde5a818bfa5b3517e70913a2f7414e33c47c20b07ee

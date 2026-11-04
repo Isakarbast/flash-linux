@@ -1,0 +1,4 @@
+cd mtdev-1.1.7
+./configure --prefix=/usr --disable-static
+make
+make DESTDIR="$DESTDIR" install

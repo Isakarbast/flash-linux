@@ -1,0 +1,13 @@
+cd mesa-26.2.3
+meson setup build --prefix=/usr --buildtype=release \
+    -Dplatforms=x11,wayland \
+    -Dgallium-drivers=radeonsi,r300,r600,nouveau,virgl,svga,llvmpipe,softpipe,iris,crocus,i915,zink \
+    -Dvulkan-drivers=amd,intel,intel_hasvk,swrast \
+    -Dvulkan-layers=device-select,overlay \
+    -Dglvnd=enabled \
+    -Dgbm=enabled -Degl=enabled \
+    -Dllvm=enabled -Dshared-llvm=enabled \
+    -Dvalgrind=disabled -Dlibunwind=disabled \
+    -Dvideo-codecs=all
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

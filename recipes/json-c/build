@@ -1,0 +1,6 @@
+cd json-c-0.19
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_LIBEXECDIR=lib -D CMAKE_SKIP_INSTALL_RPATH=ON -D BUILD_TESTING=OFF -W no-author \
+    -D \
+    BUILD_STATIC_LIBS=OFF
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

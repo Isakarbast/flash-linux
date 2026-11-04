@@ -1,0 +1,4 @@
+cd lcms2-2.20
+meson setup build --prefix=/usr --buildtype=release
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

@@ -1,0 +1,7 @@
+name        = layer-shell-qt
+version     = 6.7.4
+release     = 1
+description = KDE Plasma: layer-shell-qt
+depends     = qt6
+source      = https://download.kde.org/stable/plasma/6.7.4/layer-shell-qt-6.7.4.tar.xz
+sha256      = 6a5b064619739c6f4a2de70c56abfbadfc334dcb626152a1e8188a807ca86567

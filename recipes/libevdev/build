@@ -1,0 +1,4 @@
+cd libevdev-1.14.0
+meson setup build --prefix=/usr --buildtype=release -Ddocumentation=disabled -Dtests=disabled
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

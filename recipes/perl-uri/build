@@ -1,0 +1,5 @@
+cd URI-5.40
+perl Makefile.PL INSTALLDIRS=vendor
+make
+make DESTDIR="$DESTDIR" install
+find "$DESTDIR" \( -name perllocal.pod -o -name .packlist \) -delete

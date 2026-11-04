@@ -1,0 +1,7 @@
+name        = syndication
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: syndication
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/syndication-6.29.0.tar.xz
+sha256      = f5a00d13eaf0401e9e4f3ffccda4876e2bcf84fb8dc2613a5d087971b377df1f

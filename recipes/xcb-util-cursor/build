@@ -1,0 +1,4 @@
+cd xcb-util-cursor-0.1.6
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static
+make
+make DESTDIR="$DESTDIR" install

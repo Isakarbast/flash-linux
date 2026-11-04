@@ -1,0 +1,8 @@
+cd qcoro-0.13.0
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_LIBEXECDIR=lib -D CMAKE_SKIP_INSTALL_RPATH=ON -D BUILD_TESTING=OFF -W no-author \
+    -D \
+    QCORO_BUILD_EXAMPLES=OFF \
+    -D \
+    BUILD_SHARED_LIBS=ON
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

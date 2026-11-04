@@ -1,0 +1,7 @@
+name        = kcmutils
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kcmutils
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kcmutils-6.29.0.tar.xz
+sha256      = 762943ea8eff8c27a5b89bc483aef0af5955b716270b0820e0addae2c38392a6

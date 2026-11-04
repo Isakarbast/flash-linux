@@ -1,0 +1,7 @@
+name        = kparts
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kparts
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kparts-6.29.0.tar.xz
+sha256      = 379d6b0fa84eb9614f7677e93b43c5ff52481e19ac83a7a158233810a39e75a7

@@ -1,0 +1,5 @@
+[ "${ROOT:-/}" = / ] || exit 0
+grep -q "^sddm:" /etc/group  || groupadd -g 64 sddm
+grep -q "^sddm:" /etc/passwd ||
+    useradd -c "SDDM greeter" -d /var/lib/sddm -u 64 -g sddm -G video -s /usr/bin/nologin sddm
+install -d -o sddm -g sddm -m 750 /var/lib/sddm

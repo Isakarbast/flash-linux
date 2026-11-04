@@ -1,0 +1,7 @@
+name        = kwidgetsaddons
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kwidgetsaddons
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kwidgetsaddons-6.29.0.tar.xz
+sha256      = 76285d03cdc06f0647afbbc89f31ab5aa766cbc3c6eb177e3f8a0441444e3068

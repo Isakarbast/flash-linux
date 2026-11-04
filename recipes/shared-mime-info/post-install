@@ -1,0 +1,2 @@
+[ "${ROOT:-/}" = / ] || exit 0
+update-mime-database /usr/share/mime

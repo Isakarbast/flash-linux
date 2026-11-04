@@ -1,0 +1,6 @@
+cd xwayland-24.1.14
+sed -i '/install_man/,$d' meson.build
+meson setup build --prefix=/usr --buildtype=release \
+    -Dxkb_output_dir=/var/lib/xkb
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

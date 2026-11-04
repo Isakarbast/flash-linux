@@ -1,0 +1,7 @@
+name        = kconfig
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kconfig
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kconfig-6.29.0.tar.xz
+sha256      = a0e902865763fd4cd1c86973c316069f210492923d7b8065d5052c539ae46b91

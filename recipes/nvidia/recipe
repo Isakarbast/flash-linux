@@ -1,8 +1,8 @@
 name        = nvidia
 version     = 615.78.08
-release     = 1
+release     = 2
 description = NVIDIA graphics driver: open kernel modules and the OpenGL/Vulkan/CUDA libraries (Turing / RTX 20 series and newer)
-depends     = libglvnd linux
+depends     = libglvnd linux mesa wayland
 makedepends = linux-devel
 options     = !strip
 source      = https://download.nvidia.com/XFree86/Linux-x86_64/615.78.08/NVIDIA-Linux-x86_64-615.78.08.run https://download.nvidia.com/XFree86/NVIDIA-kernel-module-source/NVIDIA-kernel-module-source-615.78.08.tar.xz nvidia.rules nvidia.conf

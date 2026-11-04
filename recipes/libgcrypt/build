@@ -1,0 +1,4 @@
+cd libgcrypt-1.12.4
+./configure --prefix=/usr --disable-static
+make
+make DESTDIR="$DESTDIR" install

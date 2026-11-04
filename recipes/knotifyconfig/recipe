@@ -1,0 +1,7 @@
+name        = knotifyconfig
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: knotifyconfig
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/knotifyconfig-6.29.0.tar.xz
+sha256      = f0e75a0fa498fb0eccd5540257177e47da212095eb0b5ed4fc66935d42375b4e

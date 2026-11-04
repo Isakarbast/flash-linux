@@ -1,0 +1,7 @@
+# /etc/pam.d/system-session
+session   required    pam_unix.so
+
+# Register the session with elogind (seats, device access, suspend) once
+# elogind is installed; skipped while it isn't.
+session   required    pam_loginuid.so
+session   optional    pam_elogind.so

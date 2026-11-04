@@ -1,0 +1,7 @@
+name        = kstatusnotifieritem
+version     = 6.29.0
+release     = 1
+description = KDE Frameworks 6: kstatusnotifieritem
+depends     = qt6
+source      = https://download.kde.org/stable/frameworks/6.29/kstatusnotifieritem-6.29.0.tar.xz
+sha256      = b2c9375edc219425b2ffc90b443e686fc48699a0ee0408b6a4e55a5f345dde2e

@@ -1,0 +1,5 @@
+cd json-glib-1.10.8
+meson setup build --prefix=/usr --buildtype=release \
+    -Dintrospection=disabled -Dtests=false -Dman=false -Ddocumentation=disabled
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

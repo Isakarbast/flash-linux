@@ -1,0 +1,7 @@
+name        = mesa
+version     = 26.2.3
+release     = 1
+description = OpenGL and Vulkan drivers for AMD, Intel, nouveau and software rendering, plus GBM/EGL
+depends     = libglvnd libdrm llvm
+source      = https://mesa.freedesktop.org/archive/mesa-26.2.3.tar.xz
+sha256      = 1628058a8d2c0615975de5a15ab7bbb9638c50000b5bed9456ff423ea034a81f

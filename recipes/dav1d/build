@@ -1,0 +1,4 @@
+cd dav1d-1.5.4
+meson setup build --prefix=/usr --buildtype=release --wrap-mode=nofallback -Denable_tests=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

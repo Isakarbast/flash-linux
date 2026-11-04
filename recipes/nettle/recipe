@@ -1,0 +1,6 @@
+name        = nettle
+version     = 4.0
+release     = 1
+description = Low-level cryptographic library (used by GnuTLS)
+source      = https://ftpmirror.gnu.org/nettle/nettle-4.0.tar.gz
+sha256      = 3addbc00da01846b232fb3bc453538ea5468da43033f21bb345cb1e9073f5094

@@ -1,0 +1,7 @@
+name        = polkit-qt
+version     = 0.201.1
+release     = 1
+description = Qt bindings for polkit (lets KDE settings ask for an admin password)
+depends     = polkit qt6
+source      = https://download.kde.org/stable/polkit-qt-1/polkit-qt-1-0.201.1.tar.xz
+sha256      = 95d8e2cae530c546d9437459deb8a1bea38d572f0f9772cc2860dc143637f256

@@ -1,0 +1,8 @@
+name        = perl-uri
+version     = 5.40
+release     = 1
+description = Perl URI module (used by kdoctools)
+depends     = perl
+arch        = noarch
+source      = https://www.cpan.org/authors/id/O/OA/OALDERS/URI-5.40.tar.gz
+sha256      = ef5d2ef099a1a24a6e83ffe543de73337805d3d39c00b84fa205d725ad1a1b63

@@ -1,0 +1,7 @@
+name        = powerdevil
+version     = 6.7.4
+release     = 1
+description = KDE Plasma: Power management (screen dimming, suspend, brightness)
+depends     = qt6
+source      = https://download.kde.org/stable/plasma/6.7.4/powerdevil-6.7.4.tar.xz
+sha256      = cfd53172f168b5a80cba7ab85e7b929f6d7c7e0fa80ed0d48da140b5a7d698e3

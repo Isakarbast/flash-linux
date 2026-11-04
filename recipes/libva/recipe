@@ -1,0 +1,7 @@
+name        = libva
+version     = 2.24.1
+release     = 1
+description = Video Acceleration API (hardware video decode/encode)
+depends     = libdrm
+source      = https://github.com/intel/libva/archive/2.24.1/libva-2.24.1.tar.gz
+sha256      = 0b4a3649ee8d683b9cce2ef094df4fb039d276c0cef7e49337c43d3b297b9f42

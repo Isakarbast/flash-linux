@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=PipeWire
+Comment=Start the PipeWire sound server
+Exec=/usr/bin/pipewire-launcher
+NoDisplay=true
+X-KDE-autostart-phase=1
