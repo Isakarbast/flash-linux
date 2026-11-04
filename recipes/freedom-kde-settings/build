@@ -1,0 +1,1 @@
+install -Dm644 -t "$DESTDIR/etc/xdg" kdeglobals ksmserverrc

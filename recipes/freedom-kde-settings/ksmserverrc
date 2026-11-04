@@ -1,0 +1,5 @@
+# Freedom Linux defaults for the Plasma session; change in System Settings >
+# Session > Desktop Session (saved in ~/.config/ksmserverrc).
+[General]
+# Start with an empty desktop instead of reopening the last session's apps.
+loginMode=emptySession

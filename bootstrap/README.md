@@ -241,8 +241,10 @@ the official Slang shader compiler binary (`shader-slang`, kept in
 symbols font. Its Go
 modules are downloaded from proxy.golang.org beforehand (as `name::url`
 sources, also checked against kitty's `go.sum`) and served to the offline
-build as a local module proxy. kitty is set as Plasma's terminal in
-`/etc/xdg/kdeglobals`.
+build as a local module proxy. `freedom-kde-settings` holds the system-wide
+KDE defaults in `/etc/xdg`: kitty as Plasma's terminal, and Plasma starting
+with an empty session instead of reopening the last one's apps (each user can
+change both in System Settings).
 
 Firefox is Mozilla's signed official build, installed to `/usr/lib/firefox`
 with a policy that turns off its own updater (fpm updates it), telemetry and

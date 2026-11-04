@@ -1,0 +1,4 @@
+# Freedom Linux defaults for KDE; each user's ~/.config/kdeglobals overrides them.
+[General]
+TerminalApplication=kitty
+TerminalService=kitty.desktop

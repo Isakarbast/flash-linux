@@ -27,14 +27,8 @@ echo "==> Installing fpm"
 install_each glib rtkit \
     fribidi cairo pango at-spi2-core hicolor-icon-theme gsettings-desktop-schemas gtk3 firefox \
     libssh libmtp baloo-widgets kio-extras ffmpegthumbs dolphin \
-    go shader-slang xxhash simde kitty
-
-# kitty as Plasma's terminal (Ctrl+Alt+T, "Open Terminal Here" in Dolphin).
-# Users can still change it in System Settings > Default Applications.
-if ! grep -qs '^TerminalApplication=' /etc/xdg/kdeglobals; then
-    mkdir -p /etc/xdg
-    printf '[General]\nTerminalApplication=kitty\nTerminalService=kitty.desktop\n' >> /etc/xdg/kdeglobals
-fi
+    go shader-slang xxhash simde kitty \
+    freedom-kde-settings
 
 echo
 echo "Stage 7d complete: $(fpm list | wc -l) packages installed"

@@ -1,0 +1,8 @@
+name        = freedom-kde-settings
+version     = 1
+release     = 1
+description = Freedom Linux's system-wide KDE defaults (kitty as terminal, start with an empty session)
+arch        = noarch
+depends     = plasma-workspace kitty
+source      = kdeglobals ksmserverrc
+sha256      = 640e66e987e5356197f60b0d8f8aff1923d5723438b13a69da20bbf547e2d45c 4557b3102d61415bb8dda08ee7b7973865ef14d01266ae364c93f01d37d3d7aa
