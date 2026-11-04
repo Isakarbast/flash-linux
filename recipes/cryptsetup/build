@@ -1,0 +1,5 @@
+cd cryptsetup-2.8.8
+./configure --prefix=/usr --disable-ssh-token --disable-asciidoc
+make
+make DESTDIR="$DESTDIR" install
+rm -rf "${DESTDIR:?}/usr/lib/tmpfiles.d"

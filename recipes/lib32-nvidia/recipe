@@ -1,0 +1,8 @@
+name        = lib32-nvidia
+version     = 615.78.08
+release     = 1
+description = NVIDIA graphics driver, 32-bit OpenGL/Vulkan/CUDA libraries (for Steam and 32-bit games)
+depends     = nvidia lib32-glibc lib32-libglvnd lib32-libx11 lib32-libxext lib32-libdrm lib32-wayland
+options     = !strip
+source      = https://download.nvidia.com/XFree86/Linux-x86_64/615.78.08/NVIDIA-Linux-x86_64-615.78.08.run
+sha256      = 3e3f6dddc2ee767a08185300af7be3cb286ece76698d2dde3524599782d07ffe

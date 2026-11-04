@@ -1,0 +1,7 @@
+name        = steam
+version     = 1.0.0.87
+release     = 1
+description = Valve's Steam launcher (downloads and updates the Steam client itself)
+depends     = bash curl python xz lib32-glibc lib32-gcc-libs lib32-libx11 lib32-libxscrnsaver lib32-libxinerama lib32-libglvnd lib32-libxcrypt lib32-eudev lib32-alsa-lib lib32-vulkan-loader lib32-libxrandr lib32-libxcursor lib32-libxi lib32-libxcomposite lib32-libxdamage lib32-libxxf86vm lib32-libxshmfence vulkan-loader
+source      = https://repo.steampowered.com/steam/archive/beta/steam_1.0.0.87.tar.gz
+sha256      = 649375d2f9377f8009aaf3e2ff09978041eb9114897d9c5a3886f1d82e27ba1f

@@ -1,0 +1,6 @@
+cd udisks-2.11.2
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --with-udevdir=/usr/lib/udev --with-systemdsystemunitdir=no --with-tmpfilesdir=no
+make
+make DESTDIR="$DESTDIR" install
+rm -rf "${DESTDIR:?}/usr/lib/systemd" "${DESTDIR:?}/usr/lib/tmpfiles.d" "${DESTDIR:?}/usr/lib/modules-load.d"

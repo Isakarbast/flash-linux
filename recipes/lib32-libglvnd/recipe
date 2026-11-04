@@ -1,0 +1,8 @@
+name        = lib32-libglvnd
+version     = 1.7.0
+release     = 1
+description = GL vendor-neutral dispatch library, 32-bit
+depends     = libglvnd lib32-glibc lib32-libx11 lib32-libxext
+makedepends = gcc
+source      = https://gitlab.freedesktop.org/glvnd/libglvnd/-/archive/v1.7.0/libglvnd-v1.7.0.tar.gz
+sha256      = 2b6e15b06aafb4c0b6e2348124808cbd9b291c647299eaaba2e3202f51ff2f3d

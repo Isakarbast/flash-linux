@@ -1,0 +1,8 @@
+name        = lib32-libxdmcp
+version     = 1.1.5
+release     = 1
+description = X11 library, 32-bit: display manager control protocol
+depends     = libxdmcp lib32-glibc
+makedepends = gcc
+source      = https://xorg.freedesktop.org/releases/individual/lib/libXdmcp-1.1.5.tar.xz
+sha256      = d8a5222828c3adab70adf69a5583f1d32eb5ece04304f7f8392b6a353aa2228c

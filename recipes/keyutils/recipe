@@ -1,0 +1,6 @@
+name        = keyutils
+version     = 1.6.3
+release     = 1
+description = Kernel key management library and tools (used for encrypted disks)
+source      = https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git/snapshot/keyutils-1.6.3.tar.gz
+sha256      = a61d5706136ae4c05bd48f86186bcfdbd88dd8bd5107e3e195c924cfc1b39bb4

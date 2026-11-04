@@ -1,0 +1,8 @@
+name        = lib32-libxfixes
+version     = 6.0.2
+release     = 1
+description = X11 library, 32-bit: Fixes extension
+depends     = libxfixes lib32-glibc lib32-libx11
+makedepends = gcc
+source      = https://www.x.org/pub/individual/lib/libXfixes-6.0.2.tar.xz
+sha256      = 39f115d72d9c5f8111e4684164d3d68cc1fd21f9b27ff2401b08fddfc0f409ba

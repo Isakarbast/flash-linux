@@ -1,0 +1,7 @@
+name        = libblockdev
+version     = 3.5.0
+release     = 1
+description = Block device library (partitions, filesystems, encryption) behind udisks2
+depends     = glib kmod cryptsetup keyutils libbytesize libnvme libatasmart e2fsprogs util-linux
+source      = https://github.com/storaged-project/libblockdev/releases/download/3.5.0/libblockdev-3.5.0.tar.gz
+sha256      = bccd30e6b5d11504de60d9889ff6a2a25b07a4ec8f04070f2387e168301b3e3a

@@ -1,7 +1,12 @@
 name        = gcc
 version     = 16.2.0
-release     = 1
+release     = 2
 description = GNU compiler collection (C and C++)
 depends     = binutils
-source      = https://ftpmirror.gnu.org/gcc/gcc-16.2.0/gcc-16.2.0.tar.xz
-sha256      = e6738e29597f733270731aa90600f37ffdc045079dfc27ec7e8192cc81085c3e
+makedepends = lib32-glibc
+source      = https://ftpmirror.gnu.org/gcc/gcc-16.2.0/gcc-16.2.0.tar.xz lib32
+sha256      = e6738e29597f733270731aa90600f37ffdc045079dfc27ec7e8192cc81085c3e b0ad40e630c9ba15a68ce23aef0da9a5fe929d6667a6bec885ab9dff2f248670
+
+lib32-gcc-libs.description = GCC runtime libraries, 32-bit (libgcc_s, libstdc++ and others)
+lib32-gcc-libs.depends     = lib32-glibc
+lib32-gcc-libs.files       = usr/lib32

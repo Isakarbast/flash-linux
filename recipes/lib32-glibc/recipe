@@ -1,0 +1,8 @@
+name        = lib32-glibc
+version     = 2.44
+release     = 1
+description = GNU C library, 32-bit (for Steam and 32-bit games)
+depends     = glibc
+options     = !strip
+source      = https://ftpmirror.gnu.org/glibc/glibc-2.44.tar.xz https://www.linuxfromscratch.org/patches/lfs/development/glibc-fhs-1.patch https://www.linuxfromscratch.org/patches/lfs/development/glibc-2.44-upstream_fixes-3.patch https://ftpmirror.gnu.org/gcc/gcc-16.2.0/gcc-16.2.0.tar.xz ldconfig-lib32.hook
+sha256      = 37f600f2bef3c5e8300147059568b2a2e40a7ad6ccc65ce942556d49429cc667 643552db030e2f2d7ffde4f558e0f5f83d3fabf34a2e0e56ebdb49750ac27b0d cd3245887c9c2564ef18b8e9ed4046093a575fc91bce00fd82eb931102e4a30e e6738e29597f733270731aa90600f37ffdc045079dfc27ec7e8192cc81085c3e 49058d366746a5d33987935604e8d958e167ef8caf0a8f07869fb2df6040fbe0

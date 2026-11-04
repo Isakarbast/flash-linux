@@ -1,0 +1,10 @@
+cd LVM2.2.03.44
+# The thin-provisioning and cache tools aren't installed; leave their paths empty.
+./configure --prefix=/usr --enable-cmdlib --enable-pkgconfig --enable-udev_sync \
+    --with-thin-check= --with-thin-dump= --with-thin-repair= --with-thin-restore= \
+    --with-cache-check= --with-cache-dump= --with-cache-repair= --with-cache-restore=
+make
+make DESTDIR="$DESTDIR" install
+# This rule activates volumes through systemd.
+rm -f "$DESTDIR/usr/lib/udev/rules.d/69-dm-lvm.rules"
+rm -rf "${DESTDIR:?}/usr/lib/systemd"

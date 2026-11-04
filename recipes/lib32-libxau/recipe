@@ -1,0 +1,8 @@
+name        = lib32-libxau
+version     = 1.0.12
+release     = 1
+description = X11 library, 32-bit: authorization protocol
+depends     = libxau lib32-glibc
+makedepends = gcc
+source      = https://xorg.freedesktop.org/releases/individual/lib/libXau-1.0.12.tar.xz
+sha256      = 74d0e4dfa3d39ad8939e99bda37f5967aba528211076828464d2777d477fc0fb

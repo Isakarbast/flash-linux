@@ -1,0 +1,4 @@
+cd libaio-0.3.113
+sed -i '/install.*libaio.a/s/^/#/' src/Makefile
+make
+make DESTDIR="$DESTDIR" install

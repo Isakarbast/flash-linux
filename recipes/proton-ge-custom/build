@@ -1,0 +1,5 @@
+# Steam lists every tool in this directory as a compatibility tool. Proton runs
+# inside the Steam Linux Runtime container, which provides its libraries.
+d="$DESTDIR/usr/share/steam/compatibilitytools.d"
+mkdir -p "$d"
+cp -a GE-Proton11-12-x86_64 "$d/GE-Proton11-12"

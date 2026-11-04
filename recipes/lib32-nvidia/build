@@ -1,0 +1,36 @@
+v=$version
+run="NVIDIA-Linux-x86_64-$v.run"
+skip=$(head -n 20 "$run" | sed -n 's/^skip=//p')
+mkdir nv
+tail -n +"$skip" "$run" | zstd -dc | tar --no-same-owner -xf - -C nv
+cd nv/32
+lib="$DESTDIR/usr/lib32"
+L() { install -Dm755 "$1" "$lib/${2:-}$1"; }
+
+# OpenGL / EGL / GLES through lib32-libglvnd; the vendor JSON files are shared
+# with the 64-bit package.
+for f in libGLX_nvidia libEGL_nvidia libGLESv1_CM_nvidia libGLESv2_nvidia \
+         libnvidia-glcore libnvidia-eglcore libnvidia-glsi libnvidia-tls \
+         libnvidia-glvkspirv libnvidia-gpucomp; do
+    L "$f.so.$v"
+done
+# EGL platforms for Wayland and X (the GBM one needs a 32-bit mesa).
+for f in libnvidia-egl-wayland.so.1.1.20 libnvidia-egl-wayland2.so.1.0.2 \
+         libnvidia-egl-xcb.so.1.0.6 libnvidia-egl-xlib.so.1.0.6; do
+    L "$f"
+done
+# Video decode/encode, CUDA, management
+for f in libnvidia-encode libnvidia-fbc libnvidia-ml libnvcuvid libcuda \
+         libnvidia-nvvm libnvidia-ptxjitcompiler libnvidia-opticalflow libnvidia-tileiras; do
+    L "$f.so.$v"
+done
+L "libvdpau_nvidia.so.$v" vdpau/
+
+find "$lib" -maxdepth 2 -type f -name '*.so*' | while read -r f; do
+    so=$(readelf -d "$f" | sed -n 's/.*SONAME.*\[\(.*\)\]/\1/p')
+    [ -n "$so" ] || continue
+    d=$(dirname "$f")
+    [ -e "$d/$so" ] || ln -s "$(basename "$f")" "$d/$so"
+    base=${so%%.so*}.so
+    [ -e "$d/$base" ] || ln -s "$so" "$d/$base"
+done

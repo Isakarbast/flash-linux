@@ -1,0 +1,4 @@
+cd libbytesize-2.12
+./configure --prefix=/usr --without-python3 --without-gtk-doc --without-tools
+make
+make DESTDIR="$DESTDIR" install

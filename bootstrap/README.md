@@ -18,7 +18,9 @@ way Linux From Scratch does.
 | 7b | KDE Frameworks 6.29 (69 packages) + dependencies (ECM, icons, DocBook, polkit-qt, qca, Aspell, ...) | `stage7b.sh` |
 | 7c | Plasma 6.7 core desktop, Xwayland, SDDM (Wayland greeter), portals, CUPS (Qt rebuilt with it) | `stage7c.sh` |
 | 7d | Dolphin, kitty (with Go), Firefox (official binary, on GTK 3), RTKit | `stage7d.sh` |
-| 8 | 32-bit libraries, Steam, proton-ge-custom | next |
+| 7e | udisks2 and its storage stack (drives in Dolphin) | `stage7e.sh` |
+| 8a | 32-bit toolchain: lib32 glibc, gcc rebuilt with multilib (+ lib32-gcc-libs) | `stage8a.sh` |
+| 8b | 32-bit libraries and NVIDIA driver, Steam, Proton-GE | `stage8b.sh` |
 
 ## Stage 1
 
@@ -249,3 +251,55 @@ hicolor-icon-theme and gsettings-desktop-schemas; `/etc/gtk-3.0/settings.ini`
 uses the Breeze icons and cursors. RTKit lets PipeWire use realtime priority.
 glib is rebuilt (release 2) to ship hooks that recompile GSettings schemas and
 the GIO module cache; gtk3 ships hooks for icon caches and input methods.
+
+## Stage 7e
+
+```sh
+sudo SOURCE_CACHE=$HOME/.cache/distro-sources ./stage7e.sh
+```
+
+udisks2, the service Plasma and Dolphin use to list and mount drives (started
+on demand over D-Bus; mounting asks for an admin password through polkit). It
+brings libblockdev 3.5 with the plugins udisks loads (partitions, filesystems,
+swap, loop, RAID, encryption, NVMe, SMART) and what those need: LVM2 (for the
+device-mapper library; its systemd activation rule is removed), cryptsetup,
+keyutils, popt, libaio, libatasmart, libbytesize and libnvme.
+
+## Stage 8a
+
+```sh
+sudo SOURCE_CACHE=$HOME/.cache/distro-sources ./stage8a.sh
+```
+
+The 32-bit (multilib) toolchain, laid out as on Arch: 32-bit libraries in
+`/usr/lib32`, `/usr/lib/ld-linux.so.2` pointing at its loader. The system gcc
+can't target 32-bit yet, and gcc's 32-bit libraries need a 32-bit glibc
+first, so `lib32-glibc` builds a throwaway C compiler with `-m32` support
+(static libgcc only, like LFS's first-pass gcc) and builds glibc 2.44 for
+i686 with it; only `/usr/lib32`, `gnu/stubs-32.h` and `gnu/lib-names-32.h`
+are installed. gcc is then rebuilt (release 2) with `--enable-multilib`; its
+32-bit runtime libraries go to the `lib32-gcc-libs` subpackage, and it ships
+`/usr/share/meson/cross/lib32`, the cross file the lib32 meson builds use.
+The stage ends by compiling and running 32- and 64-bit C and C++ programs.
+
+## Stage 8b
+
+```sh
+sudo SOURCE_CACHE=$HOME/.cache/distro-sources ./stage8b.sh
+```
+
+The 32-bit libraries Steam and 32-bit games take from the system, each built
+from the same tarball as its 64-bit package and installing only `/usr/lib32`:
+libffi, the X11/XCB client libraries, libdrm, Wayland, libglvnd, the Vulkan
+loader, libudev (from eudev), alsa-lib and libxcrypt (with Steam's
+`libcrypt.so.1`). `lib32-nvidia` is the 32-bit half of the NVIDIA driver from
+the same `.run` file (OpenGL/EGL/GLES, Vulkan, CUDA, NVENC/NVDEC, VDPAU);
+32-bit mesa, for AMD and Intel GPUs, needs a 32-bit LLVM and is not built yet.
+
+`steam` is Valve's launcher (its tarball matches Valve's signed `.dsc` and
+Arch's checksum); it downloads the Steam client and runtime into
+`~/.local/share/Steam` on first start. Its controller and VR udev rules also
+give the devices to the `input` group, since eudev has no `uaccess`.
+`proton-ge-custom` (GE-Proton11-12, checked against its published SHA-512)
+goes to `/usr/share/steam/compatibilitytools.d`, where Steam lists it as a
+compatibility tool.

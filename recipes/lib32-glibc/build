@@ -1,0 +1,51 @@
+# A throwaway C compiler that can also target 32-bit x86: the system gcc is
+# 64-bit only, and building gcc's own 32-bit libraries needs this glibc first.
+# Same approach as LFS's first-pass gcc: static libgcc only, no libc headers.
+boot="$PWD/boot"
+sed -e '/m64=/s/lib64/lib/' -e '/m32=/s/m32=.*/m32=..\/lib32$(call if_multiarch,:i386-linux-gnu)/' \
+    -i gcc-16.2.0/gcc/config/i386/t-linux64
+mkdir boot-gcc
+cd boot-gcc
+../gcc-16.2.0/configure --prefix="$boot" \
+    --enable-languages=c \
+    --enable-multilib --with-multilib-list=m64,m32 \
+    --disable-bootstrap --disable-shared --disable-threads --disable-nls \
+    --disable-libatomic --disable-libgomp --disable-libquadmath --disable-libssp \
+    --disable-libvtv --disable-libstdcxx --disable-libsanitizer --disable-fixincludes \
+    --without-headers --with-newlib --with-system-zlib
+# The system's 64-bit headers include gnu/stubs-32.h for -m32; until this
+# glibc exists an empty one will do (it only lists unimplemented functions).
+mkdir -p "$boot/x86_64-pc-linux-gnu/include/gnu"
+: > "$boot/x86_64-pc-linux-gnu/include/gnu/stubs-32.h"
+make all-gcc all-target-libgcc
+make DESTDIR= install-gcc install-target-libgcc   # into $boot, not the package
+cd ..
+
+# glibc for i686, installed beside the 64-bit one in /usr/lib32.
+cd glibc-2.44
+patch -Np1 -i ../glibc-fhs-1.patch
+patch -Np1 -i ../glibc-2.44-upstream_fixes-3.patch
+mkdir build32
+cd build32
+CC="$boot/bin/gcc -m32" CXX=false \
+../configure --prefix=/usr \
+    --host=i686-pc-linux-gnu \
+    --build="$(../scripts/config.guess)" \
+    --libdir=/usr/lib32 \
+    --libexecdir=/usr/lib32 \
+    libc_cv_slibdir=/usr/lib32 \
+    --disable-werror \
+    --disable-nscd \
+    --enable-stack-protector=strong \
+    --enable-kernel=5.10
+make
+make DESTDIR="$PWD/inst" install
+
+mkdir -p "$DESTDIR/usr/lib" "$DESTDIR/usr/include/gnu" "$DESTDIR/etc/ld.so.conf.d"
+cp -a inst/usr/lib32 "$DESTDIR/usr/"
+# The only headers that differ from the 64-bit ones.
+install -m644 inst/usr/include/gnu/lib-names-32.h inst/usr/include/gnu/stubs-32.h "$DESTDIR/usr/include/gnu/"
+# 32-bit programs ask for /lib/ld-linux.so.2 (/lib is /usr/lib here).
+ln -s ../lib32/ld-linux.so.2 "$DESTDIR/usr/lib/ld-linux.so.2"
+echo /usr/lib32 > "$DESTDIR/etc/ld.so.conf.d/lib32-glibc.conf"
+install -Dm644 ../../ldconfig-lib32.hook "$DESTDIR/usr/share/fpm/hooks/ldconfig-lib32.hook"

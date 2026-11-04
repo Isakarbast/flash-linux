@@ -1,0 +1,6 @@
+cd libblockdev-3.5.0
+./configure --prefix=/usr --sysconfdir=/etc \
+    --without-python3 --without-escrow --without-gtk-doc \
+    --without-lvm --without-lvm_dbus --without-nvdimm --without-tools --without-smartmontools
+make
+make DESTDIR="$DESTDIR" install

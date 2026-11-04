@@ -1,0 +1,8 @@
+name        = lib32-wayland
+version     = 1.26.0
+release     = 1
+description = Wayland client and server libraries, 32-bit
+depends     = wayland lib32-glibc lib32-libffi
+makedepends = gcc
+source      = https://gitlab.freedesktop.org/wayland/wayland/-/releases/1.26.0/downloads/wayland-1.26.0.tar.xz
+sha256      = 64176eaa46e4969903e286f8e5ef8331affc17fdf03ac9b58381d2b23162b7a3
