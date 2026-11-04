@@ -1,0 +1,3 @@
+cd simde-0.8.2
+install -d "$DESTDIR/usr/include"
+cp -r simde "$DESTDIR/usr/include/"

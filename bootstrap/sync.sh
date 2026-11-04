@@ -25,7 +25,11 @@ fetch_sources() {
             sum=$1
             shift
             case $url in *://*) ;; *) continue ;; esac
-            file=${url##*/}
+            # "name::url" downloads url under another file name.
+            case $url in
+                *::*) file=${url%%::*}; url=${url#*::} ;;
+                *) file=${url##*/} ;;
+            esac
             dest=$cache/$file
             if [ -f "$dest" ] && echo "$sum  $dest" | sha256sum -c --status; then
                 continue

@@ -1,0 +1,9 @@
+cd kio-extras-26.08.2
+# WITH_LIBPROXY only detects WPAD proxy auto-configuration; leave it out.
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_INSTALL_LIBEXECDIR=lib \
+    -D CMAKE_SKIP_INSTALL_RPATH=ON -D CMAKE_BUILD_TYPE=Release \
+    -D BUILD_QT5=OFF -D BUILD_TESTING=OFF -W no-author \
+    -D WITH_LIBPROXY=OFF
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install
+rm -rf "${DESTDIR:?}/usr/lib/systemd"

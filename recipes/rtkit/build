@@ -1,0 +1,7 @@
+cd rtkit-v0.14
+meson setup build --prefix=/usr --buildtype=release \
+    -Dlibsystemd=disabled \
+    -Dinstalled_tests=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install
+rm -rf "${DESTDIR:?}/usr/lib/systemd" "${DESTDIR:?}/usr/lib/sysusers.d"

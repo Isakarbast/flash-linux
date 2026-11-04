@@ -1,0 +1,4 @@
+cd libmtp-1.1.23
+./configure --prefix=/usr --disable-static --with-udev=/usr/lib/udev
+make
+make DESTDIR="$DESTDIR" install

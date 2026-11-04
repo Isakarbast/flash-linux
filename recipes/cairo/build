@@ -1,0 +1,6 @@
+cd cairo-1.18.6
+meson setup build --prefix=/usr --buildtype=release \
+    -Dtests=disabled -Dlzo=disabled -Dspectre=disabled \
+    -Dgtk2-utils=disabled -Dsymbol-lookup=disabled
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

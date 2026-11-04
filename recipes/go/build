@@ -1,0 +1,8 @@
+# Test data includes object files for other architectures; only "go test std" needs it.
+find go -type d -name testdata -prune -exec rm -rf {} +
+# Never download a different toolchain behind the user's back.
+sed -i 's/^GOTOOLCHAIN=.*/GOTOOLCHAIN=local/' go/go.env
+mkdir -p "$DESTDIR/usr/lib" "$DESTDIR/usr/bin"
+cp -a go "$DESTDIR/usr/lib/go"
+ln -s ../lib/go/bin/go "$DESTDIR/usr/bin/go"
+ln -s ../lib/go/bin/gofmt "$DESTDIR/usr/bin/gofmt"

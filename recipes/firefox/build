@@ -1,0 +1,10 @@
+mkdir -p "$DESTDIR/usr/lib" "$DESTDIR/usr/bin"
+cp -a firefox "$DESTDIR/usr/lib/firefox"
+ln -s ../lib/firefox/firefox "$DESTDIR/usr/bin/firefox"
+# Updates come from fpm; telemetry and studies are off.
+install -Dm644 policies.json "$DESTDIR/usr/lib/firefox/distribution/policies.json"
+install -Dm644 firefox.desktop "$DESTDIR/usr/share/applications/firefox.desktop"
+for s in 16 32 48 64 128; do
+    install -Dm644 "firefox/browser/chrome/icons/default/default$s.png" \
+        "$DESTDIR/usr/share/icons/hicolor/${s}x$s/apps/firefox.png"
+done

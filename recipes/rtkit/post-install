@@ -1,0 +1,5 @@
+[ "${ROOT:-/}" = / ] || exit 0
+# rtkit-daemon starts as root (D-Bus activation) and drops to this user.
+grep -q '^rtkit:' /etc/group  || groupadd -g 133 rtkit
+grep -q '^rtkit:' /etc/passwd ||
+    useradd -c 'RealtimeKit' -d /proc -u 133 -g rtkit -s /usr/bin/nologin rtkit

@@ -1,0 +1,3 @@
+# Rebuild icon theme caches when packages add or remove icons.
+paths = usr/share/icons/*
+exec  = for d in /usr/share/icons/*/; do [ -f "$d/index.theme" ] && gtk-update-icon-cache -qtf "$d"; done; true

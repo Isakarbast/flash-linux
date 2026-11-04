@@ -1,0 +1,9 @@
+cd gtk-3.24.52
+meson setup build --prefix=/usr --buildtype=release \
+    -Dx11_backend=true -Dwayland_backend=true -Dbroadway_backend=false \
+    -Dprint_backends=cups,file -Dcolord=no -Dcloudproviders=false -Dtracker3=false \
+    -Dintrospection=false -Ddemos=false -Dexamples=false -Dtests=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install
+install -Dm644 ../settings.ini "$DESTDIR/etc/gtk-3.0/settings.ini"
+install -Dm644 -t "$DESTDIR/usr/share/fpm/hooks" ../gtk3-icon-cache.hook ../gtk3-immodules.hook

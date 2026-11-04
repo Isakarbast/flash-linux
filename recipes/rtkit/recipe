@@ -1,0 +1,7 @@
+name        = rtkit
+version     = 0.14
+release     = 1
+description = Realtime scheduling broker (lets PipeWire run its audio threads at realtime priority)
+depends     = dbus polkit libcap
+source      = https://gitlab.freedesktop.org/pipewire/rtkit/-/archive/v0.14/rtkit-v0.14.tar.gz
+sha256      = 55dd379b11f52b81655e2dc676de9d602d050cb0beb18ef01f0f65569f0a5e59

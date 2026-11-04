@@ -1,0 +1,20 @@
+# Offline Go module proxy from the downloaded modules.
+for f in kitty-gomod-*; do
+    n=${f#kitty-gomod-}
+    mod=${n%@*}
+    mkdir -p "goproxy/${mod//+//}/@v"
+    mv "$f" "goproxy/${mod//+//}/@v/${n##*@}"
+done
+export GOPROXY="file://$PWD/goproxy" GOSUMDB=off GOTOOLCHAIN=local GOTELEMETRY=off GOFLAGS=-modcacherw \
+    GOMODCACHE="$PWD/gomodcache" GOCACHE="$PWD/gocache" GOPATH="$PWD/gopath"
+
+# kitty bundles this symbols font; setup.py otherwise looks for it with fc-list.
+install -Dm644 SymbolsNerdFontMono-Regular.ttf kitty-0.50.0/fonts/SymbolsNerdFontMono-Regular.ttf
+cd kitty-0.50.0
+python3 setup.py linux-package --update-check-interval=0 --vcs-rev=v0.50.0 --verbose
+mkdir -p "$DESTDIR/usr"
+cp -r linux-package/* "$DESTDIR/usr/"
+# ncurses already ships the xterm-kitty terminfo entry.
+if [ -e /usr/share/terminfo/x/xterm-kitty ]; then
+    rm -rf "${DESTDIR:?}/usr/share/terminfo"
+fi

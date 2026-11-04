@@ -1,0 +1,5 @@
+cd fribidi-1.0.18
+meson setup build --prefix=/usr --buildtype=release \
+    -Ddocs=false -Dtests=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

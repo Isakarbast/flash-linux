@@ -1,0 +1,7 @@
+name        = libssh
+version     = 0.12.2
+release     = 1
+description = SSH protocol library (sftp:// in Dolphin)
+depends     = openssl zlib
+source      = https://www.libssh.org/files/0.12/libssh-0.12.2.tar.xz
+sha256      = 49560f677d96e3706a904ac2de1116e25f3680937d51e5c92198fcba4a1c1e9f

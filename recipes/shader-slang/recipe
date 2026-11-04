@@ -1,0 +1,7 @@
+name        = shader-slang
+version     = 2026.18.2
+release     = 1
+description = Slang shader compiler (official binary build; kitty builds its shaders with it)
+options     = !strip
+source      = https://github.com/shader-slang/slang/releases/download/v2026.18.2/slang-2026.18.2-linux-x86_64-glibc-2.28.tar.gz
+sha256      = 991f521829100d06846a2697425d588f604f3bf3a23a6bfc499136585f7e6a6f

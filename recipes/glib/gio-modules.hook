@@ -1,0 +1,3 @@
+# Refresh the GIO module cache when packages add or remove modules.
+paths = usr/lib/gio/modules/*
+exec  = gio-querymodules /usr/lib/gio/modules

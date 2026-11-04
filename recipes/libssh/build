@@ -1,0 +1,5 @@
+cd libssh-0.12.2
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_BUILD_TYPE=Release \
+    -D WITH_GSSAPI=OFF -D WITH_EXAMPLES=OFF -D UNIT_TESTING=OFF
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

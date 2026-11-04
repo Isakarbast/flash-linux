@@ -1,0 +1,5 @@
+# Kept in its own directory: its libslang.so would clash with S-Lang's.
+d="$DESTDIR/usr/lib/shader-slang"
+mkdir -p "$d" "$DESTDIR/usr/bin"
+cp -a bin lib include share "$d/"
+ln -s ../lib/shader-slang/bin/slangc "$DESTDIR/usr/bin/slangc"

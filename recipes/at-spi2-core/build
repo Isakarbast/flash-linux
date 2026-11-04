@@ -1,0 +1,7 @@
+cd at-spi2-core-2.62.1
+meson setup build --prefix=/usr --buildtype=release \
+    -Duse_systemd=false -Ddefault_bus=dbus-daemon \
+    -Dgtk2_atk_adaptor=false -Dintrospection=disabled -Ddocs=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install
+rm -rf "${DESTDIR:?}/usr/lib/systemd"

@@ -17,8 +17,8 @@ way Linux From Scratch does.
 | 7a | Qt 6.12 (+ ICU, image libraries, XCB utilities, FFmpeg with dav1d and NVIDIA decode); sqlite rebuilt with its soname | `stage7a.sh` |
 | 7b | KDE Frameworks 6.29 (69 packages) + dependencies (ECM, icons, DocBook, polkit-qt, qca, Aspell, ...) | `stage7b.sh` |
 | 7c | Plasma 6.7 core desktop, Xwayland, SDDM (Wayland greeter), portals, CUPS (Qt rebuilt with it) | `stage7c.sh` |
-| 7d | Dolphin, kitty, Firefox, RTKit | next |
-| 8 | 32-bit libraries, Steam, proton-ge-custom | |
+| 7d | Dolphin, kitty (with Go), Firefox (official binary, on GTK 3), RTKit | `stage7d.sh` |
+| 8 | 32-bit libraries, Steam, proton-ge-custom | next |
 
 ## Stage 1
 
@@ -219,4 +219,33 @@ SDDM shows the login screen on KWin under Wayland
 boot; text logins remain on tty2-6 (Ctrl+Alt+F2). The CUPS print server is
 installed but not started (`rc-update add cupsd default` to print).
 Once bubblewrap is installed, fpm builds run sandboxed (read-only system, no
-network).
+network). Fedora mounts `/` as shared, which bubblewrap can't work under, so
+from this stage on the host scripts (and `enter.sh`) enter the chroot in a
+private mount namespace.
+
+## Stage 7d
+
+```sh
+sudo SOURCE_CACHE=$HOME/.cache/distro-sources ./stage7d.sh
+```
+
+The everyday apps. Dolphin 26.08 with baloo-widgets (information panel),
+kio-extras (sftp via libssh, phones via libmtp, man pages, recent files; built
+without libproxy's WPAD detection) and ffmpegthumbs (video thumbnails).
+kitty 0.50, built from source with the official Go 1.27 binary (packaged as
+`go`, with `GOTOOLCHAIN=local` so it never downloads other toolchains) and
+the official Slang shader compiler binary (`shader-slang`, kept in
+`/usr/lib/shader-slang` with `/usr/bin/slangc`); it bundles the Nerd Fonts
+symbols font. Its Go
+modules are downloaded from proxy.golang.org beforehand (as `name::url`
+sources, also checked against kitty's `go.sum`) and served to the offline
+build as a local module proxy. kitty is set as Plasma's terminal in
+`/etc/xdg/kdeglobals`.
+
+Firefox is Mozilla's signed official build, installed to `/usr/lib/firefox`
+with a policy that turns off its own updater (fpm updates it), telemetry and
+studies. It runs on GTK 3, which brings fribidi, cairo, pango, at-spi2-core,
+hicolor-icon-theme and gsettings-desktop-schemas; `/etc/gtk-3.0/settings.ini`
+uses the Breeze icons and cursors. RTKit lets PipeWire use realtime priority.
+glib is rebuilt (release 2) to ship hooks that recompile GSettings schemas and
+the GIO module cache; gtk3 ships hooks for icon caches and input methods.
