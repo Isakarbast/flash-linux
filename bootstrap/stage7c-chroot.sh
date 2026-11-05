@@ -40,5 +40,6 @@ install_each boost lcms2 json-c libusb libgudev upower accountsservice pixman \
 
 # Boot to the graphical login; text logins stay on tty2-6 (Ctrl+Alt+F2).
 rc-update add sddm default >/dev/null
+rc-update del agetty.tty1 default >/dev/null 2>&1 || true
 
 echo "Stage 7c complete: $(fpm list | wc -l) packages installed"

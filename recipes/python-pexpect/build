@@ -1,0 +1,4 @@
+PIP="python3 $(echo /usr/lib/python3*/ensurepip/_bundled/pip-*.whl)/pip"
+export HOME="$PWD"
+$PIP install --no-deps --no-index --no-build-isolation --no-cache-dir --disable-pip-version-check \
+    --root="$DESTDIR" --prefix=/usr --ignore-installed --no-warn-script-location pexpect-4.9.0-py2.py3-none-any.whl

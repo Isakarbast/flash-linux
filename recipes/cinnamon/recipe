@@ -1,0 +1,8 @@
+name        = cinnamon
+version     = 6.6.9
+release     = 2
+description = The Cinnamon desktop
+depends     = cjs muffin gcr ibus cinnamon-desktop cinnamon-menus cinnamon-session cinnamon-settings-daemon cinnamon-control-center cinnamon-screensaver cinnamon-translations nemo xapp python-xapp gsound libkeybinder3 networkmanager libnotify libsecret polkit upower accountsservice network-manager-applet pygobject pycairo dbus-python python-pam python-pexpect python-pillow python-psutil python-pyinotify python-pytz python-requests python-setproctitle python-tinycss2 sound-theme-freedesktop adwaita-icon-theme xapp-symbolic-icons
+makedepends = gobject-introspection sassc
+source      = https://github.com/linuxmint/cinnamon/archive/6.6.9/cinnamon-6.6.9.tar.gz
+sha256      = 62fe4a47f727fda66b4f38a83d21b23a7ccb9f2af169a5f8e7c0b4258131d6bf

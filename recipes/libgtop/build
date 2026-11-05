@@ -1,0 +1,5 @@
+cd libgtop-2.41.3
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --disable-introspection --disable-gtk-doc
+make
+make DESTDIR="$DESTDIR" install

@@ -1,6 +1,6 @@
 name        = lib32-libxcrypt
 version     = 4.5.2
-release     = 1
+release     = 2
 description = Password hashing library, 32-bit (Steam needs the old libcrypt.so.1)
 depends     = libxcrypt lib32-glibc
 makedepends = gcc

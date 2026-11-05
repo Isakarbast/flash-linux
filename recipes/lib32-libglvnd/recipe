@@ -1,6 +1,6 @@
 name        = lib32-libglvnd
 version     = 1.7.0
-release     = 1
+release     = 2
 description = GL vendor-neutral dispatch library, 32-bit
 depends     = libglvnd lib32-glibc lib32-libx11 lib32-libxext
 makedepends = gcc

@@ -1,0 +1,7 @@
+cd lightdm-gtk-greeter-2.0.9
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --libexecdir=/usr/lib/lightdm --sbindir=/usr/bin --with-libxklavier --enable-kill-on-sigterm \
+    --disable-at-spi-command --disable-indicator-services-command --disable-libido --disable-libindicator
+make
+make DESTDIR="$DESTDIR" install
+install -Dm644 ../lightdm-gtk-greeter.conf "$DESTDIR/etc/lightdm/lightdm-gtk-greeter.conf"

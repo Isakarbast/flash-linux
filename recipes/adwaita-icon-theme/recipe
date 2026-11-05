@@ -1,0 +1,8 @@
+name        = adwaita-icon-theme
+version     = 51.0
+release     = 2
+description = GNOME's Adwaita icons and cursors (used by Xfce, MATE, Cinnamon and Sway)
+arch        = noarch
+depends     = hicolor-icon-theme librsvg
+source      = https://download.gnome.org/sources/adwaita-icon-theme/51/adwaita-icon-theme-51.0.tar.xz
+sha256      = ba561cf3c96305a47179fa5605856ad695c9238ea07f7093aebd9ba80c4e323b

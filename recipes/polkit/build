@@ -6,7 +6,7 @@ meson setup build --prefix=/usr --buildtype=release \
     -Dsession_tracking=elogind \
     -Dauthfw=pam \
     -Dsystemdsystemunitdir=/usr/lib/systemd/system \
-    -Dintrospection=false \
+    -Dintrospection=true \
     -Dman=false -Dgtk_doc=false \
     -Dexamples=false -Dtests=false
 ninja -C build

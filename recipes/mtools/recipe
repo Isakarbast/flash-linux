@@ -1,0 +1,6 @@
+name        = mtools
+version     = 4.0.50
+release     = 1
+description = Reads and writes FAT images without mounting them (for the ISO's EFI image)
+source      = https://ftp.gnu.org/gnu/mtools/mtools-4.0.50.tar.bz2
+sha256      = f3a58e6cfc2634b03c240442548e3b00103692357afc28e1e7104744dd6478b5

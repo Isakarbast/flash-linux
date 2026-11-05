@@ -1,6 +1,6 @@
 name        = lib32-libffi
 version     = 3.8.0
-release     = 1
+release     = 2
 description = Foreign function interface library, 32-bit
 depends     = libffi lib32-glibc
 makedepends = gcc

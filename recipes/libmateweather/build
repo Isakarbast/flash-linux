@@ -1,0 +1,8 @@
+cd libmateweather-1.28.2
+patch -Np1 -i ../libmateweather-libsoup3.patch
+sed -i 's/libsoup-2\.4/libsoup-3.0/g; s/^LIBSOUP_REQUIRED=2\.34\.0$/LIBSOUP_REQUIRED=3.0.0/' configure
+export CFLAGS="$CFLAGS -D_GNU_SOURCE"
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --enable-locations-compression --disable-gtk-doc
+make
+make DESTDIR="$DESTDIR" install

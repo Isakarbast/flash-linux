@@ -1,0 +1,5 @@
+cd libwnck-43.3
+meson setup build --prefix=/usr --buildtype=release \
+    -Dintrospection=enabled -Dgtk_doc=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

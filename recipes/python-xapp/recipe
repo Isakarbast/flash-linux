@@ -1,0 +1,8 @@
+name        = python-xapp
+version     = 3.0.3
+release     = 1
+description = Python helpers for the X-Apps
+arch        = noarch
+depends     = python pygobject xapp python-psutil
+source      = https://github.com/linuxmint/python3-xapp/archive/3.0.3/python3-xapp-3.0.3.tar.gz
+sha256      = 30cf81249a7c5cabc25e465e369928724e091e95c5095704518f14ca6fd11f41

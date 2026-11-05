@@ -1,0 +1,5 @@
+cd pycairo-1.29.2
+meson setup build --prefix=/usr --buildtype=release \
+    -Dtests=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

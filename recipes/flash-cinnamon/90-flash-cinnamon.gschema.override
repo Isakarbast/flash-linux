@@ -1,0 +1,13 @@
+# Flash Linux: kitty as Cinnamon's terminal (its default, GNOME Terminal, isn't packaged).
+[org.cinnamon.desktop.default-applications.terminal]
+exec='kitty'
+exec-arg='--'
+
+# The Flash logo on the menu button and the Flash wallpaper (Cinnamon's default
+# points at GNOME's wallpaper, which isn't packaged).
+[org.cinnamon]
+app-menu-icon-name='flashlinux'
+
+[org.cinnamon.desktop.background]
+picture-uri='file:///usr/share/backgrounds/flash/flash-wallpaper.jpg'
+picture-options='zoom'

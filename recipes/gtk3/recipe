@@ -1,7 +1,8 @@
 name        = gtk3
 version     = 3.24.52
-release     = 1
+release     = 2
 description = GTK 3 toolkit (Firefox and other GTK apps)
+makedepends = gobject-introspection
 depends     = at-spi2-core cairo pango gdk-pixbuf libepoxy libxkbcommon wayland hicolor-icon-theme gsettings-desktop-schemas cups
 source      = https://download.gnome.org/sources/gtk/3.24/gtk-3.24.52.tar.xz settings.ini gtk3-icon-cache.hook gtk3-immodules.hook
 sha256      = 80931fa472a77b9a164f6740e3c0b444fac6770054632d35a7ff9d679e5e7b9f 6e7e80869bdf38b088a27eecd566a520b7485a0b6c9ed4aa5b8a7eaf06c2665d 6be2c97c2ebeb8f7245402e0373af587e9ce4b0ee2d92b11620a7864a2d31487 1cae77f1c14c742dbfab2dc0a0696beb4ce028502ed7fb903ec7514999d37423

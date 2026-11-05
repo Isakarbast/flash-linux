@@ -1,0 +1,5 @@
+cd xdg-desktop-portal-gtk-1.15.3
+meson setup build --prefix=/usr --buildtype=release \
+    -Dwallpaper=disabled
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

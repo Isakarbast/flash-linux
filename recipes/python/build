@@ -4,7 +4,9 @@ cd Python-3.15.2
     --with-system-expat \
     --enable-optimizations \
     --without-static-libpython
-make
+# The optimization run trains on the test suite; test_pickle writes into the
+# system's site-packages, which fpm's build sandbox keeps read-only.
+make PROFILE_TASK='-m test --pgo --timeout=1200 --ignore test_pickle'
 make DESTDIR="$DESTDIR" install
 ln -s python3 "$DESTDIR/usr/bin/python"
 mkdir -p "$DESTDIR/etc"

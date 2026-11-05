@@ -1,0 +1,5 @@
+---
+type:       "job"
+name:       "fpminstall"
+interface:  "python"
+script:     "main.py"

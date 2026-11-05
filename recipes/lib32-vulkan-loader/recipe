@@ -1,6 +1,6 @@
 name        = lib32-vulkan-loader
 version     = 1.4.363.0
-release     = 1
+release     = 2
 description = Vulkan loader, 32-bit
 depends     = vulkan-loader lib32-glibc lib32-libx11 lib32-libxrandr lib32-wayland
 makedepends = gcc

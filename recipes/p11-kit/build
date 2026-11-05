@@ -1,0 +1,5 @@
+cd p11-kit-0.26.5
+meson setup build --prefix=/usr --buildtype=release \
+    -Dtrust_module=disabled -Dsystemd=disabled -Dbash_completion=disabled -Dman=false -Dgtk_doc=false -Dtest=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

@@ -1,0 +1,8 @@
+name        = lib32-libelf
+version     = 0.197
+release     = 1
+description = ELF object file access library, 32-bit (32-bit radeonsi needs it)
+depends     = lib32-glibc lib32-zlib lib32-zstd
+makedepends = gcc
+source      = https://sourceware.org/ftp/elfutils/0.197/elfutils-0.197.tar.bz2
+sha256      = 1fdf525f22dcf796d99a99ba3ea00a1f7b1ae5421bc62e8443a708920b99b904

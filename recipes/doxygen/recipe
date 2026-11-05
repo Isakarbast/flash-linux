@@ -1,0 +1,8 @@
+name        = doxygen
+version     = 1.18.0
+release     = 1
+description = Documentation generator (libxml2 builds its Python module with it)
+depends     = sqlite fmt spdlog
+makedepends = flex bison python
+source      = doxygen-1.18.0.tar.gz::https://github.com/doxygen/doxygen/archive/Release_1_18_0.tar.gz
+sha256      = b32a3def78b0b75a2fd74ee6a63fb4a79cb6273fe31a570362e4e1871fa446da

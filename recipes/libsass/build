@@ -1,0 +1,6 @@
+cd libsass-3.6.6
+export LIBSASS_VERSION=3.6.6
+autoreconf -fi
+./configure --prefix=/usr --disable-static
+make
+make DESTDIR="$DESTDIR" install

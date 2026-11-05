@@ -1,0 +1,5 @@
+cd libayatana-appindicator-0.6.1
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_LIBEXECDIR=lib -W no-dev \
+    -D ENABLE_BINDINGS_MONO=OFF -D ENABLE_BINDINGS_VALA=OFF -D ENABLE_GTKDOC=OFF
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

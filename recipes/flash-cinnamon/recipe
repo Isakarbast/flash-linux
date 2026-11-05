@@ -1,0 +1,8 @@
+name        = flash-cinnamon
+version     = 2026.11
+release     = 2
+description = Cinnamon desktop with Nemo, kitty, Firefox and the LightDM login screen
+arch        = noarch
+depends     = xorg-server xf86-input-libinput xinit xauth setxkbmap xset xrandr xprop cinnamon nemo cinnamon-screensaver kitty firefox mousepad ristretto network-manager-applet gvfs dconf adwaita-icon-theme gsettings-desktop-schemas lightdm lightdm-gtk-greeter flash-branding
+source      = 50-flash-cinnamon.conf 90-flash-cinnamon.gschema.override
+sha256      = 19758a1a4f060d3b4fef6f849eba23b6d73e0ea9763342b333ee93f58d6e2d48 f8c2efc6ff76737d1140226eedc1e1395177b69aaa16e796859330fa6f0c23dd

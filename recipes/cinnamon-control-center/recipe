@@ -1,0 +1,7 @@
+name        = cinnamon-control-center
+version     = 6.6.0
+release     = 1
+description = Cinnamon's settings panels (network, display, color, ...)
+depends     = cinnamon-desktop cinnamon-settings-daemon cinnamon-menus libnma networkmanager polkit upower libgudev
+source      = https://github.com/linuxmint/cinnamon-control-center/archive/6.6.0/cinnamon-control-center-6.6.0.tar.gz
+sha256      = 2de5fbc5a9fcc2e1dad9c595dfb1d9047ff885d391f45d6ffe8b6711bb4e24e4

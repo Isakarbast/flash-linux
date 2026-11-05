@@ -1,0 +1,7 @@
+name        = mate-session-manager
+version     = 1.28.0
+release     = 1
+description = MATE's session manager
+depends     = mate-desktop dbus-glib libsm libxtst xrdb
+source      = https://github.com/mate-desktop/mate-session-manager/releases/download/v1.28.0/mate-session-manager-1.28.0.tar.xz
+sha256      = d32ce4595ba1da65290777203f2bc82bd973b214a3a04080a1ef5c68990a2d7b

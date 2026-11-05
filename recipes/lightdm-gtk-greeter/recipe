@@ -1,0 +1,8 @@
+name        = lightdm-gtk-greeter
+version     = 2.0.9
+release     = 1
+description = LightDM's login screen (GTK 3)
+makedepends = exo xfce4-dev-tools
+depends     = lightdm gtk3 libxklavier adwaita-icon-theme flash-branding
+source      = https://github.com/Xubuntu/lightdm-gtk-greeter/releases/download/lightdm-gtk-greeter-2.0.9/lightdm-gtk-greeter-2.0.9.tar.gz lightdm-gtk-greeter.conf
+sha256      = c8fdf198aa9a3f9d0dad0b48dfe23c2277b79107e8fcfc62965290f1081f645d 7e58b9e6be30d43e92f0051b04e0f9401b6a8ed5e7c2eda1dc016e4729a29b06

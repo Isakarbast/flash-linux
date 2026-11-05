@@ -1,0 +1,7 @@
+name        = libmateweather
+version     = 1.28.2
+release     = 1
+description = MATE's weather library (for the panel clock)
+depends     = gtk3 libsoup3 libxml2
+source      = https://github.com/mate-desktop/libmateweather/releases/download/v1.28.2/libmateweather-1.28.2.tar.xz libmateweather-libsoup3.patch
+sha256      = d2cb300f97da7268855e7506cae4417a88ef296093c79013f79909f70bbee3cb 8f3b5de5f3a26afbfe273f48a2f7d5c077b3099dfdfa35f37ef4137baf8477f7

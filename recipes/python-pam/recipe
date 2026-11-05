@@ -1,0 +1,8 @@
+name        = python-pam
+version     = 2.1.1
+release     = 1
+description = PAM authentication from Python
+arch        = noarch
+depends     = python linux-pam
+source      = https://files.pythonhosted.org/packages/6f/82/9df925abb0b6c8d7853c480d302d05f6c0a5cb6adccb95067ecae1436bb6/python_pam-2.1.1-py3-none-any.whl
+sha256      = 4f85666ebb69ecdf4c2cdcc648e781d3ee0ec60f7048483e160e585a66ab914e

@@ -1,0 +1,5 @@
+cd libei-1.6.0
+meson setup build --prefix=/usr --buildtype=release \
+    -Dtests=disabled -Dsd-bus-provider=libelogind
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

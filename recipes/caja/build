@@ -1,0 +1,5 @@
+cd caja-1.28.0
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --disable-introspection --disable-update-mimedb --disable-self-check --disable-packagekit --disable-gtk-doc
+make
+make DESTDIR="$DESTDIR" install

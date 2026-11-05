@@ -1,0 +1,7 @@
+name        = xorriso
+version     = 1.5.8
+release     = 1
+description = Creates and edits ISO 9660 images (GNU xorriso, with libburn/libisofs/libisoburn built in)
+depends     = zlib acl readline
+source      = https://ftp.gnu.org/gnu/xorriso/xorriso-1.5.8.tar.gz
+sha256      = 319e3675cd7d986bf71d36596ca7b03dac172a758462bedcbbd298a7f86f36cc

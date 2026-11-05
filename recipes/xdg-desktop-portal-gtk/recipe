@@ -1,0 +1,7 @@
+name        = xdg-desktop-portal-gtk
+version     = 1.15.3
+release     = 1
+description = GTK file chooser and settings for xdg-desktop-portal (non-KDE desktops)
+depends     = xdg-desktop-portal gtk3 gsettings-desktop-schemas
+source      = https://github.com/flatpak/xdg-desktop-portal-gtk/releases/download/1.15.3/xdg-desktop-portal-gtk-1.15.3.tar.xz
+sha256      = 47a3743d2419a8601e691db37e85bb5fac5ae4b26842177065cd5f22ada23b37

@@ -1,0 +1,8 @@
+name        = cinnamon-menus
+version     = 6.6.0
+release     = 1
+description = Cinnamon's menu library
+depends     = glib
+makedepends = gobject-introspection
+source      = https://github.com/linuxmint/cinnamon-menus/archive/6.6.0/cinnamon-menus-6.6.0.tar.gz
+sha256      = 87596380720077991f58afdbbabe72d9afd10f56d64043076cf7b09bc6b0f3c1

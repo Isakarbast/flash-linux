@@ -1,6 +1,6 @@
 name        = lib32-libxi
 version     = 1.8.4
-release     = 1
+release     = 2
 description = X11 library, 32-bit: input extension
 depends     = libxi lib32-glibc lib32-libxext lib32-libxfixes
 makedepends = gcc

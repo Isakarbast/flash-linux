@@ -1,6 +1,6 @@
 name        = lib32-libxrender
 version     = 0.9.13
-release     = 1
+release     = 2
 description = X11 library, 32-bit: Render extension
 depends     = libxrender lib32-glibc lib32-libx11
 makedepends = gcc

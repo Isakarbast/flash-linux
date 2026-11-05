@@ -1,0 +1,8 @@
+name        = muffin
+version     = 6.6.3
+release     = 1
+description = Cinnamon's window manager and compositor
+depends     = cinnamon-desktop graphene gtk3 json-glib libcanberra libinput libwacom libxkbcommon startup-notification xwayland pipewire mesa
+makedepends = gobject-introspection
+source      = https://github.com/linuxmint/muffin/archive/6.6.3/muffin-6.6.3.tar.gz
+sha256      = af1aa8e68699895a841415c007c7f3f48efc06f07c50d219d30f8131a981248e

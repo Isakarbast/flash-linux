@@ -1,0 +1,8 @@
+name        = hyprtoolkit
+version     = 0.6.0
+release     = 1
+description = GUI toolkit for Hyprland's dialogs
+depends     = aquamarine hyprgraphics hyprlang hyprutils iniparser abseil-cpp pango cairo libxkbcommon mesa
+makedepends = hyprwayland-scanner
+source      = https://github.com/hyprwm/hyprtoolkit/archive/v0.6.0/hyprtoolkit-0.6.0.tar.gz
+sha256      = 53c41be72af97d9ede274a63c9c1034c58726d862905763ed6e5a564ae42ba6b

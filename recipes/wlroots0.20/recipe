@@ -1,0 +1,8 @@
+name        = wlroots0.20
+version     = 0.20.2
+release     = 1
+description = Wayland compositor library (Sway and MangoWC are built on it)
+depends     = libinput libdrm mesa pixman wayland libxkbcommon seatd libdisplay-info libliftoff hwdata xwayland xcb-util-wm xcb-util-errors xcb-util-renderutil vulkan-loader lcms2
+makedepends = wayland-protocols glslang
+source      = https://gitlab.freedesktop.org/wlroots/wlroots/-/releases/0.20.2/downloads/wlroots-0.20.2.tar.gz
+sha256      = 80c567d2ed4efb2cfa6b077f22c7a710d9c78ba4e185a75e8694001114af0733

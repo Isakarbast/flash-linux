@@ -1,0 +1,8 @@
+name        = filesystem
+version     = 2026.11
+release     = 1
+description = Base directory layout (merged /usr), and the system's users, groups and hosts files
+arch        = noarch
+options     = !usrmerge
+source      = passwd group hosts
+sha256      = 81db7b78ceb90fa16779beaca5157e4082db3e7ac88c580ed2ba1542b71d2cdf 8822b2f530ea351ad893979075463e0483c5686c18e1c481a28f0998f1c120b9 2524b10d756adee7cbdc1ce0eb1b4229dcb330bc5c81299cec21c2326fa2a97e

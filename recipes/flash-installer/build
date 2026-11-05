@@ -1,0 +1,25 @@
+c="$DESTDIR/etc/calamares"
+install -Dm644 settings.conf "$c/settings.conf"
+for f in welcome locale keyboard partition users mount fstab machineid displaymanager \
+         services-openrc bootloader grubcfg finished umount networkcfg \
+         packagechooser-desktop packagechooser-driver packagechooser-extras; do
+    install -Dm644 "$f.conf" "$c/modules/$f.conf"
+done
+
+# Branding: ours, with the logo from flash-branding and Calamares's language
+# picture.
+b="$c/branding/flash"
+install -Dm644 branding.desc "$b/branding.desc"
+install -Dm644 show.qml "$b/show.qml"
+install -Dm644 -t "$b" calamares-3.4.2/src/branding/default/languages.png
+ln -s /usr/share/pixmaps/flash-linux.png "$b/flash-linux.png"
+
+# Our Python job modules.
+m="$DESTDIR/usr/lib/calamares/modules"
+install -Dm644 fpminstall.desc "$m/fpminstall/module.desc"
+install -Dm644 fpminstall.py "$m/fpminstall/main.py"
+install -Dm644 flashcfg.desc "$m/flashcfg/module.desc"
+install -Dm644 flashcfg.py "$m/flashcfg/main.py"
+
+install -Dm644 installer.conf "$DESTDIR/etc/fpm/installer.conf"
+install -Dm644 -t "$DESTDIR/usr/share/flash-installer" preview-xfce.jpg preview-mate.jpg preview-hyprland.jpg preview-sway.jpg preview-mango.jpg preview-cinnamon.jpg

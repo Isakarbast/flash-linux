@@ -1,0 +1,5 @@
+cd doxygen-Release_1_18_0
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_BUILD_TYPE=Release \
+    -D build_doc=OFF -D build_wizard=OFF -D use_sys_spdlog=ON -D use_sys_sqlite3=ON -D use_sys_fmt=ON -D use_libclang=OFF
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

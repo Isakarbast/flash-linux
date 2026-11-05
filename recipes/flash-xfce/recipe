@@ -1,0 +1,8 @@
+name        = flash-xfce
+version     = 2026.11
+release     = 1
+description = Xfce desktop with Thunar, xfce4-terminal, Mousepad, Firefox and the LightDM login screen
+arch        = noarch
+depends     = xorg-server xf86-input-libinput xinit xauth setxkbmap xset xrandr xprop lightdm lightdm-gtk-greeter libxfce4util xfconf libxfce4ui garcon exo libxfce4windowing xfce4-panel thunar thunar-volman tumbler xfce4-settings xfwm4 xfdesktop xfce4-session xfce4-appfinder xfce4-power-manager xfce4-notifyd xfce4-terminal mousepad ristretto xfce4-screenshooter xfce4-pulseaudio-plugin network-manager-applet polkit-gnome gvfs dconf adwaita-icon-theme gsettings-desktop-schemas firefox flash-branding
+source      = 50-flash-xfce.conf
+sha256      = 87ab4ee093c09e4bd7c953bba1339c5c876a4c1f81c8be24227783555039327f

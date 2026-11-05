@@ -1,6 +1,9 @@
 cd glib-2.90.1
+# Introspection data needs gobject-introspection, which itself needs glib:
+# built when its tools are installed (stage 9f rebuilds glib after it).
+if command -v g-ir-scanner >/dev/null; then gi=enabled; else gi=disabled; fi
 meson setup build --prefix=/usr --buildtype=release \
-    -Dintrospection=disabled \
+    -Dintrospection=$gi \
     -Dglib_debug=disabled \
     -Dman-pages=disabled \
     -Dsysprof=disabled \

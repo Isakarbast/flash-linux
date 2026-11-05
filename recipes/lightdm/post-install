@@ -1,0 +1,6 @@
+[ "${ROOT:-/}" = / ] || exit 0
+grep -q "^lightdm:" /etc/group  || groupadd -g 620 lightdm
+grep -q "^lightdm:" /etc/passwd ||
+    useradd -c "LightDM greeter" -d /var/lib/lightdm -u 620 -g lightdm -G video -s /usr/bin/nologin lightdm
+install -d -o lightdm -g lightdm -m 750 /var/lib/lightdm /var/lib/lightdm-data /var/cache/lightdm
+install -d -m 711 /var/log/lightdm

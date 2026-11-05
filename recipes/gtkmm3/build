@@ -1,0 +1,5 @@
+cd gtkmm-3.24.11
+meson setup build --prefix=/usr --buildtype=release \
+    -Dbuild-documentation=false -Dbuild-demos=false -Dbuild-tests=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

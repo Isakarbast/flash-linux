@@ -1,0 +1,5 @@
+cd atkmm-2.28.5
+meson setup build --prefix=/usr --buildtype=release \
+    -Dbuild-documentation=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

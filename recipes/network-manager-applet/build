@@ -1,0 +1,7 @@
+cd network-manager-applet-1.36.0
+meson setup build --prefix=/usr --buildtype=release \
+    -Dselinux=false -Dteam=false -Dappindicator=ayatana -Dwwan=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install
+# The settings schema is in libnma.
+rm "$DESTDIR/usr/share/glib-2.0/schemas/org.gnome.nm-applet.gschema.xml"

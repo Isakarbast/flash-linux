@@ -1,0 +1,8 @@
+name        = hypridle
+version     = 0.1.8
+release     = 2
+description = Hyprland's idle daemon (screen off, lock)
+depends     = hyprlang hyprutils sdbus-cpp wayland
+makedepends = hyprland-protocols hyprwayland-scanner wayland-protocols
+source      = https://github.com/hyprwm/hypridle/archive/v0.1.8/hypridle-0.1.8.tar.gz
+sha256      = 08703613cc33cc796c2179bcaa6076e8618113f67b938daaf7535f90c7d39595

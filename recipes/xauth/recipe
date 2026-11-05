@@ -1,0 +1,7 @@
+name        = xauth
+version     = 1.1.5
+release     = 1
+description = Manages X authorization cookies
+depends     = libxmu libxext libxau
+source      = https://www.x.org/pub/individual/app/xauth-1.1.5.tar.xz
+sha256      = a4000e2f441facebf569026bedecc23ba262cc6927be52070abe0002625cfbe0

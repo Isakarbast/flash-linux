@@ -46,7 +46,7 @@ rc-update add dhcpcd default >/dev/null
 cat > /etc/default/grub <<'EOF'
 GRUB_DEFAULT=0
 GRUB_TIMEOUT=5
-GRUB_DISTRIBUTOR="Freedom Linux"
+GRUB_DISTRIBUTOR="Flash Linux"
 GRUB_CMDLINE_LINUX_DEFAULT=""
 GRUB_CMDLINE_LINUX=""
 # No initramfs: the kernel can't look up root=UUID= by itself, but it can
@@ -68,8 +68,8 @@ MENU
 EOF
 chmod 755 /etc/grub.d/41_fedora
 
-echo "==> Installing GRUB to /boot/efi/EFI/freedom"
-grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=freedom --no-nvram
+echo "==> Installing GRUB to /boot/efi/EFI/flash"
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=flash --no-nvram
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # Passwords and a user account need a person at the keyboard.

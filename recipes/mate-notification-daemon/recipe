@@ -1,0 +1,7 @@
+name        = mate-notification-daemon
+version     = 1.28.5
+release     = 1
+description = MATE's notification daemon
+depends     = gtk3 libnotify libcanberra libwnck3 gtk-layer-shell
+source      = https://github.com/mate-desktop/mate-notification-daemon/releases/download/v1.28.5/mate-notification-daemon-1.28.5.tar.xz
+sha256      = d3090ea9d1a859e2def9c4d2319f9ac96a79b7a33598a97784db40be2508f668

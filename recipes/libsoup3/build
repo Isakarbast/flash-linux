@@ -1,0 +1,6 @@
+cd libsoup-3.8.1
+meson setup build --prefix=/usr --buildtype=release \
+    -Dgssapi=disabled -Dntlm=disabled -Dbrotli=disabled -Dtests=false -Dintrospection=enabled -Dvapi=disabled \
+    -Ddocs=disabled -Dsysprof=disabled -Dautobahn=disabled -Dpkcs11_tests=disabled
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

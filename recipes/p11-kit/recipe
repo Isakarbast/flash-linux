@@ -1,0 +1,7 @@
+name        = p11-kit
+version     = 0.26.5
+release     = 1
+description = Loads PKCS#11 security modules (smart cards, key stores)
+depends     = libffi
+source      = https://github.com/p11-glue/p11-kit/releases/download/0.26.5/p11-kit-0.26.5.tar.xz
+sha256      = f2cc09111e44bf3fea58f023180b33acea90aa82d042d6fbb623fbc5ba033bb7

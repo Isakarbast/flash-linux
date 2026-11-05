@@ -1,0 +1,6 @@
+cd seatd-0.9.3
+meson setup build --prefix=/usr --buildtype=release \
+    -Dlibseat-logind=elogind -Dlibseat-seatd=disabled -Dlibseat-builtin=disabled -Dserver=disabled \
+    -Dexamples=disabled -Dman-pages=disabled
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

@@ -1,6 +1,6 @@
 name        = lib32-libxrandr
 version     = 1.5.5
-release     = 1
+release     = 2
 description = X11 library, 32-bit: RandR extension
 depends     = libxrandr lib32-glibc lib32-libxext lib32-libxrender
 makedepends = gcc

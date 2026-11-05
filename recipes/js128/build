@@ -1,0 +1,19 @@
+cd firefox-128.14.0
+# Newer Rust lists several x86_64 Linux targets; this release's configure
+# can't choose between them, so pick the standard one.
+sed -i '/^    def find_candidate(candidates):$/a\        for c in candidates:\n            if c.rust_target == "x86_64-unknown-linux-gnu":\n                return c.rust_target' build/moz.configure/rust.configure
+# Python 3.12+ removed ast.Str (newer Firefox uses ast.Constant).
+sed -i 's/slice=c(ast.Index(value=c(ast.Str(s=node.id)))),/slice=c(ast.Constant(value=node.id)),/; s/assert isinstance(v, ast.Str)/assert isinstance(v, ast.Constant)/; s/yield v\.s$/yield v.value/; s/assert isinstance(value, ast.Str)/assert isinstance(value, ast.Constant)/; s/yield value\.s$/yield value.value/' python/mozbuild/mozbuild/frontend/reader.py
+mkdir obj
+cd obj
+# It links ICU as -licui18n alone (from pkg-config); add the rest of ICU, and
+# keep --as-needed from dropping libraries listed before the code using them.
+export LDFLAGS="${LDFLAGS//,--as-needed/} -licuuc -licudata"
+export MOZBUILD_STATE_PATH="$PWD/mozbuild" MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE=none
+CC=gcc CXX=g++ ../js/src/configure --prefix=/usr --disable-debug-symbols --disable-jemalloc \
+    --enable-readline --with-intl-api --with-system-icu --with-system-zlib \
+    --enable-shared-js --disable-tests --enable-optimize
+make
+make DESTDIR="$DESTDIR" install
+rm -f "$DESTDIR/usr/lib/libjs_static.ajs"
+sed -i '/@NSPR_CFLAGS@/d' "$DESTDIR/usr/bin/js128-config"

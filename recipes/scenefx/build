@@ -1,0 +1,5 @@
+cd scenefx-0.5
+meson setup build --prefix=/usr --buildtype=release \
+    -Dexamples=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

@@ -1,0 +1,8 @@
+name        = lib32-llvm
+version     = 23.1.0
+release     = 1
+description = LLVM libraries, 32-bit (32-bit mesa uses them for AMD and software rendering)
+depends     = lib32-glibc lib32-gcc-libs
+makedepends = gcc
+source      = https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.0/llvm-project-23.1.0.src.tar.xz
+sha256      = ab1f0e3ec52448c33e8782eaf0422504b87c7b016b22514653ee0d8fcee479ff

@@ -1,0 +1,9 @@
+cd libpciaccess-0.19
+export CC="gcc -m32" CXX="g++ -m32"
+export PKG_CONFIG_LIBDIR=/usr/lib32/pkgconfig:/usr/share/pkgconfig
+meson setup build --cross-file lib32 --prefix=/usr --libdir=/usr/lib32 --buildtype=release
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install
+# Keep only /usr/lib32: headers, programs and data come from the 64-bit package.
+find "$DESTDIR" -mindepth 1 -maxdepth 1 ! -name usr -exec rm -rf {} +
+find "$DESTDIR/usr" -mindepth 1 -maxdepth 1 ! -name lib32 -exec rm -rf {} +

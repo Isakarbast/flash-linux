@@ -1,0 +1,7 @@
+name        = hyprlang
+version     = 0.6.8
+release     = 1
+description = Hyprland's configuration language
+depends     = hyprutils
+source      = https://github.com/hyprwm/hyprlang/archive/v0.6.8/hyprlang-0.6.8.tar.gz
+sha256      = d10a0778b646e04d83e8b90cc0f764fb96958c01a15c3c0678d95a40fc647ed5

@@ -1,0 +1,7 @@
+name        = mate-settings-daemon
+version     = 1.28.0
+release     = 1
+description = MATE's settings daemon
+depends     = mate-desktop libmatekbd libmatemixer libnotify libcanberra dbus-glib polkit pulseaudio
+source      = https://github.com/mate-desktop/mate-settings-daemon/releases/download/v1.28.0/mate-settings-daemon-1.28.0.tar.xz
+sha256      = 4ed7cdadaaa4c99efffc0282b8411703bb76e072c41c4b57989f8c5b40611a3a

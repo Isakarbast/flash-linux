@@ -1,0 +1,4 @@
+cd hyprlang-0.6.8
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_LIBEXECDIR=lib -W no-dev
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

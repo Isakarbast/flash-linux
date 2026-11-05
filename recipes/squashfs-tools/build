@@ -1,0 +1,4 @@
+cd squashfs-tools-4.7.5/squashfs-tools
+opts="GZIP_SUPPORT=1 XZ_SUPPORT=1 ZSTD_SUPPORT=1 LZ4_SUPPORT=1 LZO_SUPPORT=0"
+make $opts
+make $opts INSTALL_PREFIX="$DESTDIR/usr" INSTALL_MANPAGES_DIR="$DESTDIR/usr/share/man/man1" install

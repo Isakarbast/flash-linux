@@ -1,0 +1,7 @@
+cd zstd-1.5.7
+make -C lib CC="gcc -m32" prefix=/usr libdir=/usr/lib32
+make -C lib CC="gcc -m32" prefix=/usr libdir=/usr/lib32 DESTDIR="$DESTDIR" install
+rm -f "$DESTDIR/usr/lib32/libzstd.a"
+# Keep only /usr/lib32: headers, programs and data come from the 64-bit package.
+find "$DESTDIR" -mindepth 1 -maxdepth 1 ! -name usr -exec rm -rf {} +
+find "$DESTDIR/usr" -mindepth 1 -maxdepth 1 ! -name lib32 -exec rm -rf {} +

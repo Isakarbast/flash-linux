@@ -1,6 +1,6 @@
 name        = lib32-libxinerama
 version     = 1.1.6
-release     = 1
+release     = 2
 description = X11 library, 32-bit: Xinerama extension
 depends     = libxinerama lib32-glibc lib32-libxext
 makedepends = gcc

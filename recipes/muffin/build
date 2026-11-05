@@ -1,0 +1,5 @@
+cd muffin-6.6.3
+meson setup build --prefix=/usr --buildtype=release \
+    -Dwayland=false -Dcore_tests=false -Dtests=false -Dprofiler=false -Dlibwacom=false -Dremote_desktop=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

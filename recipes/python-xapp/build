@@ -1,0 +1,4 @@
+cd python3-xapp-3.0.3
+meson setup build --prefix=/usr --buildtype=release
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

@@ -1,0 +1,7 @@
+name        = dconf
+version     = 51.0
+release     = 1
+description = GSettings storage (remembers settings of GTK programs)
+depends     = glib dbus
+source      = https://download.gnome.org/sources/dconf/51/dconf-51.0.tar.xz
+sha256      = e65c1b7867f836faad9f9ee04acf5c5a6cae2bbc784833fe093207e0cb590248

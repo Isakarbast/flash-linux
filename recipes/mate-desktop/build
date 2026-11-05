@@ -1,0 +1,5 @@
+cd mate-desktop-1.28.2
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --disable-introspection --disable-schemas-compile
+make
+make DESTDIR="$DESTDIR" install

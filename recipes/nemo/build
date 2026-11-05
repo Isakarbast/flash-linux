@@ -1,0 +1,5 @@
+cd nemo-6.6.4
+meson setup build --prefix=/usr --buildtype=release \
+    --libexecdir=/usr/lib/nemo -Dgtk_doc=false -Dtracker=false -Dselinux=false -Dempty_view=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

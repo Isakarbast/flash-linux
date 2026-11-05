@@ -1,0 +1,7 @@
+name        = libayatana-appindicator
+version     = 0.6.1
+release     = 1
+description = Tray icons over StatusNotifier (shown by Waybar and other panels)
+depends     = gtk3 libdbusmenu libayatana-indicator
+source      = https://github.com/AyatanaIndicators/libayatana-appindicator/archive/0.6.1/libayatana-appindicator-0.6.1.tar.gz
+sha256      = 56c0b938ffaa3e17b10c38d3e54c16d316f41f0da61949eda028adbf19ee767f

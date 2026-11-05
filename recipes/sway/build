@@ -1,0 +1,12 @@
+cd sway-1.12
+# kitty and fuzzel in the default config itself: the key bindings take the
+# values $term and $menu have where they are defined.
+sed -i 's/^set \$term foot$/set $term kitty/; s/^set \$menu wmenu-run$/set $menu fuzzel/' config.in
+meson setup build --prefix=/usr --buildtype=release \
+    -Dsd-bus-provider=libelogind -Dman-pages=disabled -Dwerror=false -Db_ndebug=true \
+    -Dzsh-completions=false -Dfish-completions=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install
+install -Dm644 ../50-flash.conf "$DESTDIR/etc/sway/config.d/50-flash.conf"
+# NVIDIA's driver works with Sway, which otherwise refuses to start on it.
+sed -i 's/^Exec=sway$/Exec=sway --unsupported-gpu/' "$DESTDIR/usr/share/wayland-sessions/sway.desktop"

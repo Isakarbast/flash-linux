@@ -1,0 +1,8 @@
+name        = libnotify
+version     = 0.8.9
+release     = 2
+description = Desktop notification library
+makedepends = gobject-introspection
+depends     = gdk-pixbuf glib
+source      = https://download.gnome.org/sources/libnotify/0.8/libnotify-0.8.9.tar.xz
+sha256      = c906bb084027ea512f94a60fbfc0cc8d4f17e4b4d525bed370d07a6d8714c923

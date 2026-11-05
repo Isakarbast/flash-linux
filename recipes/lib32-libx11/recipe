@@ -1,6 +1,6 @@
 name        = lib32-libx11
 version     = 1.8.14
-release     = 1
+release     = 2
 description = X11 library, 32-bit: core client library
 depends     = libx11 lib32-glibc lib32-libxcb
 makedepends = gcc

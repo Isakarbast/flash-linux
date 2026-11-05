@@ -1,0 +1,24 @@
+cd hyprland-source
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_LIBEXECDIR=lib -W no-dev \
+    -D NO_SYSTEMD=ON -D NO_HYPRPM=ON
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install
+# Flash Linux defaults in the example config (Lua), which new users get from
+# /etc/skel (Hyprland itself would generate a bare one): Thunar and fuzzel,
+# and sound, the bar, notifications, network menu, polkit agent and idle
+# daemon started with the session.
+c="$DESTDIR/usr/share/hypr/hyprland.lua"
+sed -i 's/^local fileManager = .*/local fileManager = "thunar"/; s/^local menu        = .*/local menu        = "fuzzel"/' "$c"
+cat >> "$c" <<'EOF2'
+
+-- Flash Linux: sound, panel, notifications, network menu, password prompts, idle
+hl.on("hyprland.start", function ()
+    hl.exec_cmd("pipewire-launcher")
+    hl.exec_cmd("waybar")
+    hl.exec_cmd("mako")
+    hl.exec_cmd("nm-applet --indicator")
+    hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
+    hl.exec_cmd("hypridle")
+end)
+EOF2
+install -Dm644 "$c" "$DESTDIR/etc/skel/.config/hypr/hyprland.lua"

@@ -1,0 +1,7 @@
+name        = xfce4-notifyd
+version     = 0.9.7
+release     = 1
+description = Xfce's notification daemon
+depends     = libxfce4ui libnotify libcanberra sqlite xfce4-panel gtk-layer-shell
+source      = https://archive.xfce.org/src/apps/xfce4-notifyd/0.9/xfce4-notifyd-0.9.7.tar.bz2
+sha256      = 170d18fd5f40cce823ffc7ae3d7e21644007c3f45808ab4835f0401d21b3516a

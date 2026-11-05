@@ -1,0 +1,5 @@
+cd xapp-3.2.3
+meson setup build --prefix=/usr --buildtype=release \
+    -Ddocs=false -Dmate=false -Dxfce=false -Dvapi=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

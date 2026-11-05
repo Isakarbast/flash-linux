@@ -1,0 +1,8 @@
+name        = lib32-mesa
+version     = 26.2.3
+release     = 1
+description = OpenGL and Vulkan drivers, 32-bit (AMD, Intel, nouveau, software rendering)
+depends     = lib32-glibc mesa lib32-llvm lib32-libelf lib32-libdrm lib32-libglvnd lib32-wayland lib32-expat lib32-zlib lib32-zstd lib32-libxshmfence lib32-libxxf86vm lib32-libxrandr lib32-libxext lib32-libxfixes
+makedepends = gcc mesa
+source      = https://mesa.freedesktop.org/archive/mesa-26.2.3.tar.xz
+sha256      = 1628058a8d2c0615975de5a15ab7bbb9638c50000b5bed9456ff423ea034a81f

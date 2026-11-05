@@ -1,0 +1,7 @@
+name        = mate-power-manager
+version     = 1.28.1
+release     = 1
+description = MATE's power manager (battery, brightness, sleep)
+depends     = mate-desktop upower libnotify libcanberra libsecret dbus-glib polkit
+source      = https://github.com/mate-desktop/mate-power-manager/releases/download/v1.28.1/mate-power-manager-1.28.1.tar.xz
+sha256      = 8ebdcb74b607e868336ba9a8146cdef8f97bce535c2b0cb3bf650c58f71eee21

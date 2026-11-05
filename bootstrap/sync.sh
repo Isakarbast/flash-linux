@@ -10,6 +10,12 @@ sync_recipes() {
     rm -rf "$LFS/sources/fpm"
     mkdir -p "$LFS/sources/fpm"
     tar -C "$FPM_SRC" --exclude=.git --exclude='*.o' --exclude=./fpm -cf - . | tar -xf - -C "$LFS/sources/fpm"
+    # The fpm recipe's source: its release tarball, made here because the
+    # repository is private (as the user who owns the checkout, for git).
+    local as=()
+    [ -z "${SUDO_USER:-}" ] || as=(runuser -u "$SUDO_USER" --)
+    "${as[@]}" make -s -C "$FPM_SRC" dist
+    mv "$FPM_SRC"/fpm-*.tar.gz "$LFS/var/cache/fpm/sources/"
 }
 
 # Every remote source of every recipe. Tarballs from the earlier stages, or in

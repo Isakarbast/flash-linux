@@ -1,0 +1,7 @@
+name        = flash-gaming
+version     = 2026.11
+release     = 1
+description = Steam and Proton-GE with the 32-bit libraries and drivers games need (add lib32-nvidia for NVIDIA GPUs)
+replaces    = freedom-gaming
+arch        = noarch
+depends     = lib32-glibc lib32-gcc-libs lib32-libffi lib32-libxau lib32-libxdmcp lib32-libxcb lib32-libx11 lib32-libxext lib32-libxrender lib32-libxfixes lib32-libxrandr lib32-libxxf86vm lib32-libxshmfence lib32-libxscrnsaver lib32-libxi lib32-libxcursor lib32-libxinerama lib32-libxcomposite lib32-libxdamage lib32-libdrm lib32-wayland lib32-libglvnd lib32-vulkan-loader lib32-eudev lib32-alsa-lib lib32-libxcrypt steam proton-ge-custom lib32-libpciaccess lib32-zlib lib32-expat lib32-zstd lib32-llvm lib32-mesa

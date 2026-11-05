@@ -1,0 +1,8 @@
+name        = flash-mate
+version     = 2026.11
+release     = 1
+description = MATE desktop with Caja, MATE Terminal, Mousepad, Firefox and the LightDM login screen
+arch        = noarch
+depends     = xorg-server xf86-input-libinput xinit xauth setxkbmap xset xrandr xprop mate-desktop libmatekbd libmatemixer libmateweather mate-menus mate-panel marco mate-settings-daemon mate-session-manager caja mate-control-center mate-polkit mate-notification-daemon mate-power-manager mate-media mate-screensaver mate-terminal mate-system-monitor mate-icon-theme mate-themes mate-backgrounds mousepad ristretto network-manager-applet gvfs dconf adwaita-icon-theme gsettings-desktop-schemas firefox lightdm lightdm-gtk-greeter flash-branding
+source      = 50-flash-mate.conf
+sha256      = 0c099fcf4dbd97f11b01e0fdac819efd3ec5a6cafdca4cb8b776253a6443268c

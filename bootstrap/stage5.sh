@@ -4,7 +4,7 @@
 # Copies the recipes in, downloads the sources, then chroots in and runs
 # stage5-chroot.sh: kernel, firmware, eudev, OpenRC, GRUB, networking, sudo,
 # this machine's settings, GRUB on the shared EFI partition, and passwords.
-# Finally it adds a "Freedom Linux" entry to the firmware's boot menu and
+# Finally it adds a "Flash Linux" entry to the firmware's boot menu and
 # boots it once on the next restart; after that the PC starts Fedora again
 # unless you choose otherwise (see the message at the end).
 #
@@ -18,7 +18,7 @@ LFS=${LFS:-/mnt/nvme0n1p1}
 HERE=$(cd "$(dirname "$0")" && pwd)
 FPM_SRC=${FPM_SRC:-$(cd "$HERE/../../fpm" && pwd)}
 RECIPES=$(cd "$HERE/../recipes" && pwd)
-LABEL="Freedom Linux"
+LABEL="Flash Linux"
 
 die() { echo "stage5: $*" >&2; exit 1; }
 
@@ -68,7 +68,7 @@ chroot "$LFS" /usr/bin/env -i \
 if ! efibootmgr | grep -q "$LABEL"; then
     disk=/dev/$(lsblk -no PKNAME "$esp_dev")
     part=$(cat "/sys/class/block/${esp_dev##*/}/partition")
-    efibootmgr -q -C -d "$disk" -p "$part" -L "$LABEL" -l '\EFI\freedom\grubx64.efi'
+    efibootmgr -q -C -d "$disk" -p "$part" -L "$LABEL" -l '\EFI\flash\grubx64.efi'
 fi
 num=$(efibootmgr | sed -n "s/^Boot\([0-9A-F]\{4\}\)\*\{0,1\} $LABEL.*/\1/p" | head -1)
 [ -n "$num" ] || die "could not create the boot entry"

@@ -1,0 +1,6 @@
+cd xfce4-session-4.20.4
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static
+make
+make DESTDIR="$DESTDIR" install
+install -Dm644 ../xfce-polkit-gnome-authentication-agent-1.desktop \
+    "$DESTDIR/etc/xdg/autostart/xfce-polkit-gnome-authentication-agent-1.desktop"

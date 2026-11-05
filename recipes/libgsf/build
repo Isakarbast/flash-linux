@@ -1,0 +1,5 @@
+cd libgsf-1.14.60
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --disable-gtk-doc --disable-introspection
+make
+make DESTDIR="$DESTDIR" install

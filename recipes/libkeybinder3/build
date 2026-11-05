@@ -1,0 +1,5 @@
+cd keybinder-3.0-0.3.2
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --disable-gtk-doc
+make
+make DESTDIR="$DESTDIR" install

@@ -1,0 +1,6 @@
+cd swaylock-1.8.6
+meson setup build --prefix=/usr --buildtype=release \
+    -Dman-pages=disabled -Dpam=enabled -Dgdk-pixbuf=enabled -Dzsh-completions=false -Dfish-completions=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install
+install -Dm644 ../swaylock.pam "$DESTDIR/etc/pam.d/swaylock"

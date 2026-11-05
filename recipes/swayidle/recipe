@@ -1,0 +1,7 @@
+name        = swayidle
+version     = 1.9.1
+release     = 1
+description = Runs commands when the computer is idle (screen off, lock)
+depends     = wayland elogind
+source      = https://github.com/swaywm/swayidle/releases/download/v1.9.1/swayidle-1.9.1.tar.gz
+sha256      = 6e1655ecba30db14de3df1652ef9dd1db72784946fa65cb222404a87ac825d57

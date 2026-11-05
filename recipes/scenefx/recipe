@@ -1,0 +1,7 @@
+name        = scenefx
+version     = 0.5
+release     = 1
+description = wlroots scene renderer with blur, shadows and rounded corners (for MangoWC)
+depends     = wlroots0.20
+source      = https://github.com/wlrfx/scenefx/archive/0.5/scenefx-0.5.tar.gz
+sha256      = 0fa8ecca0e310f813efd052624c5ed7d9153d6a0fdead5cc957d34c07f9a86c6

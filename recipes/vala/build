@@ -1,0 +1,5 @@
+cd vala-0.56.19
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --disable-valadoc
+make
+make DESTDIR="$DESTDIR" install

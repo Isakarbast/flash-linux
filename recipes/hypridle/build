@@ -1,0 +1,7 @@
+cd hypridle-0.1.8
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_LIBEXECDIR=lib -W no-dev
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install
+# New users get the example config (screen off and lock when idle); without a
+# config hypridle does nothing.
+install -Dm644 "$DESTDIR/usr/share/hypr/hypridle.conf" "$DESTDIR/etc/skel/.config/hypr/hypridle.conf"

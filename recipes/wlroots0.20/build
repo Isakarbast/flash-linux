@@ -1,0 +1,5 @@
+cd wlroots-0.20.2
+meson setup build --prefix=/usr --buildtype=release \
+    -Dxwayland=enabled -Dbackends=drm,libinput,x11 -Drenderers=gles2,vulkan -Dsession=enabled -Dexamples=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

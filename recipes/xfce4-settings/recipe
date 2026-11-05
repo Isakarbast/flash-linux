@@ -1,0 +1,7 @@
+name        = xfce4-settings
+version     = 4.20.5
+release     = 1
+description = Xfce's settings manager
+depends     = libxfce4ui exo garcon libxklavier libnotify upower libcanberra xf86-input-libinput libxrandr libxcursor
+source      = https://archive.xfce.org/src/xfce/xfce4-settings/4.20/xfce4-settings-4.20.5.tar.bz2
+sha256      = a5fbe0e511cce29d603320ade575ad4001bd570e60f37760233237ba478affe8

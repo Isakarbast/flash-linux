@@ -1,0 +1,8 @@
+name        = hyprland
+version     = 0.57.1
+release     = 3
+description = Dynamic tiling Wayland compositor with animations
+depends     = aquamarine hyprcursor hyprgraphics hyprland-guiutils hyprlang hyprutils hyprwire libei libinput libxkbcommon lua mesa muparser pango pixman re2 sdbus-cpp tomlplusplus lcms2 libcanberra glslang xwayland xcb-util-errors xcb-util-wm xcb-util-renderutil
+makedepends = glaze hyprland-protocols hyprwayland-scanner wayland-protocols
+source      = hyprland-source-0.57.1.tar.gz::https://github.com/hyprwm/Hyprland/releases/download/v0.57.1/source-v0.57.1.tar.gz
+sha256      = 24e7428f83115e58e5fc81f100f6b73691dcaaf7a503087391e44327a71c43ab

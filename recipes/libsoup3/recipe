@@ -1,0 +1,8 @@
+name        = libsoup3
+version     = 3.8.1
+release     = 2
+description = HTTP library for GLib programs (weather in MATE's clock, ...)
+makedepends = gobject-introspection
+depends     = glib glib-networking libpsl nghttp2 sqlite libxml2
+source      = https://download.gnome.org/sources/libsoup/3.8/libsoup-3.8.1.tar.xz
+sha256      = 5013dcef9136f6f861e6529fca578af50c1f52a39219027fb5aff652d1371a04

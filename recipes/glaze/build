@@ -1,0 +1,5 @@
+cd glaze-9.1.0
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_LIBEXECDIR=lib -W no-dev \
+    -D glaze_DEVELOPER_MODE=OFF -D glaze_ENABLE_FUZZING=OFF -D BUILD_TESTING=OFF
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

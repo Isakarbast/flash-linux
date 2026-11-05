@@ -1,0 +1,8 @@
+cd libdbusmenu-16.04.0
+# Its configure forgets to define the valgrind conditional when tests are off,
+# and its -Werror trips over newer GLib deprecations.
+sed -i "s/-Werror//" libdbusmenu-glib/Makefile.in libdbusmenu-gtk/Makefile.in
+HAVE_VALGRIND_TRUE="#" HAVE_VALGRIND_FALSE="" ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --with-gtk=3 --disable-dumper --disable-tests --disable-gtk-doc --disable-vala --disable-introspection
+make
+make DESTDIR="$DESTDIR" install

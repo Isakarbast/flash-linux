@@ -1,0 +1,10 @@
+cd calamares-3.4.2
+# The distribution's own settings and branding come from flash-installer.
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_INSTALL_LIBEXECDIR=lib \
+    -D CMAKE_SKIP_INSTALL_RPATH=ON -D CMAKE_BUILD_TYPE=Release \
+    -D BUILD_TESTING=OFF -W no-author \
+    -D WITH_QT6=ON -D WITH_PYTHON=ON -D WITH_PYBIND11=ON -D INSTALL_CONFIG=OFF \
+    -D BUILD_SCHEMA_TESTING=OFF -D INSTALL_POLKIT=ON \
+    -D CMAKE_INSTALL_LIBDIR=lib -D KDE_INSTALL_SYSCONFDIR=/etc
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

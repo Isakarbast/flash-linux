@@ -1,0 +1,5 @@
+cd xfdesktop-4.20.2
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --enable-thunarx --enable-notifications
+make
+make DESTDIR="$DESTDIR" install

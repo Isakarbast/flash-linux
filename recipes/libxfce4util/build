@@ -1,0 +1,5 @@
+cd libxfce4util-4.20.1
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --disable-introspection --disable-vala
+make
+make DESTDIR="$DESTDIR" install

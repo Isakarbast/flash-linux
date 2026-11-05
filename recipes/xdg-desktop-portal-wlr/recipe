@@ -1,0 +1,7 @@
+name        = xdg-desktop-portal-wlr
+version     = 0.8.4
+release     = 1
+description = Screen sharing and screenshots for wlroots compositors (Sway, MangoWC)
+depends     = xdg-desktop-portal pipewire wayland libdrm mesa inih elogind
+source      = https://github.com/emersion/xdg-desktop-portal-wlr/releases/download/v0.8.4/xdg-desktop-portal-wlr-0.8.4.tar.gz
+sha256      = 41b9683acae9415005d7b62d801e34946cb95da5eaaa83528c7085759a635187

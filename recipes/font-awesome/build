@@ -1,0 +1,2 @@
+cd Font-Awesome-7.3.1
+install -Dm644 -t "$DESTDIR/usr/share/fonts/font-awesome" otfs/*.otf

@@ -1,0 +1,8 @@
+name        = gobject-introspection
+version     = 1.86.0
+release     = 1
+description = GObject Introspection: lets Python and JavaScript use GLib-based libraries (Cinnamon needs it)
+depends     = glib python libffi
+makedepends = flex bison
+source      = https://download.gnome.org/sources/gobject-introspection/1.86/gobject-introspection-1.86.0.tar.xz
+sha256      = 920d1a3fcedeadc32acff95c2e203b319039dd4b4a08dd1a2dfd283d19c0b9ae

@@ -1,0 +1,30 @@
+cd llvm-project-23.1.0.src
+export CC="gcc -m32" CXX="g++ -m32"
+export PKG_CONFIG_LIBDIR=/usr/lib32/pkgconfig:/usr/share/pkgconfig
+grep -rl '#!.*python$' | xargs sed -i '1s/python$/python3/'
+cmake -S llvm -B build -G Ninja \
+    -D CMAKE_INSTALL_PREFIX=/usr \
+    -D CMAKE_SKIP_INSTALL_RPATH=ON \
+    -D CMAKE_BUILD_TYPE=Release \
+    -D LLVM_HOST_TRIPLE=i686-pc-linux-gnu \
+    -D LLVM_LIBDIR_SUFFIX=32 \
+    -D LLVM_BUILD_LLVM_DYLIB=ON \
+    -D LLVM_LINK_LLVM_DYLIB=ON \
+    -D LLVM_ENABLE_RTTI=ON \
+    -D LLVM_TARGETS_TO_BUILD="X86;AMDGPU" \
+    -D LLVM_ENABLE_FFI=OFF -D LLVM_ENABLE_ZLIB=OFF -D LLVM_ENABLE_ZSTD=OFF -D LLVM_ENABLE_LIBXML2=OFF \
+    -D LLVM_INCLUDE_BENCHMARKS=OFF -D LLVM_INCLUDE_TESTS=OFF -D LLVM_INCLUDE_EXAMPLES=OFF \
+    -W no-author
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install
+# llvm-config for the 32-bit libraries (it finds them relative to its own
+# path, so it must live in /usr/bin), and the configuration headers that
+# differ from the 64-bit ones (target triples); lib32-mesa puts them ahead of
+# /usr/include.
+cp "$DESTDIR/usr/bin/llvm-config" llvm-config32
+mkdir -p "$DESTDIR/usr/lib32/llvm/include/llvm"
+cp -a "$DESTDIR/usr/include/llvm/Config" "$DESTDIR/usr/lib32/llvm/include/llvm/"
+# Keep only /usr/lib32: headers, programs and data come from the 64-bit package.
+find "$DESTDIR" -mindepth 1 -maxdepth 1 ! -name usr -exec rm -rf {} +
+find "$DESTDIR/usr" -mindepth 1 -maxdepth 1 ! -name lib32 -exec rm -rf {} +
+install -Dm755 llvm-config32 "$DESTDIR/usr/bin/llvm-config32"

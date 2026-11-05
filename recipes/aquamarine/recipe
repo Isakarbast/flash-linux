@@ -1,0 +1,8 @@
+name        = aquamarine
+version     = 0.16.0
+release     = 1
+description = Hyprland's rendering backend (screens, GPUs, input)
+depends     = hyprutils libdisplay-info libdrm libinput mesa pixman seatd eudev wayland hwdata
+makedepends = hyprwayland-scanner wayland-protocols
+source      = https://github.com/hyprwm/aquamarine/archive/v0.16.0/aquamarine-0.16.0.tar.gz
+sha256      = 42339c3096c9de6582c0d71bc86b7e63334a3faf6a2b917d385ad093caf66c3c

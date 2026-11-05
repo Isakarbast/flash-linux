@@ -1,0 +1,8 @@
+name        = lib32-libpciaccess
+version     = 0.19
+release     = 1
+description = PCI access library, 32-bit (libdrm's Intel support needs it)
+depends     = lib32-glibc
+makedepends = gcc
+source      = https://www.x.org/pub/individual/lib/libpciaccess-0.19.tar.xz
+sha256      = 3c55aa86c82e54a4e3109786f0463530d53b36b6d1cfd14616454f985dd2aa43

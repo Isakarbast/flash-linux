@@ -1,0 +1,7 @@
+name        = kpmcore
+version     = 26.08.2
+release     = 1
+description = KDE partitioning library (Calamares's partition editor uses it)
+depends     = qt6 kcoreaddons ki18n kwidgetsaddons polkit-qt util-linux
+source      = https://download.kde.org/stable/release-service/26.08.2/src/kpmcore-26.08.2.tar.xz
+sha256      = 7e2ff31c59404fee030360c16be87706e3e94c3322d174c33a32fb49b13d5d59

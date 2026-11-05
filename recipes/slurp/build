@@ -1,0 +1,5 @@
+cd slurp-1.5.0
+meson setup build --prefix=/usr --buildtype=release \
+    -Dman-pages=disabled
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

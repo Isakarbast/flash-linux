@@ -1,5 +1,5 @@
 cd libcanberra-0.30
 patch -Np1 -i ../libcanberra-0.30-wayland-1.patch
-./configure --prefix=/usr --disable-static --disable-oss --disable-gtk --disable-gtk3
+./configure --prefix=/usr --disable-static --disable-oss --disable-gtk --enable-gtk3
 make
 make DESTDIR="$DESTDIR" install

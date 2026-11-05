@@ -1,0 +1,4 @@
+cd xf86-input-libinput-1.5.0
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static
+make
+make DESTDIR="$DESTDIR" install

@@ -1,0 +1,3 @@
+cd fast_float-8.3.3
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr
+DESTDIR="$DESTDIR" ninja -C build install

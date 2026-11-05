@@ -1,0 +1,7 @@
+name        = hyprwire
+version     = 0.3.1
+release     = 1
+description = Hyprland's IPC library
+depends     = hyprutils libffi pugixml
+source      = https://github.com/hyprwm/hyprwire/archive/v0.3.1/hyprwire-0.3.1.tar.gz
+sha256      = 92a673d40ae6a7d66fbcd0a34ec071e026e17eaeeb0040c3375e4b2a80dba737

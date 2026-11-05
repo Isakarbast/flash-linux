@@ -1,0 +1,4 @@
+cd xorriso-1.5.8
+./configure --prefix=/usr
+make
+make DESTDIR="$DESTDIR" install

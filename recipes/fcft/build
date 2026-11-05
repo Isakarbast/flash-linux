@@ -1,0 +1,5 @@
+cd fcft
+meson setup build --prefix=/usr --buildtype=release \
+    -Dgrapheme-shaping=disabled -Drun-shaping=disabled -Dtest-text-shaping=false -Ddocs=disabled -Dexamples=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

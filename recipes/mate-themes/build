@@ -1,0 +1,5 @@
+cd mate-themes-3.22.26
+# Its GTK 2 check only matters for GTK 2 programs, which Flash Linux has none of.
+THEME_ENGINE_CFLAGS=" " THEME_ENGINE_LIBS=" " ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static
+make
+make DESTDIR="$DESTDIR" install

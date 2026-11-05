@@ -1,0 +1,5 @@
+cd mako-1.11.0
+meson setup build --prefix=/usr --buildtype=release \
+    -Dsd-bus-provider=libelogind -Dman-pages=disabled -Dicons=enabled
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

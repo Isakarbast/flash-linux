@@ -28,7 +28,7 @@ install_each glib rtkit \
     fribidi cairo pango at-spi2-core hicolor-icon-theme gsettings-desktop-schemas gtk3 firefox \
     libssh libmtp baloo-widgets kio-extras ffmpegthumbs dolphin \
     go shader-slang xxhash simde kitty \
-    freedom-kde-settings
+    flash-kde-settings
 
 echo
 echo "Stage 7d complete: $(fpm list | wc -l) packages installed"

@@ -1,0 +1,5 @@
+cd muparser-2.3.5
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_LIBEXECDIR=lib -W no-dev \
+    -D ENABLE_OPENMP=OFF -D ENABLE_SAMPLES=OFF
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

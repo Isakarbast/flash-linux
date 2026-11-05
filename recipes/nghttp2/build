@@ -1,0 +1,5 @@
+cd nghttp2-1.71.0
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --enable-lib-only
+make
+make DESTDIR="$DESTDIR" install

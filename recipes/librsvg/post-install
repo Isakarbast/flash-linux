@@ -1,0 +1,3 @@
+[ "${ROOT:-/}" = / ] || exit 0
+# Register the SVG loader with gdk-pixbuf.
+gdk-pixbuf-query-loaders --update-cache

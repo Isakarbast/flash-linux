@@ -1,0 +1,5 @@
+cd libnotify-0.8.9
+meson setup build --prefix=/usr --buildtype=release \
+    -Dintrospection=enabled -Dgtk_doc=false -Dman=false -Ddocbook_docs=disabled -Dtests=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

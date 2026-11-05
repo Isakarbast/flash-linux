@@ -1,0 +1,5 @@
+cd xdg-desktop-portal-wlr-0.8.4
+meson setup build --prefix=/usr --buildtype=release \
+    -Dsd-bus-provider=libelogind -Dman-pages=disabled -Dsystemd=disabled
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

@@ -1,0 +1,7 @@
+name        = rust
+version     = 1.99.1
+release     = 1
+description = The Rust compiler and Cargo (official binaries)
+options     = !strip
+source      = https://static.rust-lang.org/dist/rust-1.99.1-x86_64-unknown-linux-gnu.tar.xz
+sha256      = 231fcae47ee950621374725b5fc3b5441d2fbda2955ac45dd7dc816d8876cfe7

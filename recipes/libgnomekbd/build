@@ -1,0 +1,5 @@
+cd libgnomekbd-3.28.1
+meson setup build --prefix=/usr --buildtype=release \
+    -Dintrospection=true -Dvapi=false -Dtests=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

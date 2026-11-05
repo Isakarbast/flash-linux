@@ -1,6 +1,6 @@
 cd libdrm-2.4.134
 meson setup build --cross-file lib32 --prefix=/usr --libdir=/usr/lib32 --buildtype=release \
-    -Dudev=true -Dvalgrind=disabled -Dtests=false
+    -Dudev=true -Dvalgrind=disabled -Dtests=false -Dintel=enabled
 ninja -C build
 DESTDIR="$DESTDIR" ninja -C build install
 # Keep only /usr/lib32: headers, programs and data come from the 64-bit package.

@@ -1,0 +1,5 @@
+cd libmatekbd-1.28.0
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --disable-introspection
+make
+make DESTDIR="$DESTDIR" install

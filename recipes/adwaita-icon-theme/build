@@ -1,0 +1,4 @@
+cd adwaita-icon-theme-51.0
+meson setup build --prefix=/usr --buildtype=release
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

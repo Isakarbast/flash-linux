@@ -1,6 +1,6 @@
 cd accountsservice-26.27.3
 meson setup build --prefix=/usr --buildtype=release \
-    -Dadmin_group=wheel -Delogind=true -Dsystemdsystemunitdir=no -Dintrospection=false -Dvapi=false -Ddocbook=false -Dgtk_doc=false
+    -Dadmin_group=wheel -Delogind=true -Dsystemdsystemunitdir=no -Dintrospection=true -Dvapi=false -Ddocbook=false -Dgtk_doc=false
 ninja -C build
 DESTDIR="$DESTDIR" ninja -C build install
 rm -rf "${DESTDIR:?}/usr/lib/systemd" "${DESTDIR:?}/usr/lib/sysusers.d" "${DESTDIR:?}/usr/lib/tmpfiles.d"

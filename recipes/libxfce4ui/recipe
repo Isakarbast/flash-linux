@@ -1,0 +1,7 @@
+name        = libxfce4ui
+version     = 4.20.2
+release     = 1
+description = Xfce's GTK widgets
+depends     = libxfce4util xfconf gtk3 startup-notification libgtop libsm libice
+source      = https://archive.xfce.org/src/xfce/libxfce4ui/4.20/libxfce4ui-4.20.2.tar.bz2
+sha256      = 5d3d67b1244a10cee0e89b045766c05fe1035f7938f0410ac6a3d8222b5df907

@@ -23,7 +23,7 @@ echo "==> Installing fpm"
     die "fpm failed to build"
 
 cat > /etc/fpm.conf <<'EOF'
-# /etc/fpm.conf: Freedom Package Manager
+# /etc/fpm.conf: Flash Package Manager
 
 cflags   = -O2 -pipe -march=native
 ldflags  = -Wl,-O1,--as-needed

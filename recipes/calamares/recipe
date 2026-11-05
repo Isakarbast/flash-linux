@@ -1,0 +1,8 @@
+name        = calamares
+version     = 3.4.2
+release     = 1
+description = Calamares graphical system installer
+depends     = qt6 kcoreaddons kpmcore yaml-cpp python polkit-qt
+makedepends = kpmcore yaml-cpp extra-cmake-modules
+source      = https://codeberg.org/Calamares/calamares/releases/download/v3.4.2/calamares-3.4.2.tar.gz
+sha256      = 733bbbb00dc9f84874bd5c22960952f317ea2537565431179fa2152b2fbfdccc

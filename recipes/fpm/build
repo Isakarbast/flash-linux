@@ -1,0 +1,6 @@
+cd fpm-0.3.1
+make
+make DESTDIR="$DESTDIR" install
+# Flash Linux's settings instead of the generic example.
+install -m 644 "$srcdir/fpm.conf" "$DESTDIR/etc/fpm.conf"
+install -d "$DESTDIR/etc/fpm/hooks" "$DESTDIR/etc/fpm/keys"

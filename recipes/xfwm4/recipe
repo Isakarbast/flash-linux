@@ -1,0 +1,7 @@
+name        = xfwm4
+version     = 4.20.0
+release     = 1
+description = Xfce's window manager (with compositing)
+depends     = libxfce4ui libwnck3 startup-notification libepoxy libxpresent libxcomposite libxdamage libxinerama libxres
+source      = https://archive.xfce.org/src/xfce/xfwm4/4.20/xfwm4-4.20.0.tar.bz2
+sha256      = a58b63e49397aa0d8d1dcf0636be93c8bb5926779aef5165e0852890190dcf06

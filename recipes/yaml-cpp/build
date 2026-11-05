@@ -1,0 +1,4 @@
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_BUILD_TYPE=Release \
+    -D YAML_BUILD_SHARED_LIBS=ON -D YAML_CPP_BUILD_TESTS=OFF -D YAML_CPP_BUILD_TOOLS=OFF
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

@@ -1,0 +1,2 @@
+# /etc/pam.d/mate-screensaver: unlocking checks the user's password.
+auth include system-auth

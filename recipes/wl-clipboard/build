@@ -1,0 +1,4 @@
+cd wl-clipboard-2.3.0
+meson setup build --prefix=/usr --buildtype=release
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

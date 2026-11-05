@@ -1,0 +1,5 @@
+cd libnma-1.10.6
+meson setup build --prefix=/usr --buildtype=release \
+    -Dlibnma_gtk4=false -Dgcr=false -Dmobile_broadband_provider_info=false -Dintrospection=true -Dvapi=false -Dgtk_doc=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

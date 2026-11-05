@@ -1,0 +1,9 @@
+name        = flash-kde-settings
+version     = 1
+release     = 1
+description = Flash Linux's system-wide KDE defaults (kitty as terminal, start with an empty session)
+replaces    = freedom-kde-settings
+arch        = noarch
+depends     = plasma-workspace kitty
+source      = kdeglobals ksmserverrc
+sha256      = 0c4d3eafc4496e010917f1f96fc35ba809e9fc4210bf364d38d1e7f4c017630a 7935c3d95a3c928815150737a877a35ea814e04374297137871780c30a2e8cae

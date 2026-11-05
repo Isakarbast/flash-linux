@@ -1,0 +1,8 @@
+name        = fuzzel
+version     = 1.15.0
+release     = 1
+description = Application launcher for Wayland compositors
+depends     = fcft wayland libxkbcommon cairo libpng pixman
+makedepends = tllist wayland-protocols scdoc
+source      = fuzzel-1.15.0.tar.gz::https://codeberg.org/dnkl/fuzzel/archive/1.15.0.tar.gz
+sha256      = 95b6c022fc1f1c7ab586d47c1594417cc311bf41ea8f5f8b5641478da7b5cf3b

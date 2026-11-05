@@ -1,0 +1,5 @@
+cd glib-networking-2.90.1
+meson setup build --prefix=/usr --buildtype=release \
+    -Dgnutls=enabled -Dopenssl=disabled -Dlibproxy=disabled -Dgnome_proxy=disabled -Dinstalled_tests=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

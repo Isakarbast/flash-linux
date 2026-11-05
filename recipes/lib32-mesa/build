@@ -1,0 +1,28 @@
+cd mesa-26.2.3
+export CC="gcc -m32" CXX="g++ -m32"
+export PKG_CONFIG_LIBDIR=/usr/lib32/pkgconfig:/usr/share/pkgconfig
+cat > llvm32.ini <<'INI'
+[binaries]
+llvm-config = '/usr/bin/llvm-config32'
+INI
+export CFLAGS="-I/usr/lib32/llvm/include ${CFLAGS:-}" CXXFLAGS="-I/usr/lib32/llvm/include ${CXXFLAGS:-}"
+meson setup build --cross-file lib32 --cross-file llvm32.ini \
+    --prefix=/usr --libdir=/usr/lib32 --buildtype=release \
+    -Dplatforms=x11,wayland \
+    -Dgallium-drivers=radeonsi,r300,r600,nouveau,virgl,svga,llvmpipe,softpipe,iris,crocus,i915,zink \
+    -Dvulkan-drivers=amd,intel,intel_hasvk,swrast \
+    -Dvulkan-layers= \
+    -Dglvnd=enabled \
+    -Dgbm=enabled -Degl=enabled \
+    -Dllvm=enabled -Dshared-llvm=enabled \
+    -Dvalgrind=disabled -Dlibunwind=disabled \
+    -Dmesa-clc=system -Dprecomp-compiler=system
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install
+# The 32-bit Vulkan driver manifests (*.i686.json) sit beside the 64-bit ones.
+mkdir icd
+mv "$DESTDIR"/usr/share/vulkan/icd.d/*.i686.json icd/
+# Keep only /usr/lib32: headers, programs and data come from the 64-bit package.
+find "$DESTDIR" -mindepth 1 -maxdepth 1 ! -name usr -exec rm -rf {} +
+find "$DESTDIR/usr" -mindepth 1 -maxdepth 1 ! -name lib32 -exec rm -rf {} +
+install -Dm644 -t "$DESTDIR/usr/share/vulkan/icd.d" icd/*.i686.json

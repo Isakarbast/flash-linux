@@ -1,0 +1,9 @@
+name        = mate-icon-theme
+version     = 1.28.0
+release     = 1
+description = MATE's Menta icon theme
+arch        = noarch
+depends     = hicolor-icon-theme
+makedepends = icon-naming-utils
+source      = https://github.com/mate-desktop/mate-icon-theme/releases/download/v1.28.0/mate-icon-theme-1.28.0.tar.xz
+sha256      = 94d6079060ca5df74542921de4eea38b7d02d07561c919356d95de876f9a6d3a

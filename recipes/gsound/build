@@ -1,0 +1,5 @@
+cd gsound-1.0.3
+meson setup build --prefix=/usr --buildtype=release \
+    -Dgtk_doc=false -Denable_vala=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

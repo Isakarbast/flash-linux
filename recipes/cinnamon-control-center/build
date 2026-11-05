@@ -1,0 +1,5 @@
+cd cinnamon-control-center-6.6.0
+meson setup build --prefix=/usr --buildtype=release \
+    -Dmodemmanager=false -Dwacom=false -Dcolor=false -Donlineaccounts=false -Dnetworkmanager=true
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

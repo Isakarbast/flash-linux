@@ -1,0 +1,5 @@
+cd graphene-1.10.8
+meson setup build --prefix=/usr --buildtype=release \
+    -Dgtk_doc=false -Dinstalled_tests=false -Dtests=false -Dintrospection=enabled
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

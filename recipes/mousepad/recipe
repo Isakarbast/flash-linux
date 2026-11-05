@@ -1,0 +1,7 @@
+name        = mousepad
+version     = 0.7.0
+release     = 1
+description = Xfce's text editor
+depends     = gtksourceview4 libxfce4ui dconf
+source      = https://archive.xfce.org/src/apps/mousepad/0.7/mousepad-0.7.0.tar.xz
+sha256      = e86c59feb08126d4cace368432c16b2dee8e519aaca8a9d2b409ae1cdd200802

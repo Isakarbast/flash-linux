@@ -1,0 +1,7 @@
+name        = squashfs-tools
+version     = 4.7.5
+release     = 1
+description = Creates and unpacks SquashFS images (the live system's compressed root)
+depends     = zlib xz zstd lz4
+source      = https://github.com/plougher/squashfs-tools/releases/download/4.7.5/squashfs-tools-4.7.5.tar.gz
+sha256      = 547b7b7f4d2e44bf91b6fc554664850c69563701deab9fd9cd7e21f694c88ea6

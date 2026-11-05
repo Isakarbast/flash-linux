@@ -1,0 +1,5 @@
+cd pyinotify-0.9.6
+PIP="python3 $(echo /usr/lib/python3*/ensurepip/_bundled/pip-*.whl)/pip"
+export HOME="$PWD"
+$PIP install --no-deps --no-index --no-build-isolation --no-cache-dir --disable-pip-version-check \
+    --root="$DESTDIR" --prefix=/usr --ignore-installed --no-warn-script-location .

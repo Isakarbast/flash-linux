@@ -1,6 +1,6 @@
 cd upower-v1.91.5
 meson setup build --prefix=/usr --buildtype=release \
-    -Dgtk-doc=false -Dman=false -Dintrospection=disabled -Dsystemdsystemunitdir=no -Dudevrulesdir=/usr/lib/udev/rules.d
+    -Dgtk-doc=false -Dman=false -Dintrospection=enabled -Dsystemdsystemunitdir=no -Dudevrulesdir=/usr/lib/udev/rules.d
 ninja -C build
 DESTDIR="$DESTDIR" ninja -C build install
 rm -rf "${DESTDIR:?}/usr/lib/systemd" "${DESTDIR:?}/usr/lib/sysusers.d" "${DESTDIR:?}/usr/lib/tmpfiles.d"

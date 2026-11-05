@@ -1,0 +1,5 @@
+cd cinnamon-6.6.9
+meson setup build --prefix=/usr --buildtype=release \
+    --libexecdir=/usr/lib/cinnamon -Ddocs=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

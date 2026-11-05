@@ -1,0 +1,8 @@
+name        = flash-branding
+version     = 1
+release     = 4
+description = Flash Linux's lightning logo and wallpaper (icons for os-release, the installer and the desktop menus)
+arch        = noarch
+depends     = hicolor-icon-theme
+source      = flash-wallpaper.jpg flash-linux.svg flash-linux-512.png flash-linux-256.png flash-linux-128.png flash-linux-64.png flash-linux-48.png flash-linux-32.png
+sha256      = 45c009695416c69af5fa5ed654f3eda0dde726f9fc15ce0c9392acf142aeec3d 17e1d64d6ad7b0bbb4fefb1f72afdee0d5dfba80626aa2b60b7b3cde73a19e63 e40da7e0c4b377b7a8a9084fa7300e089f6635c4597026e34abac5436ea60127 43bd0eb401cc705c87d7d4dd63d860385aed02e478cbe9b5529f6da9cca397f9 5bfa915241fe0877908fcb5377d1c18ad6c4f4a6bd3796cf2c60f9afae1651e3 aeb083bd50f2608e11514edff2fcc25ba748d03027a204978b95a1f416148cd5 f9048130737971481b5cb76cc84a69e5dbb435d4dc4ed47ca721d947de8c6972 bf93c0ef6fffa363416ae3a7b940db78a593a290818482c22f13052147f292bc

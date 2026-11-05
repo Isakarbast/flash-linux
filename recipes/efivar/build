@@ -1,0 +1,3 @@
+cd efivar-39
+make ENABLE_DOCS=0
+make ENABLE_DOCS=0 LIBDIR=/usr/lib DESTDIR="$DESTDIR" install

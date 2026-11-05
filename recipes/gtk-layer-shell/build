@@ -1,0 +1,5 @@
+cd gtk-layer-shell-0.10.1
+meson setup build --prefix=/usr --buildtype=release \
+    -Dintrospection=false -Dvapi=false -Ddocs=false -Dtests=false -Dexamples=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

@@ -1,0 +1,8 @@
+name        = libgnomekbd
+version     = 3.28.1
+release     = 1
+description = Keyboard layout indicator and preview
+depends     = gtk3 libxklavier dconf
+makedepends = gobject-introspection
+source      = https://download.gnome.org/sources/libgnomekbd/3.28/libgnomekbd-3.28.1.tar.xz
+sha256      = 22dc59566d73c0065350f5a97340e62ecc7b08c4df19183804bb8be24c8fe870

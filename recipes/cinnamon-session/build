@@ -1,0 +1,5 @@
+cd cinnamon-session-6.6.4
+meson setup build --prefix=/usr --buildtype=release \
+    --libexecdir=/usr/lib/cinnamon-session -Dipv6=true
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

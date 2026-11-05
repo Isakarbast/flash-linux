@@ -1,6 +1,6 @@
 name        = lib32-libxshmfence
 version     = 1.3.3
-release     = 1
+release     = 2
 description = X11 library, 32-bit: shared memory fences
 depends     = libxshmfence lib32-glibc
 makedepends = gcc

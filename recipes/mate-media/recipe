@@ -1,0 +1,7 @@
+name        = mate-media
+version     = 1.28.1
+release     = 1
+description = MATE's volume control
+depends     = mate-desktop libmatemixer libcanberra mate-panel
+source      = https://github.com/mate-desktop/mate-media/releases/download/v1.28.1/mate-media-1.28.1.tar.xz
+sha256      = bcdc102e22f63f55e63166d5c708e91c113570e6a30a874345a88609e83a9912

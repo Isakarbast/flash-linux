@@ -1,0 +1,7 @@
+name        = mako-notifier
+version     = 1.11.0
+release     = 1
+description = Notification daemon for Wayland compositors
+depends     = pango cairo wayland gdk-pixbuf elogind
+source      = https://github.com/emersion/mako/releases/download/v1.11.0/mako-1.11.0.tar.gz
+sha256      = e97eb5bd0dc6a9159019949f48b3db4e8781b56bd6377bd65827e1cb440a7def

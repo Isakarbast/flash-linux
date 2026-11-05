@@ -1,0 +1,7 @@
+name        = swaylock
+version     = 1.8.6
+release     = 1
+description = Screen locker for Wayland compositors
+depends     = wayland libxkbcommon cairo gdk-pixbuf linux-pam
+source      = https://github.com/swaywm/swaylock/releases/download/v1.8.6/swaylock-1.8.6.tar.gz swaylock.pam
+sha256      = a15154348fef852fdb224112d137c393c826478b777f63479beb15e8d3812eaf 98117b45c9d85861c9549c0131136ebcc783679076406437ed9ca42d9e41ae9a

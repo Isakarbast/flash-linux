@@ -1,0 +1,7 @@
+name        = gtk-layer-shell
+version     = 0.10.1
+release     = 1
+description = Panels and overlays for GTK 3 programs on Wayland compositors
+depends     = gtk3 wayland
+source      = https://github.com/wmww/gtk-layer-shell/archive/v0.10.1/gtk-layer-shell-0.10.1.tar.gz
+sha256      = 88c3a3e0a5300532f3d368d5df64838a87f1fb85273f22d41df0a6b8d0ec59c6

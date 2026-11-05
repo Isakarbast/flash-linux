@@ -1,0 +1,5 @@
+cd icon-naming-utils-0.8.90
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --libexecdir=/usr/lib/icon-naming-utils
+make
+make DESTDIR="$DESTDIR" install

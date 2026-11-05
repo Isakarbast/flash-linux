@@ -1,0 +1,7 @@
+name        = mate-menus
+version     = 1.28.1
+release     = 1
+description = MATE's menu library
+depends     = glib
+source      = https://github.com/mate-desktop/mate-menus/releases/download/v1.28.1/mate-menus-1.28.1.tar.xz
+sha256      = d6a61d3bfbf58176fb52049f115d4e3a0d108fe5f1ef87438fafd86384e603d1

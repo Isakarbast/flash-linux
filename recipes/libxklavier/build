@@ -1,0 +1,5 @@
+cd libxklavier-5.4
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --disable-gtk-doc --enable-introspection --with-xkb-base=/usr/share/X11/xkb --with-xkb-bin-base=/usr/bin
+make
+make DESTDIR="$DESTDIR" install

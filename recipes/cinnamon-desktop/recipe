@@ -1,0 +1,8 @@
+name        = cinnamon-desktop
+version     = 6.6.2
+release     = 1
+description = Cinnamon's basic library
+depends     = gtk3 pulseaudio libxkbfile dconf iso-codes accountsservice
+makedepends = gobject-introspection
+source      = https://github.com/linuxmint/cinnamon-desktop/archive/6.6.2/cinnamon-desktop-6.6.2.tar.gz
+sha256      = 4ed0d52a072551c6d536f1be68d4fcdb4166454fc9e48567ab2550282086b0f4

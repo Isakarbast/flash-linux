@@ -1,6 +1,6 @@
 name        = lib32-eudev
 version     = 3.2.15
-release     = 1
+release     = 2
 description = Device manager library (libudev), 32-bit; games use it for controllers
 depends     = eudev lib32-glibc
 makedepends = gcc

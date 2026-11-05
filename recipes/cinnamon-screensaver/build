@@ -1,0 +1,4 @@
+cd cinnamon-screensaver-6.6.1
+meson setup build --prefix=/usr --buildtype=release
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

@@ -1,0 +1,8 @@
+name        = polkit-gnome
+version     = 0.105
+release     = 1
+description = Password dialog for programs that need admin rights (polkit agent, GTK 3)
+depends     = polkit gtk3
+makedepends = intltool
+source      = https://download.gnome.org/sources/polkit-gnome/0.105/polkit-gnome-0.105.tar.xz
+sha256      = 1784494963b8bf9a00eedc6cd3a2868fb123b8a5e516e66c5eda48df17ab9369

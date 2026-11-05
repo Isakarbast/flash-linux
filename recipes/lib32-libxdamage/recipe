@@ -1,6 +1,6 @@
 name        = lib32-libxdamage
 version     = 1.1.7
-release     = 1
+release     = 2
 description = X11 library, 32-bit: Damage extension
 depends     = libxdamage lib32-glibc lib32-libxfixes
 makedepends = gcc

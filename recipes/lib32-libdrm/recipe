@@ -1,8 +1,8 @@
 name        = lib32-libdrm
 version     = 2.4.134
-release     = 1
+release     = 2
 description = Direct Rendering Manager library, 32-bit
-depends     = libdrm lib32-glibc
+depends     = libdrm lib32-glibc lib32-libpciaccess
 makedepends = gcc
 source      = https://dri.freedesktop.org/libdrm/libdrm-2.4.134.tar.xz
 sha256      = ac5e74d157830eb8bee44c6a6bf3ad49774ef0dd2a72bdad74a8f20308b52a95

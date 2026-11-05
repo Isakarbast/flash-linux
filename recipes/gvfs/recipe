@@ -1,0 +1,7 @@
+name        = gvfs
+version     = 1.62.0
+release     = 1
+description = GIO backends: trash, USB drives, phones (MTP) and network folders in GTK file managers
+depends     = glib udisks2 libgudev libsecret libmtp gsettings-desktop-schemas
+source      = https://download.gnome.org/sources/gvfs/1.62/gvfs-1.62.0.tar.xz
+sha256      = dd8e6c255fd3bed5eeb190b59027c88b38e63c1be0932ddce9cfeb48f3c43d0f

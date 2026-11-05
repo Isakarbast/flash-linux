@@ -1,0 +1,7 @@
+name        = cinnamon-settings-daemon
+version     = 6.6.4
+release     = 1
+description = Cinnamon's settings daemon
+depends     = cinnamon-desktop libcanberra libnotify upower polkit libgudev pulseaudio lcms2 cups
+source      = https://github.com/linuxmint/cinnamon-settings-daemon/archive/6.6.4/cinnamon-settings-daemon-6.6.4.tar.gz
+sha256      = 215006afe3e59e4998fd3bb9f8ecf1b7c926a08b5398b42e482c5008483c970a

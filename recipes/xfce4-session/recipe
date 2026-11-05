@@ -1,0 +1,7 @@
+name        = xfce4-session
+version     = 4.20.4
+release     = 1
+description = Xfce's session manager
+depends     = libxfce4ui libwnck3 libxfce4windowing xfconf libsm polkit iceauth xinit xrdb polkit-gnome gtk-layer-shell
+source      = https://archive.xfce.org/src/xfce/xfce4-session/4.20/xfce4-session-4.20.4.tar.bz2 xfce-polkit-gnome-authentication-agent-1.desktop
+sha256      = 805c373378d080754d69dd2f20db95cdc066c89a4f024a41435ca0d66571c402 214ea92f1c5802399058999a238d8d05577e2d43ed357805165cdb0c71a564a8

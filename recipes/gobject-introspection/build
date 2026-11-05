@@ -1,0 +1,9 @@
+cd gobject-introspection-1.86.0
+# GLib's own introspection data is built by glib with this package's tools, and
+# this package's data (cairo, freetype, ...) needs GLib's: built without it the
+# first time (stage 9f installs this, rebuilds glib, then rebuilds this).
+if [ -e /usr/share/gir-1.0/GLib-2.0.gir ]; then data=true; else data=false; fi
+meson setup build --prefix=/usr --buildtype=release -Dgtk_doc=false -Ddoctool=disabled -Dtests=false \
+    -Dbuild_introspection_data=$data
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

@@ -1,0 +1,4 @@
+cd fmt-12.2.0
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_BUILD_TYPE=Release -D BUILD_SHARED_LIBS=ON -D FMT_TEST=OFF -D FMT_DOC=OFF
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

@@ -1,0 +1,8 @@
+name        = mate-themes
+version     = 3.22.26
+release     = 1
+description = MATE's Menta and BlueMenta themes
+arch        = noarch
+depends     = gtk3
+source      = https://github.com/mate-desktop/mate-themes/releases/download/v3.22.26/mate-themes-3.22.26.tar.xz
+sha256      = 224e89d364eb3b73f1cf756d05494a98421a93cbf54349a2c85fc607eb755ed7

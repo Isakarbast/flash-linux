@@ -1,0 +1,31 @@
+# The base layout: merged /usr (bin, sbin, lib and lib64 are links into it),
+# the standard directories, and the files every other package expects.
+cd "$DESTDIR"
+mkdir -p boot dev etc/opt home media/cdrom mnt opt proc root run srv sys tmp \
+    usr/bin usr/include usr/lib usr/lib32 usr/src usr/lib/locale usr/lib/firmware \
+    usr/share/color usr/share/dict usr/share/doc usr/share/info usr/share/locale \
+    usr/share/man usr/share/misc usr/share/terminfo usr/share/zoneinfo \
+    usr/local/bin usr/local/include usr/local/lib usr/local/share/man \
+    var/cache var/empty var/games var/lib/color var/lib/misc var/lib/locate \
+    var/lib/hwclock var/local var/log var/opt var/spool/mail var/tmp
+for i in 1 2 3 4 5 6 7 8; do mkdir -p usr/share/man/man$i usr/local/share/man/man$i; done
+ln -s usr/bin bin
+ln -s usr/bin sbin
+ln -s usr/lib lib
+ln -s usr/lib lib64
+ln -s lib usr/lib64
+ln -s bin usr/sbin
+ln -s ../run var/run
+ln -s ../run/lock var/lock
+ln -s spool/mail var/mail
+ln -s /proc/self/mounts etc/mtab
+chmod 0750 root
+chmod 1777 tmp var/tmp
+chmod 0555 proc sys
+install -m644 "$srcdir/passwd" "$srcdir/group" "$srcdir/hosts" etc/
+: > var/log/btmp
+: > var/log/lastlog
+: > var/log/faillog
+: > var/log/wtmp
+chmod 600 var/log/btmp
+chmod 664 var/log/lastlog

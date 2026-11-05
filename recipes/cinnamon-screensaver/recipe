@@ -1,0 +1,7 @@
+name        = cinnamon-screensaver
+version     = 6.6.1
+release     = 1
+description = Cinnamon's screen locker
+depends     = cinnamon-desktop python pygobject pycairo python-setproctitle python-xapp linux-pam xdotool xprop accountsservice
+source      = https://github.com/linuxmint/cinnamon-screensaver/archive/6.6.1/cinnamon-screensaver-6.6.1.tar.gz
+sha256      = d873cc22eb50db8b9339b546b9133945eee3a1458682136cb475a49252568fad

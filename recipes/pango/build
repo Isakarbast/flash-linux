@@ -1,6 +1,6 @@
 cd pango-1.58.2
 meson setup build --prefix=/usr --buildtype=release \
-    -Dintrospection=disabled -Dbuild-testsuite=false -Dbuild-examples=false \
+    -Dintrospection=enabled -Dbuild-testsuite=false -Dbuild-examples=false \
     -Dlibthai=disabled -Dxft=disabled
 ninja -C build
 DESTDIR="$DESTDIR" ninja -C build install

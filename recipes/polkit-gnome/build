@@ -1,0 +1,5 @@
+cd polkit-gnome-0.105
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --libexecdir=/usr/lib/polkit-gnome --disable-introspection
+make
+make DESTDIR="$DESTDIR" install

@@ -1,0 +1,5 @@
+cd libpsl-0.21.5
+meson setup build --prefix=/usr --buildtype=release \
+    -Druntime=no -Dbuiltin=true
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

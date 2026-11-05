@@ -1,0 +1,5 @@
+cd dbus-glib-0.116
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --disable-gtk-doc --disable-tests
+make
+make DESTDIR="$DESTDIR" install

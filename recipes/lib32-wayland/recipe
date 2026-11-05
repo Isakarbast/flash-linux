@@ -1,6 +1,6 @@
 name        = lib32-wayland
 version     = 1.26.0
-release     = 1
+release     = 2
 description = Wayland client and server libraries, 32-bit
 depends     = wayland lib32-glibc lib32-libffi
 makedepends = gcc

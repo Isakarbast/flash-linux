@@ -1,0 +1,23 @@
+cd lightdm-1.33.1
+# The release is a git snapshot: generate configure, without the docs and help.
+cp ../lightdm-docs.m4 m4/lightdm-docs.m4
+sed -i 's/^SUBDIRS += data po src doc help$/SUBDIRS += data po src/' Makefile.am
+sed -i '/^doc\/Makefile$/d; /^help\/Makefile$/d' configure.ac
+libtoolize --force --copy
+intltoolize --force --copy
+aclocal -I m4
+autoconf
+autoheader
+automake --add-missing --copy --foreign
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --libexecdir=/usr/lib/lightdm --sbindir=/usr/bin --disable-tests --disable-liblightdm-qt5 --disable-liblightdm-qt6 \
+    --disable-introspection --disable-vala --with-greeter-user=lightdm --with-greeter-session=lightdm-gtk-greeter
+make
+make DESTDIR="$DESTDIR" install
+p="$DESTDIR/etc/pam.d"
+install -Dm644 ../lightdm.pam "$p/lightdm"
+install -Dm644 ../lightdm-greeter.pam "$p/lightdm-greeter"
+install -Dm644 ../lightdm-autologin.pam "$p/lightdm-autologin"
+install -Dm755 ../lightdm.initd "$DESTDIR/etc/init.d/lightdm"
+rm -rf "${DESTDIR:?}/etc/init" "${DESTDIR:?}/etc/apparmor.d" "${DESTDIR:?}/var"
+install -Dm755 ../lightdm-session "$DESTDIR/usr/bin/lightdm-session"

@@ -1,0 +1,5 @@
+cd vte-0.84.1
+meson setup build --prefix=/usr --buildtype=release \
+    -Dgtk3=true -Dgtk4=false -Dgir=false -Dvapi=false -Ddocs=false -D_systemd=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

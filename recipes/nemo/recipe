@@ -1,0 +1,8 @@
+name        = nemo
+version     = 6.6.4
+release     = 1
+description = Cinnamon's file manager
+depends     = cinnamon-desktop xapp json-glib libexif exempi libxmlb libgsf gvfs pygobject pycairo
+makedepends = gobject-introspection
+source      = https://github.com/linuxmint/nemo/archive/6.6.4/nemo-6.6.4.tar.gz
+sha256      = 258807feb2e7bac523707d6b3daf2d9439e7135123cbe795183d5aaa6fd691ed

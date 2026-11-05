@@ -1,0 +1,6 @@
+name        = inih
+version     = 62
+release     = 1
+description = Small INI file parser
+source      = https://github.com/benhoyt/inih/archive/r62/inih-r62.tar.gz
+sha256      = 9c15fa751bb8093d042dae1b9f125eb45198c32c6704cd5481ccde460d4f8151

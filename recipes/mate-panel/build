@@ -1,0 +1,5 @@
+cd mate-panel-1.28.7
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --with-in-process-applets=all --disable-introspection --disable-gtk-doc
+make
+make DESTDIR="$DESTDIR" install

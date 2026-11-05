@@ -1,0 +1,70 @@
+#!/bin/bash
+# /init of the live ISO's initramfs: find the medium (by its ISO label), mount
+# the compressed root (live/rootfs.sfs) read-only with a RAM overlay on top,
+# and hand over to OpenRC. Everything stays under /run, which switch_root
+# moves into the new root and OpenRC keeps.
+PATH=/usr/bin
+
+fail() {
+    echo "live: $*"
+    echo "live: dropping to a shell; the boot can't continue."
+    exec /usr/bin/bash
+}
+
+mount -t proc proc /proc
+mount -t sysfs sysfs /sys
+mount -t devtmpfs devtmpfs /dev
+mount -t tmpfs -o mode=0755,nosuid,nodev tmpfs /run
+
+label=FLASH_LIVE
+for arg in $(cat /proc/cmdline); do
+    case $arg in
+        live.label=*) label=${arg#live.label=} ;;
+    esac
+done
+
+# Modules the kernel doesn't have built in, in dependency order (modules.order
+# was written by the ISO build).
+while read -r ko; do
+    insmod "/usr/lib/modules/$ko" 2>/dev/null
+done < /usr/lib/modules/load.order
+
+echo "live: looking for the medium labelled $label"
+dev=
+for _ in $(seq 1 60); do
+    dev=$(blkid -L "$label" 2>/dev/null) && [ -n "$dev" ] && break
+    sleep 0.5
+done
+[ -n "$dev" ] || fail "no device labelled $label (is the USB stick plugged in?)"
+
+mkdir -p /run/live/medium /run/live/rootfs /run/live/cow /newroot
+mount -t iso9660 -o ro "$dev" /run/live/medium || fail "can't mount $dev"
+mount -t squashfs -o ro,loop /run/live/medium/live/rootfs.sfs /run/live/rootfs ||
+    fail "can't mount the live root"
+mkdir -p /run/live/cow/upper /run/live/cow/work
+mount -t overlay overlay \
+    -o lowerdir=/run/live/rootfs,upperdir=/run/live/cow/upper,workdir=/run/live/cow/work \
+    /newroot || fail "can't set up the overlay"
+
+# Graphics driver: the live system has both NVIDIA's driver and the open ones,
+# and only one may claim an NVIDIA card. NVIDIA's open kernel modules need a
+# Turing (GTX 16 / RTX 20) or newer GPU, PCI device 0x1e00 and up; older cards
+# and other vendors use mesa. The installer's Graphics page follows the choice.
+mkdir -p /newroot/etc/modprobe.d
+nvidia=
+for d in /sys/bus/pci/devices/*; do
+    [ "$(cat "$d/vendor")" = 0x10de ] || continue
+    case $(cat "$d/class") in 0x03*) ;; *) continue ;; esac
+    (( $(cat "$d/device") >= 0x1e00 )) && nvidia=1
+done
+if [ -n "$nvidia" ]; then
+    printf 'blacklist nouveau\nblacklist nova_core\nblacklist nova_drm\n'
+else
+    printf 'blacklist nvidia\nblacklist nvidia_drm\nblacklist nvidia_modeset\nblacklist nvidia_uvm\n'
+fi > /newroot/etc/modprobe.d/live-gpu.conf
+if [ -n "$nvidia" ]; then
+    echo "live: NVIDIA GPU found, using NVIDIA's driver"
+    sed -i 's/^default: mesa$/default: nvidia/' /newroot/etc/calamares/modules/packagechooser-driver.conf
+fi
+
+exec switch_root /newroot /sbin/init

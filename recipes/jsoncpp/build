@@ -1,0 +1,5 @@
+cd jsoncpp-1.9.8
+meson setup build --prefix=/usr --buildtype=release \
+    -Dtests=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

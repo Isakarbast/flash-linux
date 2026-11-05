@@ -1,6 +1,6 @@
 name        = lib32-libxfixes
 version     = 6.0.2
-release     = 1
+release     = 2
 description = X11 library, 32-bit: Fixes extension
 depends     = libxfixes lib32-glibc lib32-libx11
 makedepends = gcc

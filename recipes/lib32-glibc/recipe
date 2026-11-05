@@ -1,6 +1,6 @@
 name        = lib32-glibc
 version     = 2.44
-release     = 1
+release     = 2
 description = GNU C library, 32-bit (for Steam and 32-bit games)
 depends     = glibc
 options     = !strip

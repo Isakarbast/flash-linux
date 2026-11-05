@@ -1,0 +1,7 @@
+name        = mate-polkit
+version     = 1.28.1
+release     = 1
+description = MATE's password dialog for programs that need admin rights
+depends     = gtk3 polkit
+source      = https://github.com/mate-desktop/mate-polkit/releases/download/v1.28.1/mate-polkit-1.28.1.tar.xz
+sha256      = 350a1dd0a8ed6a2c9c183cff2a21f394299e968fcc6ae2e8c93c565dae604ae8

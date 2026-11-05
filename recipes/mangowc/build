@@ -1,0 +1,17 @@
+cd mango-0.18.5
+meson setup build --prefix=/usr --buildtype=release
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install
+# Flash Linux defaults in the fallback config (/etc/mango/config.conf): kitty
+# and fuzzel, and sound, the bar, notifications, network menu and polkit agent.
+c="$DESTDIR/etc/mango/config.conf"
+sed -i 's/^bind=Alt,space,spawn,rofi -show drun$/bind=Alt,space,spawn,fuzzel/; s/^bind=Alt,Return,spawn,foot$/bind=Alt,Return,spawn,kitty/' "$c"
+cat >> "$c" <<'EOF2'
+
+# Flash Linux: sound, panel, notifications, network menu, password prompts
+exec_once=pipewire-launcher
+exec_once=waybar
+exec_once=mako
+exec_once=nm-applet --indicator
+exec_once=/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+EOF2

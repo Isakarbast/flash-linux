@@ -1,0 +1,8 @@
+cd gvfs-1.62.0
+meson setup build --prefix=/usr --buildtype=release \
+    -Dsystemduserunitdir=no -Dtmpfilesdir=no -Dlogind=true -Dadmin=false -Dafc=false -Dafp=false -Darchive=false \
+    -Dcdda=false -Ddnssd=false -Dgoa=false -Dgoogle=false -Dgphoto2=false -Dhttp=false -Dmtp=true -Dnfs=false \
+    -Dsftp=false -Dsmb=false -Dudisks2=true -Dbluray=false -Dfuse=false -Dgcr=false -Dkeyring=false -Dman=false \
+    -Donedrive=false -Dwsdd=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

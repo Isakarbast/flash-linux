@@ -1,7 +1,8 @@
 name        = at-spi2-core
 version     = 2.62.1
-release     = 1
+release     = 2
 description = Accessibility bus and the ATK library (screen readers; GTK needs it)
+makedepends = gobject-introspection
 depends     = dbus glib libxtst libxml2
 source      = https://download.gnome.org/sources/at-spi2-core/2.62/at-spi2-core-2.62.1.tar.xz
 sha256      = cca6b6a86e4389d89b370288761ce2385ddeceb10c4412da78689bc30c88af2d

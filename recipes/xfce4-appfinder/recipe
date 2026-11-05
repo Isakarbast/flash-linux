@@ -1,0 +1,7 @@
+name        = xfce4-appfinder
+version     = 4.20.0
+release     = 1
+description = Xfce's application finder
+depends     = libxfce4ui garcon
+source      = https://archive.xfce.org/src/xfce/xfce4-appfinder/4.20/xfce4-appfinder-4.20.0.tar.bz2
+sha256      = 82ca82f77dc83e285db45438c2fe31df445148aa986ffebf2faabee4af9e7304

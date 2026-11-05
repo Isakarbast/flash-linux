@@ -1,6 +1,6 @@
 name        = lib32-alsa-lib
 version     = 1.2.16.1
-release     = 1
+release     = 2
 description = ALSA sound library, 32-bit
 depends     = alsa-lib lib32-glibc
 makedepends = gcc

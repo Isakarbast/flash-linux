@@ -1,0 +1,5 @@
+cd swayidle-1.9.1
+meson setup build --prefix=/usr --buildtype=release \
+    -Dman-pages=disabled -Dlogind=enabled -Dlogind-provider=elogind -Dzsh-completions=false -Dfish-completions=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

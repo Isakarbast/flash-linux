@@ -1,0 +1,2 @@
+# /etc/pam.d/hyprlock: unlocking the screen checks the user's password.
+auth include system-auth

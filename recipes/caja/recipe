@@ -1,0 +1,7 @@
+name        = caja
+version     = 1.28.0
+release     = 1
+description = MATE's file manager
+depends     = mate-desktop libexif libnotify gvfs gtk-layer-shell libxml2
+source      = https://github.com/mate-desktop/caja/releases/download/v1.28.0/caja-1.28.0.tar.xz
+sha256      = 1e3014ce1455817ec2ef74d09efdfb6835d8a372ed9a16efb5919ef7b821957a

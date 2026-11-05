@@ -1,0 +1,4 @@
+cd cinnamon-translations-6.6.2
+make
+install -d "$DESTDIR/usr/share/locale"
+cp -r usr/share/locale/* "$DESTDIR/usr/share/locale/"

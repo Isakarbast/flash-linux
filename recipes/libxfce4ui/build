@@ -1,0 +1,5 @@
+cd libxfce4ui-4.20.2
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --disable-introspection --disable-vala --disable-gladeui
+make
+make DESTDIR="$DESTDIR" install

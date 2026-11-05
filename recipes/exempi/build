@@ -1,0 +1,5 @@
+cd exempi-2.6.6
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --disable-unittest
+make
+make DESTDIR="$DESTDIR" install

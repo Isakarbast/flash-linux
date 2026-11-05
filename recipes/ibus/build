@@ -1,0 +1,7 @@
+cd ibus-1.5.34
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --libexecdir=/usr/lib/ibus --enable-introspection --enable-dconf --enable-wayland --disable-gtk2 --disable-gtk4 \
+    --disable-python2 --disable-python-library --disable-setup --disable-emoji-dict --disable-unicode-dict \
+    --disable-systemd-services --disable-tests --disable-gtk-doc --disable-memconf --disable-appindicator --disable-ui
+make
+make DESTDIR="$DESTDIR" install

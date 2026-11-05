@@ -1,0 +1,5 @@
+cd cairomm-1.14.6
+meson setup build --prefix=/usr --buildtype=release \
+    -Dbuild-documentation=false -Dbuild-examples=false -Dbuild-tests=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

@@ -1,0 +1,4 @@
+cd rust-1.99.1-x86_64-unknown-linux-gnu
+./install.sh --prefix=/usr --destdir="$DESTDIR" --disable-ldconfig \
+    --components=rustc,cargo,rust-std-x86_64-unknown-linux-gnu
+rm -f "$DESTDIR/usr/lib/rustlib/install.log" "$DESTDIR/usr/lib/rustlib/uninstall.sh"

@@ -1,5 +1,5 @@
 cd gdk-pixbuf-2.44.8
 meson setup build --prefix=/usr --buildtype=release \
-    -Dpng=disabled -Dgif=disabled -Djpeg=disabled -Dtiff=disabled -Dthumbnailer=disabled -Dglycin=disabled -Dintrospection=disabled -Dman=false -Dtests=false --wrap-mode=nofallback
+    -Dpng=enabled -Dgif=enabled -Djpeg=enabled -Dtiff=disabled -Dthumbnailer=disabled -Dglycin=disabled -Dintrospection=enabled -Dman=false -Dtests=false --wrap-mode=nofallback
 ninja -C build
 DESTDIR="$DESTDIR" ninja -C build install

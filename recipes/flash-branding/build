@@ -1,0 +1,9 @@
+# The icon theme name has no dash: KDE falls back from "flash-linux" to its own
+# "flash" icon before looking in hicolor.
+install -Dm644 flash-linux.svg "$DESTDIR/usr/share/icons/hicolor/scalable/apps/flashlinux.svg"
+install -Dm644 flash-linux.svg "$DESTDIR/usr/share/pixmaps/flash-linux.svg"
+install -Dm644 flash-linux-256.png "$DESTDIR/usr/share/pixmaps/flash-linux.png"
+for s in 512 256 128 64 48 32; do
+    install -Dm644 "flash-linux-$s.png" "$DESTDIR/usr/share/icons/hicolor/${s}x${s}/apps/flashlinux.png"
+done
+install -Dm644 flash-wallpaper.jpg "$DESTDIR/usr/share/backgrounds/flash/flash-wallpaper.jpg"

@@ -1,0 +1,38 @@
+# Flash Linux branding for Calamares: the lightning logo (from flash-branding)
+# and Calamares's language picture for the welcome page.
+---
+componentName:  flash
+welcomeStyleCalamares: false
+welcomeExpandingLogo: true
+windowExpanding: normal
+windowSize: 900px,620px
+windowPlacement: center
+sidebar: widget
+navigation: widget
+strings:
+    productName:         "Flash Linux"
+    shortProductName:    "Flash Linux"
+    version:             "2026.11"
+    shortVersion:        "2026.11"
+    versionedName:       "Flash Linux 2026.11"
+    shortVersionedName:  "Flash Linux 2026.11"
+    bootloaderEntryName: "Flash Linux"
+    productUrl:          "https://github.com/Isakarbast/flash-linux"
+    supportUrl:          ""
+    knownIssuesUrl:      ""
+    releaseNotesUrl:     ""
+    donateUrl:           ""
+images:
+    productIcon:    "flash-linux.png"
+    productLogo:    "flash-linux.png"
+    productWelcome: "languages.png"
+style:
+    SidebarBackground:        "#1d2433"
+    SidebarText:              "#ffffff"
+    SidebarTextCurrent:       "#1d2433"
+    SidebarBackgroundCurrent: "#ffb000"
+slideshow: "show.qml"
+slideshowAPI: 2
+# No log upload (privacy).
+uploadServer:
+    type: "none"

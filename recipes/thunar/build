@@ -1,0 +1,5 @@
+cd thunar-4.20.10
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --enable-gio-unix --enable-gudev --enable-notifications --enable-exif --disable-introspection
+make
+make DESTDIR="$DESTDIR" install

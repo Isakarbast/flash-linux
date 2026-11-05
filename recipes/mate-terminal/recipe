@@ -1,0 +1,7 @@
+name        = mate-terminal
+version     = 1.28.3
+release     = 1
+description = MATE's terminal
+depends     = mate-desktop vte3 dconf
+source      = https://github.com/mate-desktop/mate-terminal/releases/download/v1.28.3/mate-terminal-1.28.3.tar.xz
+sha256      = 9c7d4f884fc21342814a186020e04aa1a5d436e9a13ea128d132e232d04b07e4

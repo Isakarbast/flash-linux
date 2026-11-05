@@ -1,6 +1,6 @@
 name        = lib32-libxau
 version     = 1.0.12
-release     = 1
+release     = 2
 description = X11 library, 32-bit: authorization protocol
 depends     = libxau lib32-glibc
 makedepends = gcc

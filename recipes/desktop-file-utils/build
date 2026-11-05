@@ -1,0 +1,4 @@
+cd desktop-file-utils-0.28
+meson setup build --prefix=/usr --buildtype=release
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

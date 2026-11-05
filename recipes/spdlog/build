@@ -1,0 +1,5 @@
+cd spdlog-1.17.0
+cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_BUILD_TYPE=Release \
+    -D SPDLOG_BUILD_SHARED=ON -D SPDLOG_FMT_EXTERNAL=ON -D SPDLOG_BUILD_EXAMPLE=OFF -D SPDLOG_BUILD_TESTS=OFF
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

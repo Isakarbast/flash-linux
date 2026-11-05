@@ -1,0 +1,7 @@
+name        = dbus-glib
+version     = 0.116
+release     = 1
+description = Old GLib bindings for D-Bus (still used by parts of MATE)
+depends     = dbus glib expat
+source      = https://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.116.tar.gz
+sha256      = e3f3d4487e2883800770ed5899ed111bdc4ba7056af34a255c4c46ad8a2486f3

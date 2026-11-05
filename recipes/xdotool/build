@@ -1,0 +1,3 @@
+cd xdotool-4.20260303.1
+make PREFIX=/usr
+make PREFIX=/usr INSTALLMAN=/usr/share/man DESTDIR="$DESTDIR" install

@@ -1,0 +1,7 @@
+cd mate-control-center-1.28.2
+# Only the typing-break reminder needs an AppIndicator library; build without it.
+sed -i "/^subdir('typing-break')\$/d" meson.build
+sed -i '/^else$/,/^endif$/s/^  ayatana = true$/  ayatana = false/' meson.build
+meson setup build --prefix=/usr --buildtype=release -Daccountsservice=enabled -Dlibappindicator=no
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

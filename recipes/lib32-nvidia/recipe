@@ -1,6 +1,6 @@
 name        = lib32-nvidia
 version     = 615.78.08
-release     = 1
+release     = 2
 description = NVIDIA graphics driver, 32-bit OpenGL/Vulkan/CUDA libraries (for Steam and 32-bit games)
 depends     = nvidia lib32-glibc lib32-libglvnd lib32-libx11 lib32-libxext lib32-libdrm lib32-wayland
 options     = !strip

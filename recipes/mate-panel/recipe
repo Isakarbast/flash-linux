@@ -1,0 +1,7 @@
+name        = mate-panel
+version     = 1.28.7
+release     = 1
+description = MATE's panel
+depends     = mate-desktop mate-menus libmateweather libwnck3 gtk-layer-shell dconf libcanberra
+source      = https://github.com/mate-desktop/mate-panel/releases/download/v1.28.7/mate-panel-1.28.7.tar.xz
+sha256      = b254791dc05219566cec9a1cec71a3dcc7674e87d94e9628b98157b764bc724c

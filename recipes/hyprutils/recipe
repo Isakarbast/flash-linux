@@ -1,0 +1,7 @@
+name        = hyprutils
+version     = 0.14.3
+release     = 1
+description = Small C++ utility library used by Hyprland
+depends     = pixman
+source      = https://github.com/hyprwm/hyprutils/archive/v0.14.3/hyprutils-0.14.3.tar.gz
+sha256      = 87bbfc9549ed96316b0d592c16d01f58729b23a2999a5293b73eec620b40c5f5

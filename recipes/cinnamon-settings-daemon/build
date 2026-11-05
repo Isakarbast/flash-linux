@@ -1,0 +1,5 @@
+cd cinnamon-settings-daemon-6.6.4
+meson setup build --prefix=/usr --buildtype=release \
+    --libexecdir=/usr/lib/cinnamon-settings-daemon -Duse_color=disabled -Duse_smartcard=disabled -Duse_wacom=disabled
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

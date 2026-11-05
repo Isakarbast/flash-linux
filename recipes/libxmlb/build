@@ -1,0 +1,5 @@
+cd libxmlb-0.3.29
+meson setup build --prefix=/usr --buildtype=release \
+    -Dgtkdoc=false -Dtests=false -Dstemmer=false -Dintrospection=true
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

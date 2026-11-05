@@ -1,6 +1,6 @@
 name        = glib
 version     = 2.90.1
-release     = 2
+release     = 3
 description = GLib: core utility library used by GTK, dbus tools, PipeWire, NetworkManager and parts of KDE
 depends     = packaging
 source      = https://download.gnome.org/sources/glib/2.90/glib-2.90.1.tar.xz glib-schemas.hook gio-modules.hook

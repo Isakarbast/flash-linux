@@ -1,0 +1,6 @@
+name        = iniparser
+version     = 4.3.2
+release     = 1
+description = INI file parser in C
+source      = https://github.com/ndevilla/iniparser/archive/v4.3.2/iniparser-4.3.2.tar.gz
+sha256      = e9eb6be555c30fbef87e5a07333fcff6ef8c5bbbdc5710321bbad7ebae0612a7

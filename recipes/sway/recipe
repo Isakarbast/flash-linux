@@ -1,0 +1,7 @@
+name        = sway
+version     = 1.12
+release     = 2
+description = Tiling Wayland compositor compatible with i3
+depends     = wlroots0.20 json-c pcre2 pango cairo gdk-pixbuf libevdev elogind swaybg xwayland
+source      = https://github.com/swaywm/sway/releases/download/1.12/sway-1.12.tar.gz 50-flash.conf
+sha256      = a7b1becc217433c11c6284d36bcea0687b87b77b0ed26a384565292ec321f2b1 7bd6e97a2c1ff8ebacaca8f5c3f525b47770115481465f04967ffef982ce3fc6

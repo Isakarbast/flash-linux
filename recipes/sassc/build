@@ -1,0 +1,6 @@
+cd sassc-3.6.2
+export SASSC_VERSION=3.6.2
+autoreconf -fi
+./configure --prefix=/usr
+make
+make DESTDIR="$DESTDIR" install

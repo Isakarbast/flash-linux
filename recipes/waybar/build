@@ -1,0 +1,7 @@
+cd Waybar-0.15.0
+meson setup build --prefix=/usr --buildtype=release \
+    -Dcpp_std=c++20 -Dexperimental=true -Dlibnl=enabled -Dlibudev=enabled -Dlibevdev=enabled -Dpulseaudio=enabled \
+    -Dupower_glib=enabled -Dwireplumber=enabled -Dmpris=disabled -Dmpd=disabled -Djack=disabled -Dsndio=disabled \
+    -Ddbusmenu-gtk=disabled -Dsystemd=disabled -Dman-pages=disabled -Dtests=disabled -Dcava=disabled -Dniri=false -Dgps=disabled -Dlogin-proxy=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

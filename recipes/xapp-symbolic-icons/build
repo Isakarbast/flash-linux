@@ -1,0 +1,4 @@
+cd xapp-symbolic-icons-1.1.0
+meson setup build --prefix=/usr --buildtype=release
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

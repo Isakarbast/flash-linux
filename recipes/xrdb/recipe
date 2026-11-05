@@ -1,0 +1,7 @@
+name        = xrdb
+version     = 1.2.3
+release     = 1
+description = Loads X resources (used by X session startup scripts)
+depends     = libxmu libx11
+source      = https://www.x.org/pub/individual/app/xrdb-1.2.3.tar.xz
+sha256      = c88f560243278c896ce4fc92ae5a45a2b505a316ffa427fe55b02e5d5914c4e4

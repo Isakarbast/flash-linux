@@ -1,0 +1,14 @@
+cd elfutils-0.197
+export CC="gcc -m32" CXX="g++ -m32"
+export PKG_CONFIG_LIBDIR=/usr/lib32/pkgconfig:/usr/share/pkgconfig
+./configure --prefix=/usr --libdir=/usr/lib32 --build=i686-pc-linux-gnu \
+    --disable-debuginfod \
+    --enable-libdebuginfod=dummy
+make -C lib
+make -C libelf
+make -C libelf DESTDIR="$DESTDIR" install
+install -Dm644 config/libelf.pc "$DESTDIR/usr/lib32/pkgconfig/libelf.pc"
+rm -f "$DESTDIR/usr/lib32/libelf.a"
+# Keep only /usr/lib32: headers, programs and data come from the 64-bit package.
+find "$DESTDIR" -mindepth 1 -maxdepth 1 ! -name usr -exec rm -rf {} +
+find "$DESTDIR/usr" -mindepth 1 -maxdepth 1 ! -name lib32 -exec rm -rf {} +

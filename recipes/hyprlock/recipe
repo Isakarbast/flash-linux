@@ -1,0 +1,8 @@
+name        = hyprlock
+version     = 0.9.7
+release     = 1
+description = Hyprland's screen locker
+depends     = hyprgraphics hyprlang hyprutils sdbus-cpp linux-pam mesa pango libxkbcommon
+makedepends = hyprwayland-scanner wayland-protocols
+source      = https://github.com/hyprwm/hyprlock/archive/v0.9.7/hyprlock-0.9.7.tar.gz hyprlock.pam
+sha256      = 01145790570ffabd31e9b528c517bdccae76f36e72d733f00c2696d9c3bf2c88 68829fe3b69a00c6ae12da0c1e75a09096b2271b4155de6b2cd99184f1804a12

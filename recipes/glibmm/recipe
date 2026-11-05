@@ -1,0 +1,7 @@
+name        = glibmm
+version     = 2.66.10
+release     = 1
+description = C++ bindings for GLib (2.4 API, for gtkmm 3)
+depends     = glib libsigc++
+source      = https://download.gnome.org/sources/glibmm/2.66/glibmm-2.66.10.tar.xz
+sha256      = 2b61780203aed98e701d3ea57c8f353e7c8ada9706a79be782f6c5153dd035c0

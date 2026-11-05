@@ -1,0 +1,8 @@
+cd xfce4-settings-4.20.5
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --enable-xrandr --enable-xcursor --enable-libnotify --enable-libxklavier --enable-pluggable-dialogs --enable-sound-settings
+make
+make DESTDIR="$DESTDIR" install
+# Icons: Adwaita (installed) instead of Xfce's default Rodent theme.
+x="$DESTDIR/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml"
+[ ! -f "$x" ] || sed -i 's/\(name="IconThemeName" type="string" value="\)[^"]*/\1Adwaita/' "$x"

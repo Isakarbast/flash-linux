@@ -1,0 +1,7 @@
+name        = mangowc
+version     = 0.18.5
+release     = 2
+description = MangoWC: a fast, animated tiling Wayland compositor (dwl-based)
+depends     = wlroots0.20 scenefx cjson pcre2 pango libinput libxkbcommon xwayland
+source      = https://github.com/mangowm/mango/archive/0.18.5/mango-0.18.5.tar.gz
+sha256      = f8655db6685478ef1500710033217c13e5ce3a444516f4e3ad112c771074b151

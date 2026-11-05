@@ -1,0 +1,12 @@
+#!/sbin/openrc-run
+# LightDM graphical login (enable with: rc-update add lightdm default)
+
+description="Graphical login screen"
+supervisor=supervise-daemon
+command=/usr/bin/lightdm
+
+depend() {
+	need dbus elogind localmount
+	after bootmisc
+	use NetworkManager
+}

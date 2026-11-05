@@ -1,0 +1,5 @@
+cd mousepad-0.7.0
+meson setup build --prefix=/usr --buildtype=release \
+    -Dgspell-plugin=disabled -Dpolkit=disabled
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

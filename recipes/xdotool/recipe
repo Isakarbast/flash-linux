@@ -1,0 +1,7 @@
+name        = xdotool
+version     = 4.20260303.1
+release     = 1
+description = Simulates keyboard and mouse input on X11 (Cinnamon's screensaver uses it)
+depends     = libxtst libxinerama libxkbcommon
+source      = xdotool-4.20260303.1.tar.gz::https://github.com/jordansissel/xdotool/archive/v4.20260303.1.tar.gz
+sha256      = c1f971a384da588eb99ca0755fc4300316d49c1e612537e3f1de52215e104fa3

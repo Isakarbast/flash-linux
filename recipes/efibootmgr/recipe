@@ -1,0 +1,7 @@
+name        = efibootmgr
+version     = 18
+release     = 2
+description = Edits the firmware's UEFI boot entries (grub-install uses it)
+depends     = efivar popt
+source      = https://github.com/rhboot/efibootmgr/archive/18/efibootmgr-18.tar.gz
+sha256      = 442867d12f8525034a404fc8af3036dba8e1fc970998af2486c3b940dfad0874

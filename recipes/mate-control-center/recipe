@@ -1,0 +1,7 @@
+name        = mate-control-center
+version     = 1.28.2
+release     = 1
+description = MATE's control center
+depends     = mate-desktop libmatekbd mate-menus marco mate-settings-daemon libgtop libcanberra accountsservice desktop-file-utils
+source      = https://github.com/mate-desktop/mate-control-center/releases/download/v1.28.2/mate-control-center-1.28.2.tar.xz
+sha256      = 6ca6205e6f89502c76bd73c2355a8ef9e3f60e478895820b94be6dde739cc798

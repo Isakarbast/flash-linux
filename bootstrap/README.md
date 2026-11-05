@@ -21,6 +21,14 @@ way Linux From Scratch does.
 | 7e | udisks2 and its storage stack (drives in Dolphin) | `stage7e.sh` |
 | 8a | 32-bit toolchain: lib32 glibc, gcc rebuilt with multilib (+ lib32-gcc-libs) | `stage8a.sh` |
 | 8b | 32-bit libraries and NVIDIA driver, Steam, Proton-GE | `stage8b.sh` |
+| 8c | 32-bit mesa (AMD and Intel graphics for 32-bit games) with a 32-bit LLVM | `stage8c.sh` |
+| 9b | X.Org server, LightDM, Xfce 4.20 (and Rust + librsvg, VTE, gvfs, nm-applet, polkit agent) | `stage9b.sh` |
+| 9c | wlroots 0.20, Sway, MangoWC, Waybar, fuzzel, mako, portals | `stage9c.sh` |
+| 9d | Hyprland and the hyprwm libraries, hyprlock, hypridle, its portal | `stage9d.sh` |
+| 9e | MATE 1.28 (and libsoup 3, itstool) | `stage9e.sh` |
+| 9f | GObject Introspection data for the GTK stack, PyGObject, SpiderMonkey 128 + cjs, tray icons | `stage9f.sh` |
+| 9g | Cinnamon 6.6 with Muffin, Nemo and the X-Apps | `stage9g.sh` |
+| ISO | Live system and graphical installer (Calamares) with every package on it | `build-iso.sh` |
 
 ## Stage 1
 
@@ -92,8 +100,8 @@ replaces it with the generic kernel), linux-firmware,
 Intel microcode, eudev, OpenRC as PID 1 (`-Dsysvinit=true`: openrc-init,
 reboot/poweroff, agetty on tty1-6), dhcpcd, GRUB and sudo. Then it writes
 fstab, timezone and keymap (taken from Fedora), installs GRUB to
-`/boot/efi/EFI/freedom` with a Fedora entry in its menu, asks for the root
-password and a user (in group wheel for sudo), and adds a "Freedom Linux"
+`/boot/efi/EFI/flash` with a Fedora entry in its menu, asks for the root
+password and a user (in group wheel for sudo), and adds a "Flash Linux"
 firmware boot entry that is used for the next boot only.
 
 Networking at first boot is wired (dhcpcd); Wi-Fi comes with NetworkManager
@@ -241,7 +249,7 @@ the official Slang shader compiler binary (`shader-slang`, kept in
 symbols font. Its Go
 modules are downloaded from proxy.golang.org beforehand (as `name::url`
 sources, also checked against kitty's `go.sum`) and served to the offline
-build as a local module proxy. `freedom-kde-settings` holds the system-wide
+build as a local module proxy. `flash-kde-settings` holds the system-wide
 KDE defaults in `/etc/xdg`: kitty as Plasma's terminal, and Plasma starting
 with an empty session instead of reopening the last one's apps (each user can
 change both in System Settings).
@@ -296,7 +304,7 @@ libffi, the X11/XCB client libraries, libdrm, Wayland, libglvnd, the Vulkan
 loader, libudev (from eudev), alsa-lib and libxcrypt (with Steam's
 `libcrypt.so.1`). `lib32-nvidia` is the 32-bit half of the NVIDIA driver from
 the same `.run` file (OpenGL/EGL/GLES, Vulkan, CUDA, NVENC/NVDEC, VDPAU);
-32-bit mesa, for AMD and Intel GPUs, needs a 32-bit LLVM and is not built yet.
+32-bit mesa, for AMD and Intel GPUs, comes in stage 8c.
 
 `steam` is Valve's launcher (its tarball matches Valve's signed `.dsc` and
 Arch's checksum); it downloads the Steam client and runtime into
@@ -305,3 +313,121 @@ give the devices to the `input` group, since eudev has no `uaccess`.
 `proton-ge-custom` (GE-Proton11-12, checked against its published SHA-512)
 goes to `/usr/share/steam/compatibilitytools.d`, where Steam lists it as a
 compatibility tool.
+
+## Stage 8c
+
+```sh
+sudo SOURCE_CACHE=$HOME/.cache/distro-sources ./stage8c.sh
+```
+
+32-bit mesa, so 32-bit games also run on AMD and Intel GPUs. It needs 32-bit
+builds of LLVM (only the X86 and AMDGPU targets; `llvm-config32` is the real
+32-bit binary, installed in `/usr/bin` so it reports the right paths),
+zlib, expat, zstd, libelf, libpciaccess and libdrm (with Intel support).
+mesa is rebuilt (release 2) to also install its OpenCL C and precompiler
+tools, which the 32-bit build runs instead of building its own. The 32-bit
+Vulkan drivers' `*.i686.json` files sit next to the 64-bit ones in
+`/usr/share/vulkan/icd.d`.
+
+## Stages 9b to 9g: more desktops
+
+```sh
+sudo SOURCE_CACHE=$HOME/.cache/distro-sources ./stage9b.sh   # then 9c to 9g
+```
+
+The desktops the installer offers besides KDE Plasma, each as a package group
+(`flash-xfce`, `flash-cinnamon`, `flash-mate`, `flash-hyprland`, `flash-sway`,
+`flash-mango`)
+that `fpm install` adds to an existing system too. They log in through
+**LightDM** with its GTK greeter (the session list shows every installed
+desktop); KDE keeps SDDM. `lightdm-session` starts each session with the login
+environment and its own D-Bus session bus. Cinnamon gets the Flash logo on its
+menu button and the Flash wallpaper (from `flash-branding`). Nothing is switched over on a
+running system: SDDM stays the login screen, and the new sessions appear in
+its list.
+
+- **9b** brings the X.Org server (Xorg, with NVIDIA's X driver added to the
+  `nvidia` package) and the X session tools, LightDM, and Xfce 4.20 with
+  Thunar, xfce4-terminal, Mousepad, Ristretto and the panel plugins. Also
+  shared by the other GTK desktops: Rust (official binaries) and librsvg, which
+  draws the SVG icons GTK themes use (its Rust crates are pinned one by one
+  from its `Cargo.lock`), VTE, dconf, gvfs (trash and USB drives in file
+  managers), nm-applet, polkit-gnome and the Adwaita icons.
+- **9c** brings wlroots 0.20 with Sway and MangoWC (with scenefx), Waybar
+  (with gtkmm 3), fuzzel, mako, swaylock/swayidle, grim/slurp, wl-clipboard
+  and the wlr and GTK portals. Their default configs use kitty and fuzzel and
+  start sound (PipeWire), the bar, notifications, nm-applet and the polkit
+  agent, since tiling compositors don't run XDG autostart.
+- **9d** brings Hyprland 0.57 (configured in Lua) and the hyprwm libraries it
+  is built from, hyprlock, hypridle and its screen-sharing portal. New users
+  get Hyprland's example config with the same defaults, from `/etc/skel`.
+- **9e** brings MATE 1.28: Marco, Caja, the panel, control center, settings
+  daemon, screen locker, power manager, volume control, terminal and system
+  monitor, with the Menta themes and icons. libxml2 is rebuilt with its Python
+  module for itstool (MATE's help pages), and libmateweather is ported to
+  libsoup 3 (Arch's patch).
+
+- **9f** prepares Cinnamon, whose shell is JavaScript (cjs, on SpiderMonkey
+  128) and whose settings are Python: GObject Introspection, then GLib, GTK,
+  Pango, NetworkManager, polkit, upower and the other libraries they reach
+  rebuilt with their introspection data (GObject Introspection and GLib need
+  each other, so it goes GI, GLib, GI again), PyGObject, pycairo, dbus-python,
+  cbindgen and SpiderMonkey (patched for Rust 1.99 and Python 3.15). Also the
+  Ayatana AppIndicator libraries, so nm-applet shows up in Waybar's tray.
+- **9g** brings Cinnamon 6.6: Muffin, the Cinnamon shell, its session manager,
+  settings daemon, control center, screensaver and Nemo, Linux Mint's X-Apps
+  library, gcr, and the Python modules its tools use (pure-Python ones from
+  their wheels, installed with Python's bundled pip; the others built from
+  source).
+
+## The ISO
+
+```sh
+sudo SOURCE_CACHE=$HOME/.cache/distro-sources ./build-iso.sh
+```
+
+Builds `flash-linux-2026.11.iso` (about 8.6 GB, so a 16 GB or bigger USB
+stick) in your home directory, using the Flash Linux partition as the build
+machine. It runs `iso/mkiso-chroot.sh` in the chroot, which:
+
+1. Installs the current fpm, as the `fpm` package (the source tarball comes
+   from `make dist` in fpm's checkout), and upgrades every installed package,
+   so the ISO carries what the recipes say. This rebuilds whatever changed.
+2. Builds Calamares and the installer's packages: `flash-installer` (its
+   settings, branding and two job modules) and the package groups the
+   installer offers, `flash-base`, `flash-kde` and `flash-gaming`.
+3. Puts every installed package, plus every member of those groups (e.g.
+   firmware for hardware this machine doesn't have), into a repository,
+   signs it with `/etc/fpm/keys/flash-iso.key` (made on the first run), and
+   checks that everything the installer can pick installs from it: the build
+   stops if a package would have to be built from source.
+4. Installs the live system from that repository (`flash-base`,
+   `flash-kde`, `nvidia` and the installer): user `live` without a
+   password, logged in automatically, with an "Install Flash Linux" icon on
+   the desktop.
+5. Makes a small initramfs (bash, util-linux, the USB, CD, loop, squashfs and
+   overlay modules) that finds the medium by its label, mounts the compressed
+   live system with a RAM overlay and starts OpenRC. Installed systems need no
+   initramfs. It also picks the graphics driver: an NVIDIA GPU of the GTX 16 /
+   RTX 20 series or newer (PCI device 0x1e00 and up) gets NVIDIA's driver,
+   and the installer then suggests it; anything else gets mesa. Without this
+   an RTX card would run Plasma on the CPU (llvmpipe), since mesa's nouveau
+   driver has no 3D support for it.
+6. Writes a UEFI-only hybrid image: GRUB with live and safe-graphics
+   (`nomodeset`) entries, booting from a USB stick or DVD.
+
+The installer asks for the language, time zone, keyboard, desktop (KDE
+Plasma, Xfce, Cinnamon, MATE, Hyprland, Sway, MangoWC or none), graphics driver (Mesa or NVIDIA), extras (gaming), disk and
+user. It installs from the repository on the medium with fpm; nothing is
+downloaded. It then copies the recipes, sets the console keymap, gives tty1
+to the login screen, installs GRUB to the EFI partition and writes
+`/etc/default/grub` to boot by `root=PARTUUID`. Disk encryption isn't
+offered: it needs an initramfs.
+
+Write the ISO to a USB stick (everything on it is erased; check the device
+name with `lsblk`):
+
+```sh
+sudo dd if=flash-linux-2026.11.iso of=/dev/sdX bs=4M status=progress oflag=sync
+```
+

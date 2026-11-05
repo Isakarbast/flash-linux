@@ -1,5 +1,5 @@
 cd gsettings-desktop-schemas-51.0
 meson setup build --prefix=/usr --buildtype=release \
-    -Dintrospection=false
+    -Dintrospection=true
 ninja -C build
 DESTDIR="$DESTDIR" ninja -C build install

@@ -1,0 +1,7 @@
+name        = mate-screensaver
+version     = 1.28.1
+release     = 1
+description = MATE's screen locker
+depends     = mate-desktop libmatekbd mate-menus dbus-glib libxscrnsaver libnotify linux-pam
+source      = https://github.com/mate-desktop/mate-screensaver/releases/download/v1.28.1/mate-screensaver-1.28.1.tar.xz mate-screensaver.pam
+sha256      = a20d49bcf4e577287c0cd78596158923c729d6370b6da19a98ac655b029cce36 1432a330dcd678fb62df0e65557b41d2d7804cd1767dba758c07c6644ec42d6e

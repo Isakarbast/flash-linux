@@ -1,0 +1,5 @@
+cd glibmm-2.66.10
+meson setup build --prefix=/usr --buildtype=release \
+    -Dbuild-documentation=false -Dbuild-examples=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

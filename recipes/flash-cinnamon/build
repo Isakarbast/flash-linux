@@ -1,0 +1,2 @@
+install -Dm644 50-flash-cinnamon.conf "$DESTDIR/usr/share/lightdm/lightdm.conf.d/50-flash-cinnamon.conf"
+install -Dm644 90-flash-cinnamon.gschema.override "$DESTDIR/usr/share/glib-2.0/schemas/90-flash-cinnamon.gschema.override"

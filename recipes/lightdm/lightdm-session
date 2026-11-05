@@ -1,0 +1,21 @@
+#!/bin/sh
+# /usr/bin/lightdm-session: LightDM's session wrapper. Loads the login
+# environment (and, for X sessions, X resources), then starts the chosen
+# session with a D-Bus session bus.
+[ -f /etc/profile ] && . /etc/profile
+[ -f "$HOME/.profile" ] && . "$HOME/.profile"
+[ -f /etc/xprofile ] && . /etc/xprofile
+[ -f "$HOME/.xprofile" ] && . "$HOME/.xprofile"
+if [ -n "$DISPLAY" ] && command -v xrdb >/dev/null 2>&1; then
+    [ -f /etc/X11/Xresources ] && xrdb -merge /etc/X11/Xresources
+    [ -f "$HOME/.Xresources" ] && xrdb -merge "$HOME/.Xresources"
+fi
+for f in /etc/X11/xinit/xinitrc.d/?*.sh; do
+    [ -x "$f" ] && . "$f"
+done
+unset f
+# LightDM passes the session's Exec line as one argument; split it into words.
+if [ -z "$DBUS_SESSION_BUS_ADDRESS" ] && command -v dbus-run-session >/dev/null 2>&1; then
+    exec dbus-run-session -- $*
+fi
+exec $*

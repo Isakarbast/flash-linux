@@ -1,0 +1,2 @@
+# /etc/pam.d/swaylock: unlocking the screen checks the user's password.
+auth include system-auth

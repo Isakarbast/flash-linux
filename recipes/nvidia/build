@@ -40,6 +40,14 @@ install -Dm644 -t "$DESTDIR/usr/share/egl/egl_external_platform.d" \
     09_nvidia_wayland2.json 10_nvidia_wayland.json 15_nvidia_gbm.json \
     20_nvidia_xcb.json 20_nvidia_xlib.json
 
+# Xorg: the display driver and NVIDIA's GLX module, for X11 desktops (Xfce,
+# MATE, Cinnamon); the OutputClass makes Xorg use them for an nvidia-drm GPU.
+install -Dm755 nvidia_drv.so "$lib/xorg/modules/drivers/nvidia_drv.so"
+install -Dm755 "libglxserver_nvidia.so.$v" "$lib/nvidia/xorg/libglxserver_nvidia.so.$v"
+ln -s "libglxserver_nvidia.so.$v" "$lib/nvidia/xorg/libglxserver_nvidia.so.1"
+ln -s "libglxserver_nvidia.so.$v" "$lib/nvidia/xorg/libglxserver_nvidia.so"
+install -Dm644 ../nvidia-outputclass.conf "$DESTDIR/usr/share/X11/xorg.conf.d/10-nvidia-drm-outputclass.conf"
+
 # Vulkan
 install -Dm644 nvidia_icd.json "$DESTDIR/usr/share/vulkan/icd.d/nvidia_icd.json"
 install -Dm644 nvidia_layers.json "$DESTDIR/usr/share/vulkan/implicit_layer.d/nvidia_layers.json"

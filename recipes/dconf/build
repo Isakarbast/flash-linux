@@ -1,0 +1,5 @@
+cd dconf-51.0
+meson setup build --prefix=/usr --buildtype=release \
+    -Dbash_completion=false -Dman=false -Dvapi=false -Dsystemduserunitdir=no
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

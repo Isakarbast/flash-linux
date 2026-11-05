@@ -1,0 +1,5 @@
+cd tomlplusplus-3.4.0
+meson setup build --prefix=/usr --buildtype=release \
+    -Dbuild_lib=true -Dgenerate_cmake_config=true
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

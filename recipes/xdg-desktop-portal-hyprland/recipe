@@ -1,0 +1,8 @@
+name        = xdg-desktop-portal-hyprland
+version     = 1.5.0
+release     = 1
+description = Screen sharing and screenshots for Hyprland
+depends     = xdg-desktop-portal pipewire sdbus-cpp hyprlang hyprutils hyprtoolkit inih qt6 libdrm mesa
+makedepends = hyprland-protocols hyprwayland-scanner wayland-protocols
+source      = https://github.com/hyprwm/xdg-desktop-portal-hyprland/archive/v1.5.0/xdg-desktop-portal-hyprland-1.5.0.tar.gz
+sha256      = 8f9eddad706b0bbca2dc24f9894e07969ec5aed163249d6eac3932cfaf38e6a9

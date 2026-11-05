@@ -1,0 +1,8 @@
+name        = vte3
+version     = 0.84.1
+release     = 1
+description = Terminal emulator widget for GTK 3 (used by xfce4-terminal and MATE Terminal)
+depends     = gtk3 gnutls pcre2 icu lz4 fribidi simdutf
+makedepends = fmt fast_float
+source      = https://download.gnome.org/sources/vte/0.84/vte-0.84.1.tar.xz
+sha256      = aca1caa8478aebcdbb1d67897fb3511eb7601debae6810e16a15b6fa25f31ac8

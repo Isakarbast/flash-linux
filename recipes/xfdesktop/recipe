@@ -1,0 +1,7 @@
+name        = xfdesktop
+version     = 4.20.2
+release     = 1
+description = Xfce's desktop: wallpaper and icons
+depends     = libxfce4ui libxfce4windowing libyaml exo thunar garcon gtk-layer-shell
+source      = https://archive.xfce.org/src/xfce/xfdesktop/4.20/xfdesktop-4.20.2.tar.bz2
+sha256      = 1d9bd76015fb6e9aca05e73cd998c7c66ed4fc8c10b626e08fc2eb7c39df3f7b

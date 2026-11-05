@@ -1,0 +1,8 @@
+name        = xapp
+version     = 3.2.3
+release     = 1
+description = Linux Mint's cross-desktop library (X-Apps)
+depends     = gtk3 libgnomekbd libdbusmenu python pygobject python-setproctitle xapp-symbolic-icons
+makedepends = gobject-introspection
+source      = https://github.com/linuxmint/xapp/archive/3.2.3/xapp-3.2.3.tar.gz
+sha256      = e1df3c3e803bf59d133e53a718013b0a4213057beab3ee1eeeb3bfd3b48a946e

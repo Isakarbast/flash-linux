@@ -1,0 +1,7 @@
+name        = pygobject
+version     = 3.58.1
+release     = 1
+description = Python bindings for GLib, GTK and other GObject libraries
+depends     = python gobject-introspection pycairo
+source      = https://download.gnome.org/sources/pygobject/3.58/pygobject-3.58.1.tar.gz
+sha256      = 4c80598ade17fbaa7798e01a25d0bf29ce109740786026a074c5c62bb3e79d23

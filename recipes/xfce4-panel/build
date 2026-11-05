@@ -1,0 +1,5 @@
+cd xfce4-panel-4.20.8
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --disable-introspection --disable-vala
+make
+make DESTDIR="$DESTDIR" install

@@ -1,0 +1,7 @@
+name        = marco
+version     = 1.29.0
+release     = 1
+description = MATE's window manager (with compositing)
+depends     = mate-desktop libgtop libcanberra libxpresent libxres libxcomposite libxdamage libxinerama startup-notification
+source      = https://github.com/mate-desktop/marco/releases/download/v1.29.0/marco-1.29.0.tar.xz
+sha256      = 54aa87fe49b904b6911d7b81081eaea524eeb75b158b2558b84e33ef0315fc54

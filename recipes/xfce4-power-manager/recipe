@@ -1,0 +1,7 @@
+name        = xfce4-power-manager
+version     = 4.20.1
+release     = 1
+description = Xfce's power manager (battery, brightness, sleep)
+depends     = libxfce4ui upower libnotify xfce4-panel
+source      = https://archive.xfce.org/src/xfce/xfce4-power-manager/4.20/xfce4-power-manager-4.20.1.tar.bz2
+sha256      = 4fe18ef5f89c5ca9b96dde84dbd88ca7e36af1caf70ddd6429dc72128007edf7

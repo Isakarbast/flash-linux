@@ -1,0 +1,6 @@
+name        = simdutf
+version     = 9.2.2
+release     = 1
+description = Fast Unicode validation and conversion for C++
+source      = https://github.com/simdutf/simdutf/archive/v9.2.2/simdutf-9.2.2.tar.gz
+sha256      = 18642dfc2e6ad601ce9b9d423e673d7978cf7a62c0de091803c0eccc7ab67f4f

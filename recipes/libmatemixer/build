@@ -1,0 +1,5 @@
+cd libmatemixer-1.28.0
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --enable-pulseaudio --disable-oss --disable-alsa
+make
+make DESTDIR="$DESTDIR" install

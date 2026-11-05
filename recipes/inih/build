@@ -1,0 +1,5 @@
+cd inih-r62
+meson setup build --prefix=/usr --buildtype=release \
+    -Ddefault_library=shared -Ddistro_install=true -Dwith_INIReader=true
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

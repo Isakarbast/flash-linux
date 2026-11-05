@@ -1,6 +1,6 @@
 name        = gcc
 version     = 16.2.0
-release     = 2
+release     = 3
 description = GNU compiler collection (C and C++)
 depends     = binutils
 makedepends = lib32-glibc
