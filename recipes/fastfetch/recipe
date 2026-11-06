@@ -1,0 +1,7 @@
+name        = fastfetch
+version     = 2.71.0
+release     = 1
+description = Shows system information next to the distro's logo
+depends     = glibc
+source      = fastfetch-2.71.0.tar.gz::https://github.com/fastfetch-cli/fastfetch/archive/refs/tags/2.71.0.tar.gz
+sha256      = e71d93de41e8e4b2554c36d2ae51758112a21ecf3a8c98605a2c689251e62987
