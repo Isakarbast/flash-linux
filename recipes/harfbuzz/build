@@ -1,5 +1,7 @@
 cd harfbuzz-15.0.0
+# Introspection data needs GLib's (stage 9f builds it, then rebuilds this).
+if [ -e /usr/share/gir-1.0/GObject-2.0.gir ]; then gi=enabled; else gi=disabled; fi
 meson setup build --prefix=/usr --buildtype=release \
-    -Dgraphite2=disabled -Dcairo=disabled -Dtests=disabled -Ddocs=disabled -Dintrospection=enabled
+    -Dgraphite2=disabled -Dcairo=disabled -Dtests=disabled -Ddocs=disabled -Dintrospection=$gi
 ninja -C build
 DESTDIR="$DESTDIR" ninja -C build install

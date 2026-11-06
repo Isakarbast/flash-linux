@@ -1,4 +1,6 @@
 cd NetworkManager-1.58.1
+# Introspection data needs GLib's (stage 9f builds it, then rebuilds this).
+if [ -e /usr/share/gir-1.0/GObject-2.0.gir ]; then gi=true; else gi=false; fi
 grep -rl '^#!.*python$' | xargs sed -i '1s/python/&3/'
 meson setup build --prefix=/usr --buildtype=release \
     -Dcrypto=gnutls \
@@ -12,7 +14,7 @@ meson setup build --prefix=/usr --buildtype=release \
     -Dppp=false -Dmodem_manager=false -Dofono=false -Dbluez5_dun=false \
     -Dovs=false -Dteamdctl=false -Dnbft=false -Dclat=false -Debpf=false \
     -Dnm_cloud_setup=false -Dnmtui=false -Dqt=false -Dlibpsl=false \
-    -Dintrospection=true -Dvapi=false -Ddocs=false -Dman=false -Dtests=no
+    -Dintrospection=$gi -Dvapi=false -Ddocs=false -Dman=false -Dtests=no
 ninja -C build
 DESTDIR="$DESTDIR" ninja -C build install
 install -Dm644 ../NetworkManager.conf "$DESTDIR/etc/NetworkManager/NetworkManager.conf"

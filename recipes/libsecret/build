@@ -1,4 +1,6 @@
 cd libsecret-0.21.8.2
-meson setup build --prefix=/usr --buildtype=release -Dgtk_doc=false -Dintrospection=true -Dvapi=false -Dmanpage=false
+# Introspection data needs GLib's (stage 9f builds it, then rebuilds this).
+if [ -e /usr/share/gir-1.0/GObject-2.0.gir ]; then gi=true; else gi=false; fi
+meson setup build --prefix=/usr --buildtype=release -Dgtk_doc=false -Dintrospection=$gi -Dvapi=false -Dmanpage=false
 ninja -C build
 DESTDIR="$DESTDIR" ninja -C build install

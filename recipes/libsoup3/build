@@ -1,6 +1,8 @@
 cd libsoup-3.8.1
+# Introspection data needs GLib's (stage 9f builds it, then rebuilds this).
+if [ -e /usr/share/gir-1.0/GObject-2.0.gir ]; then gi=enabled; else gi=disabled; fi
 meson setup build --prefix=/usr --buildtype=release \
-    -Dgssapi=disabled -Dntlm=disabled -Dbrotli=disabled -Dtests=false -Dintrospection=enabled -Dvapi=disabled \
+    -Dgssapi=disabled -Dntlm=disabled -Dbrotli=disabled -Dtests=false -Dintrospection=$gi -Dvapi=disabled \
     -Ddocs=disabled -Dsysprof=disabled -Dautobahn=disabled -Dpkcs11_tests=disabled
 ninja -C build
 DESTDIR="$DESTDIR" ninja -C build install

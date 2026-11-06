@@ -1,5 +1,7 @@
 cd libgudev-238
+# Introspection data needs GLib's (stage 9f builds it, then rebuilds this).
+if [ -e /usr/share/gir-1.0/GObject-2.0.gir ]; then gi=enabled; else gi=disabled; fi
 meson setup build --prefix=/usr --buildtype=release \
-    -Dtests=disabled -Dintrospection=enabled -Dvapi=disabled -Dgtk_doc=false
+    -Dtests=disabled -Dintrospection=$gi -Dvapi=disabled -Dgtk_doc=false
 ninja -C build
 DESTDIR="$DESTDIR" ninja -C build install

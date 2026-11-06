@@ -1,4 +1,6 @@
 cd polkit-128
+# Introspection data needs GLib's (stage 9f builds it, then rebuilds this).
+if [ -e /usr/share/gir-1.0/GObject-2.0.gir ]; then gi=true; else gi=false; fi
 # systemd/sysusers/tmpfiles files aren't used on this system; they're left out
 # of the package below.
 meson setup build --prefix=/usr --buildtype=release \
@@ -6,7 +8,7 @@ meson setup build --prefix=/usr --buildtype=release \
     -Dsession_tracking=elogind \
     -Dauthfw=pam \
     -Dsystemdsystemunitdir=/usr/lib/systemd/system \
-    -Dintrospection=true \
+    -Dintrospection=$gi \
     -Dman=false -Dgtk_doc=false \
     -Dexamples=false -Dtests=false
 ninja -C build

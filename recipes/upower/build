@@ -1,6 +1,8 @@
 cd upower-v1.91.5
+# Introspection data needs GLib's (stage 9f builds it, then rebuilds this).
+if [ -e /usr/share/gir-1.0/GObject-2.0.gir ]; then gi=enabled; else gi=disabled; fi
 meson setup build --prefix=/usr --buildtype=release \
-    -Dgtk-doc=false -Dman=false -Dintrospection=enabled -Dsystemdsystemunitdir=no -Dudevrulesdir=/usr/lib/udev/rules.d
+    -Dgtk-doc=false -Dman=false -Dintrospection=$gi -Dsystemdsystemunitdir=no -Dudevrulesdir=/usr/lib/udev/rules.d
 ninja -C build
 DESTDIR="$DESTDIR" ninja -C build install
 rm -rf "${DESTDIR:?}/usr/lib/systemd" "${DESTDIR:?}/usr/lib/sysusers.d" "${DESTDIR:?}/usr/lib/tmpfiles.d"
