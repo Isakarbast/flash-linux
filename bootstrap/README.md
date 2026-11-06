@@ -28,6 +28,7 @@ way Linux From Scratch does.
 | 9e | MATE 1.28 (and libsoup 3, itstool) | `stage9e.sh` |
 | 9f | GObject Introspection data for the GTK stack, PyGObject, SpiderMonkey 128 + cjs, tray icons | `stage9f.sh` |
 | 9g | Cinnamon 6.6 with Muffin, Nemo and the X-Apps | `stage9g.sh` |
+| 10a | Flatpak with Flathub (apps without a recipe each), GnuPG, OSTree | `stage10a.sh` |
 | ISO | Live system and graphical installer (Calamares) with every package on it | `build-iso.sh` |
 
 ## Stage 1
@@ -382,6 +383,11 @@ its list.
   port, with its online city search switched off), and the Python modules its tools use (pure-Python ones from
   their wheels, installed with Python's bundled pip; the others built from
   source).
+- **10a** adds Flatpak, so desktop apps (Discord, Spotify, OBS, ...) install
+  from Flathub with `flatpak install flathub APP` instead of needing a recipe
+  each. GnuPG checks Flathub's signatures, OSTree stores the apps and AppStream
+  reads their metadata; Flathub is added when Flatpak is installed. It only
+  needs a base system, so it also runs on a system installed from the ISO.
 
 ## The ISO
 

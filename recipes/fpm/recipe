@@ -1,9 +1,9 @@
 name        = fpm
-version     = 0.3.1
+version     = 0.3.2
 release     = 1
 description = Flash Package Manager: builds, installs and upgrades every package on Flash Linux
 depends     = glibc bash coreutils tar zstd curl openssl bubblewrap binutils
 # The repository is private for now: build-iso.sh and the stage scripts put
 # this tarball (from "make dist" in fpm's source) into fpm's source cache.
-source      = fpm-0.3.1.tar.gz::https://github.com/Isakarbast/flash-package-manager/releases/download/v0.3.1/fpm-0.3.1.tar.gz fpm.conf
-sha256      = 10535204c26a3c049e9dfd67f06bc3c2c300d99f2db13c1912b6222ab4d2251c 5edbcd4200fd1024e86e8201c9683a222f62a553abef8172aa70c1ba247ea36b
+source      = fpm-0.3.2.tar.gz::https://github.com/Isakarbast/flash-package-manager/releases/download/v0.3.2/fpm-0.3.2.tar.gz fpm.conf
+sha256      = 16c0770885d0fcce46952bf369235f01e3dc3f5465fa099b8f323c64b069c1cf 5edbcd4200fd1024e86e8201c9683a222f62a553abef8172aa70c1ba247ea36b

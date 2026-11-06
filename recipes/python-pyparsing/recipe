@@ -1,0 +1,8 @@
+name        = python-pyparsing
+version     = 3.3.3
+release     = 1
+description = Parser building library for Python (Flatpak's build uses it)
+arch        = noarch
+depends     = python
+source      = https://files.pythonhosted.org/packages/38/bb/d215ee7c73b61497b28a5503f9f53523f294fcc936762b7caf90e0c1c2b5/pyparsing-3.3.3-py3-none-any.whl
+sha256      = ece8c00a69cf01b45d0b1dedabb469c90d8caf996d4fda40f147627a122849a4

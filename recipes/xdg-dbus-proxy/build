@@ -1,0 +1,5 @@
+cd xdg-dbus-proxy-0.1.9
+meson setup build --prefix=/usr --buildtype=release \
+    -Dman=disabled
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

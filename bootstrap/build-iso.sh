@@ -25,6 +25,10 @@ die() { echo "build-iso: $*" >&2; exit 1; }
 [ "$(id -u)" -eq 0 ] || die "run this with sudo"
 mountpoint -q "$LFS" || die "mount the new system's partition at $LFS first"
 [ -e "$LFS/var/lib/fpm/installed/lib32-mesa" ] || die "run stage8c.sh first"
+# The installer offers every desktop; their packages are built by stages 9b-9g.
+for s in 9b:flash-xfce 9c:flash-mango 9d:flash-hyprland 9e:flash-mate 9f:cjs 9g:flash-cinnamon 10a:flatpak; do
+    [ -e "$LFS/var/lib/fpm/installed/${s#*:}" ] || die "run stage${s%%:*}.sh first (stages 9b-10a build the desktops and Flatpak)"
+done
 [ -d "$OUT" ] || die "OUT=$OUT is not a directory"
 
 . "$HERE/vfs.sh"

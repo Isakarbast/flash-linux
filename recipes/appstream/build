@@ -1,0 +1,5 @@
+cd AppStream-1.2.2
+meson setup build --prefix=/usr --buildtype=release \
+    -Dsystemd=false -Dstemming=false -Dblake3-support=false -Dbash-completion=false -Dvapi=false -Dqt=false -Dcompose=false -Ddocs=false -Dapidocs=false -Dinstall-docs=false -Dman=false -Dgir=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

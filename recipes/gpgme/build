@@ -1,0 +1,5 @@
+cd gpgme-2.2.0
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --disable-static --disable-gpg-test --disable-gpgsm-test --disable-gpgconf-test --disable-g13-test
+make
+make DESTDIR="$DESTDIR" install

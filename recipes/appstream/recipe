@@ -1,0 +1,8 @@
+name        = appstream
+version     = 1.2.2
+release     = 1
+description = App metadata library and appstreamcli (app names, icons and descriptions for Flatpak)
+depends     = glib curl libxml2 libfyaml libxmlb zstd
+makedepends = gperf itstool
+source      = https://www.freedesktop.org/software/appstream/releases/AppStream-1.2.2.tar.xz
+sha256      = 2f4f7c29095b905b4347829e39971ef8134d2d5aba663383268bab3bfeab45a9

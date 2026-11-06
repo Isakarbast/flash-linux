@@ -1,0 +1,7 @@
+name        = ostree
+version     = 2026.6
+release     = 1
+description = Versioned file trees (Flatpak stores apps and runtimes with it)
+depends     = glib curl openssl gpgme libarchive fuse xz zlib util-linux
+source      = https://github.com/ostreedev/ostree/releases/download/v2026.6/libostree-2026.6.tar.xz
+sha256      = 164b8226aea6a0e6601036de02a5e3b62307bae25890ed557fb4e19020bd5974

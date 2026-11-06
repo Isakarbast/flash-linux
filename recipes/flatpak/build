@@ -1,0 +1,11 @@
+cd flatpak-1.18.4
+# The system's bubblewrap and D-Bus proxy (not the bundled copies); no systemd,
+# SELinux or parental controls; no docs or tests.
+meson setup build --prefix=/usr --sysconfdir=/etc --localstatedir=/var --libexecdir=/usr/lib --buildtype=release \
+    -Dsystem_bubblewrap=bwrap -Dsystem_dbus_proxy=xdg-dbus-proxy -Dsystemd=disabled -Dselinux_module=disabled \
+    -Dmalcontent=disabled -Dwayland_security_context=enabled -Ddconf=enabled -Dlibzstd=enabled -Dgir=disabled \
+    -Ddocbook_docs=disabled -Dman=disabled -Dgtkdoc=disabled -Dtests=false -Dinstalled_tests=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install
+# Flathub, added on install (the file carries Flathub's signing key).
+install -Dm644 ../flathub.flatpakrepo "$DESTDIR/usr/share/flatpak/flathub.flatpakrepo"

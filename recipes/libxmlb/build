@@ -1,5 +1,8 @@
 cd libxmlb-0.3.29
+# Introspection data only when GObject Introspection is already installed
+# (nothing here needs it; a fresh system shouldn't build GI just for this).
+if command -v g-ir-scanner >/dev/null && [ -e /usr/share/gir-1.0/GObject-2.0.gir ]; then gi=true; else gi=false; fi
 meson setup build --prefix=/usr --buildtype=release \
-    -Dgtkdoc=false -Dtests=false -Dstemmer=false -Dintrospection=true
+    -Dgtkdoc=false -Dtests=false -Dstemmer=false -Dintrospection=$gi
 ninja -C build
 DESTDIR="$DESTDIR" ninja -C build install

@@ -1,0 +1,7 @@
+name        = libassuan
+version     = 3.0.0
+release     = 1
+description = IPC library used by GnuPG
+depends     = libgpg-error
+source      = https://www.gnupg.org/ftp/gcrypt/libassuan/libassuan-3.0.0.tar.bz2
+sha256      = 0b160cbb898b852c6c04314b9a63e90ca87501305ad72a58a010f808665bbaf6

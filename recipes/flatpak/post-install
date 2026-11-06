@@ -1,0 +1,6 @@
+# The unprivileged user Flatpak's system helper runs as.
+grep -q '^flatpak:' /etc/group  || groupadd -g 140 flatpak
+grep -q '^flatpak:' /etc/passwd ||
+    useradd -r -c 'Flatpak system helper' -d /nonexistent -u 140 -g flatpak -s /usr/bin/nologin flatpak
+# Flathub, so "flatpak install flathub APP" works out of the box.
+flatpak remote-add --system --if-not-exists flathub /usr/share/flatpak/flathub.flatpakrepo || true

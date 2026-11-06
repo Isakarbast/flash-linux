@@ -1,0 +1,5 @@
+cd gnupg-2.4.9
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+    --libexecdir=/usr/lib/gnupg --disable-ldap --disable-doc
+make
+make DESTDIR="$DESTDIR" install

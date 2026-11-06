@@ -1,0 +1,11 @@
+cd libostree-2026.6
+# Downloads with curl and OpenSSL, signatures with GnuPG (gpgme). No composefs,
+# systemd, Avahi or SELinux; no boot-loader integration (Flatpak only stores
+# apps in it).
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --libexecdir=/usr/lib --disable-static \
+    --with-curl --without-soup --without-soup3 --with-openssl --with-crypto=openssl --with-gpgme \
+    --with-libarchive --without-composefs --without-libsystemd --without-avahi --without-selinux \
+    --without-dracut --without-mkinitcpio --disable-gtk-doc --disable-man --disable-introspection \
+    --disable-rofiles-fuse
+make
+make DESTDIR="$DESTDIR" install

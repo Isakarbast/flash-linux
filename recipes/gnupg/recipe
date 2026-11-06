@@ -1,0 +1,7 @@
+name        = gnupg
+version     = 2.4.9
+release     = 1
+description = GNU Privacy Guard: OpenPGP signatures and encryption (checks Flathub's signatures)
+depends     = npth libassuan libksba libgcrypt libgpg-error sqlite gnutls zlib bzip2 readline
+source      = https://www.gnupg.org/ftp/gcrypt/gnupg/gnupg-2.4.9.tar.bz2
+sha256      = dd17ab2e9a04fd79d39d853f599cbc852062ddb9ab52a4ddeb4176fd8b302964

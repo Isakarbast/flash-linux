@@ -1,0 +1,7 @@
+name        = gpgme
+version     = 2.2.0
+release     = 1
+description = Library for using GnuPG from programs (Flatpak and OSTree)
+depends     = gnupg libassuan libgpg-error
+source      = https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-2.2.0.tar.bz2
+sha256      = 7160e80e84dafd00d956c84891c533bb7ab16a6a54fbe1574b2f3acf0496977b

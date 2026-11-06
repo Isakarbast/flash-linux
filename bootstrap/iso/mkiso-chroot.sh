@@ -64,7 +64,7 @@ while read -r name ver; do add "$name" "$ver"; done <<<"$installed"
 groups="flash-base flash-kde flash-xfce flash-cinnamon flash-mate flash-hyprland flash-sway flash-mango flash-gaming"
 members=$(for g in $groups; do sed -n 's/^depends *= *//p' "/var/db/fpm/recipes/main/$g/recipe"; done)
 names=$(cut -d' ' -f1 <<<"$installed")
-for p in calamares flash-installer $groups kpmcore yaml-cpp efivar nvidia lib32-nvidia $members; do
+for p in calamares flash-installer $groups flatpak kpmcore yaml-cpp efivar nvidia lib32-nvidia $members; do
     grep -qxF "$p" <<<"$names" && continue
     a=$(ls -t "$CACHE/$p"-[0-9]*.fpm.tar.zst 2>/dev/null | head -1) || true
     if [ -z "$a" ]; then
