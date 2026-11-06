@@ -3,6 +3,6 @@ version     = 128
 release     = 2
 description = Authorization framework: lets desktop programs ask for permission (and a password) for admin actions
 depends     = glib dbus elogind linux-pam
-makedepends = gobject-introspection duktape
+makedepends = duktape
 source      = https://github.com/polkit-org/polkit/archive/128/polkit-128.tar.gz
 sha256      = 6edb06bf1448e49e428f9597a97af6a05d62146dd0b58f86eeaebcee3f5ecfaa

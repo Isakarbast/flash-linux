@@ -2,6 +2,5 @@ name        = harfbuzz
 version     = 15.0.0
 release     = 2
 description = Text shaping engine (how characters become correctly placed glyphs)
-makedepends = gobject-introspection
 source      = https://github.com/harfbuzz/harfbuzz/releases/download/15.0.0/harfbuzz-15.0.0.tar.xz
 sha256      = 968536e9abd782f07f7954044c0c4020199fcdd39b41d221ec42d2a3be4a44df

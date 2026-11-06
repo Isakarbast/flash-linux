@@ -1,7 +1,7 @@
 name        = network-manager-applet
 version     = 1.36.0
-release     = 3
+release     = 4
 description = Network menu for desktop panels (nm-applet) and the connection editor
-depends     = libayatana-appindicator libnma libsecret libnotify networkmanager
+depends     = libnma libsecret libnotify networkmanager
 source      = https://download.gnome.org/sources/network-manager-applet/1.36/network-manager-applet-1.36.0.tar.xz
 sha256      = a84704487ea3afe1485c47fb2ab598b8f779f540ae0dcbf0a1c5f85e64a7e253

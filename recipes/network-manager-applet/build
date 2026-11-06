@@ -1,6 +1,10 @@
 cd network-manager-applet-1.36.0
+# Tray icon support for Waybar comes from libayatana-appindicator, which needs
+# introspection data that stage 9f makes (9f then rebuilds this with it; the
+# library's own dependency is found from the binary).
+if [ -e /usr/lib/pkgconfig/ayatana-appindicator3-0.1.pc ]; then ind=ayatana; else ind=no; fi
 meson setup build --prefix=/usr --buildtype=release \
-    -Dselinux=false -Dteam=false -Dappindicator=ayatana -Dwwan=false
+    -Dselinux=false -Dteam=false -Dappindicator=$ind -Dwwan=false
 ninja -C build
 DESTDIR="$DESTDIR" ninja -C build install
 # The settings schema is in libnma.

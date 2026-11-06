@@ -26,6 +26,14 @@ echo "==> Installing fpm"
 ( cd /sources/fpm && make clean >/dev/null && make >/dev/null && install -m 755 fpm /usr/bin/fpm ) ||
     die "fpm failed to build"
 
+# GObject Introspection belongs to stage 9f. Installed before GLib has its
+# introspection data (older recipes pulled it in as a build tool), it makes
+# builds that turn introspection on by themselves fail; take it out until then.
+if fpm list | grep -q '^gobject-introspection ' && [ ! -e /usr/share/gir-1.0/GObject-2.0.gir ]; then
+    echo "==> Removing gobject-introspection until stage 9f"
+    fpm -y remove gobject-introspection || die "could not remove gobject-introspection"
+fi
+
 # The X server and the tools X sessions use
 install_each xorg-server xf86-input-libinput xauth iceauth xrdb setxkbmap xinit xset xrandr xprop
 fpm list | grep -q '^nvidia ' && install_each nvidia

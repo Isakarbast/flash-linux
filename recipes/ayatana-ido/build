@@ -1,5 +1,11 @@
 cd ayatana-ido-0.10.4
+# It always builds introspection data, and its Vala bindings too when Vala is
+# installed: make those optional.
+sed -i 's/find_package(Vala REQUIRED QUIET)/find_package(Vala QUIET)/' src/CMakeLists.txt
+# Without Vala nothing asks for the .gir and .typelib it installs: build them anyway.
+sed -i '/AyatanaIdo3-0.4.typelib" DESTINATION/a add_custom_target(ido-typelib ALL DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/AyatanaIdo3-0.4.typelib")' src/CMakeLists.txt
+grep -q ido-typelib src/CMakeLists.txt
 cmake -B build -G Ninja -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_LIBEXECDIR=lib -W no-dev \
-    -D ENABLE_INTROSPECTION=OFF -D ENABLE_TESTS=OFF
+    -D ENABLE_TESTS=OFF
 ninja -C build
 DESTDIR="$DESTDIR" ninja -C build install

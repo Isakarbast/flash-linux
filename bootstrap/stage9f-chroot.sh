@@ -49,7 +49,10 @@ done
 install_each graphene pycairo pygobject dbus-python cbindgen js128 cjs
 
 # Tray icons
-install_each libdbusmenu ayatana-ido libayatana-indicator libayatana-appindicator network-manager-applet
+install_each libdbusmenu ayatana-ido libayatana-indicator libayatana-appindicator
+echo "==> network-manager-applet (again, with tray icon support)"
+fpm -y --overwrite --rebuild --reinstall install network-manager-applet ||
+    die "network-manager-applet failed (build logs: /var/cache/fpm/logs/)"
 echo "==> waybar (again, with tray menus)"
 fpm -y --overwrite --rebuild --reinstall install waybar || die "waybar failed (build logs: /var/cache/fpm/logs/)"
 
