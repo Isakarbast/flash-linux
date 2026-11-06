@@ -1,0 +1,9 @@
+name        = libtimezonemap
+version     = 0.4.6
+release     = 1
+description = GTK world map for picking a timezone (Cinnamon's Date & Time settings)
+url         = https://launchpad.net/timezonemap
+depends     = gtk3 libsoup3 json-glib
+makedepends = gobject-introspection
+source      = libtimezonemap-0.4.6.tar.gz::https://deb.debian.org/debian/pool/main/libt/libtimezonemap/libtimezonemap_0.4.6.orig.tar.gz port-to-libsoup3.patch timezone-map-Never-try-to-access-to-free-d-or-null-values.patch tz-Include-UI-files-from-installed-path.patch
+sha256      = 0d634cc2476d8f57d1ee1864bd4f442180ae4bf040a9ae4bf73b66bbd85d7195 0e8cf721167e2c86aa7eaa3bc56816664090792094401d4f68a7b39ecf39fbc1 aff94c33a4237554e3bc15b65b37c5f138fecd93e09fec3401f0fbad54f7931b 164b5c10087ff5ef20f2496f3a739cc66befda3da73998f75d818f2aa662b767

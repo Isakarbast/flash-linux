@@ -1,4 +1,8 @@
 cd cinnamon-6.6.9
+# Date & Time talks to systemd's timedated unless /usr/sbin/ntpd exists; there
+# is no systemd here, so always use cinnamon-settings-daemon's own mechanism.
+sed -i "s|if os.path.exists('/usr/sbin/ntpd'):|if True:  # Flash Linux: no systemd timedated|" files/usr/share/cinnamon/cinnamon-settings/modules/cs_calendar.py
+grep -q 'Flash Linux: no systemd timedated' files/usr/share/cinnamon/cinnamon-settings/modules/cs_calendar.py
 meson setup build --prefix=/usr --buildtype=release \
     --libexecdir=/usr/lib/cinnamon -Ddocs=false
 ninja -C build

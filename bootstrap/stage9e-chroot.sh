@@ -34,7 +34,7 @@ install_each libcanberra doxygen libxml2 itstool dbus-glib perl-xml-simple icon-
 install_each mate-desktop libmatekbd libmatemixer libmateweather mate-menus mate-panel marco \
     mate-settings-daemon mate-session-manager caja mate-control-center mate-polkit \
     mate-notification-daemon mate-power-manager mate-media mate-screensaver mate-terminal \
-    mate-system-monitor mate-icon-theme mate-themes mate-backgrounds flash-mate
+    mate-system-monitor mate-icon-theme mate-themes mate-backgrounds zenity flash-mate
 
 echo
 echo "Stage 9e complete: $(fpm list | wc -l) packages installed"

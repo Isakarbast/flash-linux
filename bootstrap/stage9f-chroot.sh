@@ -42,6 +42,8 @@ install_each graphene pycairo pygobject dbus-python cbindgen js128 cjs
 
 # Tray icons
 install_each libdbusmenu ayatana-ido libayatana-indicator libayatana-appindicator network-manager-applet
+echo "==> waybar (again, with tray menus)"
+fpm -y --overwrite --rebuild --reinstall install waybar || die "waybar failed (build logs: /var/cache/fpm/logs/)"
 
 echo
 echo "Stage 9f complete: $(fpm list | wc -l) packages installed"

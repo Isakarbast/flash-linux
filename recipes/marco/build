@@ -1,5 +1,5 @@
 cd marco-1.29.0
-# zenity (GTK 4) is only run for a few dialogs; it isn't needed to build.
+# zenity is only run for a few dialogs (flash-mate installs it); it isn't needed to build.
 sed -i "s/^zenity = find_program('zenity')$/zenity = find_program('zenity', required: false)/" meson.build
 meson setup build --prefix=/usr --buildtype=release
 ninja -C build

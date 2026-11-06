@@ -1,0 +1,8 @@
+name        = zenity
+version     = 3.44.5
+release     = 1
+description = Dialog boxes from shell scripts (GTK 3; MATE's window manager uses it)
+url         = https://gitlab.gnome.org/GNOME/zenity
+depends     = gtk3 libnotify
+source      = https://download.gnome.org/sources/zenity/3.44/zenity-3.44.5.tar.xz
+sha256      = 29ac447f4246b1da783a3c28ddc80b0ef7c80eccd5836ad9140abf89841d0eab

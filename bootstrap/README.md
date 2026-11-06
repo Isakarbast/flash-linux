@@ -365,7 +365,8 @@ its list.
   daemon, screen locker, power manager, volume control, terminal and system
   monitor, with the Menta themes and icons. libxml2 is rebuilt with its Python
   module for itstool (MATE's help pages), and libmateweather is ported to
-  libsoup 3 (Arch's patch).
+  libsoup 3 (Arch's patch). zenity 3.44 (the last GTK 3 release) gives Marco
+  its dialogs.
 
 - **9f** prepares Cinnamon, whose shell is JavaScript (cjs, on SpiderMonkey
   128) and whose settings are Python: GObject Introspection, then GLib, GTK,
@@ -373,10 +374,12 @@ its list.
   rebuilt with their introspection data (GObject Introspection and GLib need
   each other, so it goes GI, GLib, GI again), PyGObject, pycairo, dbus-python,
   cbindgen and SpiderMonkey (patched for Rust 1.99 and Python 3.15). Also the
-  Ayatana AppIndicator libraries, so nm-applet shows up in Waybar's tray.
+  Ayatana AppIndicator libraries, so nm-applet shows up in Waybar's tray, and
+  Waybar again with libdbusmenu so tray icons have their right-click menus.
 - **9g** brings Cinnamon 6.6: Muffin, the Cinnamon shell, its session manager,
   settings daemon, control center, screensaver and Nemo, Linux Mint's X-Apps
-  library, gcr, and the Python modules its tools use (pure-Python ones from
+  library, gcr, libtimezonemap (the map in Date & Time; Debian's libsoup 3
+  port, with its online city search switched off), and the Python modules its tools use (pure-Python ones from
   their wheels, installed with Python's bundled pip; the others built from
   source).
 
@@ -420,7 +423,9 @@ The installer asks for the language, time zone, keyboard, desktop (KDE
 Plasma, Xfce, Cinnamon, MATE, Hyprland, Sway, MangoWC or none), graphics driver (Mesa or NVIDIA), extras (gaming), disk and
 user. It installs from the repository on the medium with fpm; nothing is
 downloaded. It then copies the recipes, sets the console keymap, gives tty1
-to the login screen, installs GRUB to the EFI partition and writes
+to the login screen, installs GRUB to the EFI partition (in `EFI/flash`, plus
+the fallback `EFI/BOOT/BOOTX64.EFI` when no other system has one there, so
+the disk still boots if the firmware drops the boot entry) and writes
 `/etc/default/grub` to boot by `root=PARTUUID`. Disk encryption isn't
 offered: it needs an initramfs.
 

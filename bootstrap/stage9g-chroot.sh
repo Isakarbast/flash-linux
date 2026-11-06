@@ -36,7 +36,7 @@ install_each xdotool libsass sassc gsound libkeybinder3 libgnomekbd libxmlb exem
 
 # Cinnamon
 install_each cinnamon-translations cinnamon-desktop cinnamon-menus muffin cinnamon-settings-daemon \
-    cinnamon-session cinnamon-control-center cinnamon-screensaver nemo cinnamon flash-cinnamon
+    cinnamon-session cinnamon-control-center cinnamon-screensaver nemo cinnamon libtimezonemap flash-cinnamon
 
 echo
 echo "Stage 9g complete: $(fpm list | wc -l) packages installed"

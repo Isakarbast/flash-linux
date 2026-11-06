@@ -20,6 +20,8 @@ install -Dm644 fpminstall.desc "$m/fpminstall/module.desc"
 install -Dm644 fpminstall.py "$m/fpminstall/main.py"
 install -Dm644 flashcfg.desc "$m/flashcfg/module.desc"
 install -Dm644 flashcfg.py "$m/flashcfg/main.py"
+install -Dm644 flashefi.desc "$m/flashefi/module.desc"
+install -Dm644 flashefi.py "$m/flashefi/main.py"
 
 install -Dm644 installer.conf "$DESTDIR/etc/fpm/installer.conf"
 install -Dm644 -t "$DESTDIR/usr/share/flash-installer" preview-xfce.jpg preview-mate.jpg preview-hyprland.jpg preview-sway.jpg preview-mango.jpg preview-cinnamon.jpg

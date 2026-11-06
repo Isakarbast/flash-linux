@@ -1,0 +1,6 @@
+cd zenity-3.44.5
+# 3.44 is the last GTK 3 release (4.x needs GTK 4 and libadwaita). No help pages.
+sed -i "/^subdir('help')/d" meson.build
+meson setup build --prefix=/usr --buildtype=release -Dlibnotify=true -Dwebkitgtk=false
+ninja -C build
+DESTDIR="$DESTDIR" ninja -C build install

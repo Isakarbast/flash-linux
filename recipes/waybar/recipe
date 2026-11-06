@@ -1,6 +1,6 @@
 name        = waybar
 version     = 0.15.0
-release     = 2
+release     = 3
 description = Status bar for Wayland compositors (MangoWC, Hyprland)
 depends     = font-awesome gtkmm3 jsoncpp spdlog fmt libinput libnl upower pulseaudio libevdev gtk-layer-shell libxkbcommon wireplumber
 source      = https://github.com/Alexays/Waybar/archive/0.15.0/Waybar-0.15.0.tar.gz

@@ -1,6 +1,6 @@
 name        = cinnamon
 version     = 6.6.9
-release     = 2
+release     = 3
 description = The Cinnamon desktop
 depends     = cjs muffin gcr ibus cinnamon-desktop cinnamon-menus cinnamon-session cinnamon-settings-daemon cinnamon-control-center cinnamon-screensaver cinnamon-translations nemo xapp python-xapp gsound libkeybinder3 networkmanager libnotify libsecret polkit upower accountsservice network-manager-applet pygobject pycairo dbus-python python-pam python-pexpect python-pillow python-psutil python-pyinotify python-pytz python-requests python-setproctitle python-tinycss2 sound-theme-freedesktop adwaita-icon-theme xapp-symbolic-icons
 makedepends = gobject-introspection sassc
