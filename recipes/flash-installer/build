@@ -20,6 +20,8 @@ install -Dm644 fpminstall.desc "$m/fpminstall/module.desc"
 install -Dm644 fpminstall.py "$m/fpminstall/main.py"
 install -Dm644 flashcfg.desc "$m/flashcfg/module.desc"
 install -Dm644 flashcfg.py "$m/flashcfg/main.py"
+install -Dm644 flashkernel.desc "$m/flashkernel/module.desc"
+install -Dm644 flashkernel.py "$m/flashkernel/main.py"
 install -Dm644 flashefi.desc "$m/flashefi/module.desc"
 install -Dm644 flashefi.py "$m/flashefi/main.py"
 

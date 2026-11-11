@@ -16,6 +16,12 @@ sync_recipes() {
     [ -z "${SUDO_USER:-}" ] || as=(runuser -u "$SUDO_USER" --)
     "${as[@]}" make -s -C "$FPM_SRC" dist
     mv "$FPM_SRC"/fpm-*.tar.gz "$LFS/var/cache/fpm/sources/"
+    # The same for Flash's own apps, when their checkout sits next to fpm's.
+    local apps=${FLASH_APPS_SRC:-$(dirname "$FPM_SRC")/flash-apps}
+    if [ -f "$apps/Makefile" ]; then
+        "${as[@]}" make -s -C "$apps" dist
+        mv "$apps"/flash-apps-*.tar.gz "$LFS/var/cache/fpm/sources/"
+    fi
 }
 
 # Every remote source of every recipe. Tarballs from the earlier stages, or in

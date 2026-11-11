@@ -1,6 +1,6 @@
 cd libxklavier-5.4
-# Introspection data needs GLib's (stage 9f builds it, then rebuilds this).
-if [ -e /usr/share/gir-1.0/GObject-2.0.gir ]; then gi=enable; else gi=disable; fi
+# Introspection data needs GLib's and the scanner (stage 9f installs both, then rebuilds this).
+if command -v g-ir-scanner >/dev/null && [ -e /usr/share/gir-1.0/GObject-2.0.gir ]; then gi=enable; else gi=disable; fi
 ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
     --disable-gtk-doc --$gi-introspection --with-xkb-base=/usr/share/X11/xkb --with-xkb-bin-base=/usr/bin
 make

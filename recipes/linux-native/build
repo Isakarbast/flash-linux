@@ -1,0 +1,63 @@
+cd linux-7.3.1
+# The kernel has its own flags; fpm's CFLAGS would only get in the way.
+unset CFLAGS CXXFLAGS LDFLAGS
+make mrproper
+
+# Fedora's config: every driver built as a module, so the same kernel runs on
+# any PC; eudev loads only the modules for the hardware it finds.
+cp ../config-fedora .config
+c=scripts/config
+# Disk and root filesystem built in, so no initramfs is needed.
+$c --enable BLK_DEV_NVME --enable NVME_CORE --enable EXT4_FS
+# Fedora features that need tools or keys this system doesn't have.
+$c --disable RUST --disable DEBUG_INFO_BTF --disable MODULE_SIG --disable MODULE_SIG_ALL \
+   --disable IKHEADERS --disable SECURITY_SELINUX \
+   --set-str SYSTEM_TRUSTED_KEYS "" --set-str SYSTEM_REVOCATION_KEYS "" \
+   --disable DEBUG_INFO_DWARF5 --disable DEBUG_INFO_DWARF4 \
+   --disable DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT --enable DEBUG_INFO_NONE
+# Plain .ko modules.
+$c --disable MODULE_COMPRESS_ZSTD --disable MODULE_COMPRESS_XZ --enable MODULE_COMPRESS_NONE
+$c --set-str LOCALVERSION "" --disable LOCALVERSION_AUTO
+# Desktop and gaming tuning (as CachyOS does, without its patches):
+# 1000 Hz timer, BBR congestion control by default, NTSYNC built in (fast
+# Windows-style sync for Wine/Proton), zstd for zram.
+$c --enable HZ_1000 --disable HZ_100 --disable HZ_250 --disable HZ_300 --set-val HZ 1000
+$c --enable TCP_CONG_BBR --enable NET_SCH_FQ --enable DEFAULT_BBR --disable DEFAULT_CUBIC --set-str DEFAULT_TCP_CONG bbr
+$c --enable NTSYNC --set-str ZRAM_DEF_COMP zstd --enable ZRAM_DEF_COMP_ZSTD --disable ZRAM_DEF_COMP_LZORLE
+# linux-native (this same script) is built for the CPU it's compiled on:
+# "Build and optimize for local/native CPU" (-march=native).
+if [ "$name" = linux-native ]; then
+    $c --enable X86_NATIVE_CPU
+fi
+make olddefconfig
+for opt in HZ_1000 DEFAULT_BBR NTSYNC; do
+    grep -q "^CONFIG_$opt=y" .config || { echo "CONFIG_$opt didn't stick" >&2; exit 1; }
+done
+if [ "$name" = linux-native ]; then
+    grep -q "^CONFIG_X86_NATIVE_CPU=y" .config || { echo "CONFIG_X86_NATIVE_CPU didn't stick" >&2; exit 1; }
+fi
+
+make
+make INSTALL_MOD_PATH="$DESTDIR/usr" INSTALL_MOD_STRIP=1 modules_install
+rm -f "$DESTDIR/usr/lib/modules/$version/build"
+install -Dm644 arch/x86/boot/bzImage "$DESTDIR/boot/vmlinuz-$version"
+install -Dm644 System.map "$DESTDIR/boot/System.map-$version"
+install -Dm644 .config "$DESTDIR/boot/config-$version"
+
+# linux-devel: what out-of-tree modules (like NVIDIA's) need to build against
+# this kernel, laid out like Arch's linux-headers.
+b="$DESTDIR/usr/lib/modules/$version/build"
+install -Dt "$b" -m644 .config Makefile Module.symvers System.map
+install -Dt "$b/kernel" -m644 kernel/Makefile
+install -Dt "$b/arch/x86" -m644 arch/x86/Makefile
+cp -t "$b" -a scripts
+[ -x tools/objtool/objtool ] && install -Dt "$b/tools/objtool" tools/objtool/objtool
+cp -t "$b" -a include
+cp -t "$b/arch/x86" -a arch/x86/include
+install -Dt "$b/arch/x86/kernel" -m644 arch/x86/kernel/asm-offsets.s
+install -Dt "$b/drivers/md" -m644 drivers/md/*.h
+install -Dt "$b/net/mac80211" -m644 net/mac80211/*.h
+find . -name 'Kconfig*' -exec install -Dm644 {} "$b/{}" \;
+rm -rf "$b/Documentation"
+find -L "$b" -type l -delete
+find "$b" -type f -name '*.o' -delete

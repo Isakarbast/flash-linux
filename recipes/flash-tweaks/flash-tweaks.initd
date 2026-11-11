@@ -1,0 +1,51 @@
+#!/sbin/openrc-run
+# Flash Linux tweaks at boot: zram swap and memory settings that live in
+# /sys (the rest is in sysctl.d, udev and modprobe.d). Settings:
+# /etc/conf.d/flash-tweaks.
+
+description="zram swap and memory settings"
+
+depend() {
+	after modules sysctl
+	before swap
+	keyword -docker -lxc -openvz -prefix -systemd-nspawn -vserver
+}
+
+start() {
+	if [ -n "$THP_DEFRAG" ] && [ -w /sys/kernel/mm/transparent_hugepage/defrag ]; then
+		echo "$THP_DEFRAG" > /sys/kernel/mm/transparent_hugepage/defrag
+	fi
+	# Collapse into huge pages only when most of the range is in use (CachyOS).
+	[ -w /sys/kernel/mm/transparent_hugepage/khugepaged/max_ptes_none ] &&
+		echo 409 > /sys/kernel/mm/transparent_hugepage/khugepaged/max_ptes_none
+
+	case "$ZRAM" in yes|YES|true|1) ;; *) return 0 ;; esac
+	ebegin "Setting up zram swap"
+	modprobe zram num_devices=1 2>/dev/null
+	if [ ! -e /sys/block/zram0 ] || grep -q '^/dev/zram0 ' /proc/swaps; then
+		eend 0
+		return 0
+	fi
+	mem_kb=$(awk '/^MemTotal:/ { print $2 }' /proc/meminfo)
+	size=$(( mem_kb * 1024 / 100 * ${ZRAM_SIZE_PERCENT:-100} ))
+	echo "${ZRAM_ALGORITHM:-zstd}" > /sys/block/zram0/comp_algorithm 2>/dev/null
+	echo "$size" > /sys/block/zram0/disksize &&
+		mkswap -q /dev/zram0 >/dev/null &&
+		swapon -p "${ZRAM_PRIORITY:-100}" /dev/zram0
+	ok=$?
+	if [ $ok -eq 0 ]; then
+		# zswap (compressing in front of a disk swap) is pointless with zram,
+		# and zram is so cheap that swapping to it early is better.
+		[ -w /sys/module/zswap/parameters/enabled ] && echo N > /sys/module/zswap/parameters/enabled
+		sysctl -q vm.swappiness=150
+	fi
+	eend $ok
+}
+
+stop() {
+	if grep -q '^/dev/zram0 ' /proc/swaps; then
+		ebegin "Removing zram swap"
+		swapoff /dev/zram0 && echo 1 > /sys/block/zram0/reset
+		eend $?
+	fi
+}

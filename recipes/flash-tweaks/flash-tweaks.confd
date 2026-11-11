@@ -1,0 +1,14 @@
+# /etc/conf.d/flash-tweaks: the flash-tweaks boot service.
+
+# Compressed swap in RAM (zram). Much faster than swapping to disk, so the
+# system stays responsive when memory runs out. "no" to turn it off.
+ZRAM="yes"
+# Size as a percentage of RAM (it only uses real memory for what's stored,
+# compressed to about a third).
+ZRAM_SIZE_PERCENT=100
+ZRAM_ALGORITHM="zstd"
+ZRAM_PRIORITY=100
+
+# Transparent huge pages: defragment only for programs that ask (madvise),
+# and in the background otherwise, so allocations never stall.
+THP_DEFRAG="defer+madvise"

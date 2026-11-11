@@ -1,0 +1,21 @@
+# The same kernel as linux (same build script, config and version: keep them
+# in step), built with "Build and optimize for local/native CPU": compiled on
+# a PC, for that PC's CPU. Takes 30-90 minutes to build; install it with
+# `sudo fpm install linux-native` (it replaces linux, and back with
+# `sudo fpm install linux`).
+name        = linux-native
+version     = 7.3.1
+release     = 1
+description = The Linux kernel compiled for this computer's CPU (-march=native)
+provides    = linux
+conflicts   = linux
+replaces    = linux
+source      = https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-7.3.1.tar.xz config-fedora
+sha256      = fa595aad93734f829c963c2a90ef7c3673224fd7fdae7b49406e397cde2de231 b5092319ae10690f0a95fb948244851a978379af79501b106c82bfb3a591ed7b
+
+linux-native-devel.description = Build files for out-of-tree kernel modules, for linux-native
+linux-native-devel.depends     = linux-native
+linux-native-devel.provides    = linux-devel
+linux-native-devel.conflicts   = linux-devel
+linux-native-devel.replaces    = linux-devel
+linux-native-devel.files       = usr/lib/modules/7.3.1/build

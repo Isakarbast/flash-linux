@@ -1,0 +1,4 @@
+# KDE reads this (XDG_CURRENT_DESKTOP=KDE) before the generic mimeapps.list:
+# Flash Files opens folders, also from the taskbar and "Open containing folder".
+[Default Applications]
+inode/directory=flash-files.desktop;

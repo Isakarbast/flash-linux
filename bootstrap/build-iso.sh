@@ -8,9 +8,13 @@
 #
 #     sudo SOURCE_CACHE=$HOME/.cache/distro-sources ./build-iso.sh
 #
+# Two ISOs come out: flash-linux-VERSION.iso installs the prebuilt kernel;
+# flash-linux-VERSION-native.iso compiles the kernel during the install for
+# the CPU it's installed on (linux-native, 30-90 minutes longer).
+#
 # Environment: LFS (default /mnt/nvme0n1p1), FPM_SRC (default ../../fpm),
-# SOURCE_CACHE, VERSION (default 2026.11), OUT (where the ISO goes; default
-# the invoking user's home).
+# SOURCE_CACHE, VERSION (default 2026.11), VARIANT (both, prebuilt or native;
+# default both), OUT (where the ISOs go; default the invoking user's home).
 set -euo pipefail
 
 LFS=${LFS:-/mnt/nvme0n1p1}
@@ -26,8 +30,8 @@ die() { echo "build-iso: $*" >&2; exit 1; }
 mountpoint -q "$LFS" || die "mount the new system's partition at $LFS first"
 [ -e "$LFS/var/lib/fpm/installed/lib32-mesa" ] || die "run stage8c.sh first"
 # The installer offers every desktop; their packages are built by stages 9b-9g.
-for s in 9b:flash-xfce 9c:flash-mango 9d:flash-hyprland 9e:flash-mate 9f:cjs 9g:flash-cinnamon 10a:flatpak; do
-    [ -e "$LFS/var/lib/fpm/installed/${s#*:}" ] || die "run stage${s%%:*}.sh first (stages 9b-10a build the desktops and Flatpak)"
+for s in 9b:flash-xfce 9c:flash-mango 9d:flash-hyprland 9e:flash-mate 9f:cjs 9g:flash-cinnamon 10a:flatpak 10b:flash-files; do
+    [ -e "$LFS/var/lib/fpm/installed/${s#*:}" ] || die "run stage${s%%:*}.sh first (stages 9b-10b build the desktops, Flatpak and the Flash apps)"
 done
 [ -d "$OUT" ] || die "OUT=$OUT is not a directory"
 
@@ -47,10 +51,12 @@ echo "==> Entering the chroot"
 # Private mount namespace: Fedora's / is shared, which fpm's bwrap sandbox
 # can't work under.
 unshare --mount --propagation private chroot "$LFS" /usr/bin/env -i \
-    HOME=/root TERM="${TERM:-dumb}" PATH=/usr/bin LANG=C.UTF-8 VERSION="$VERSION" \
+    HOME=/root TERM="${TERM:-dumb}" PATH=/usr/bin LANG=C.UTF-8 VERSION="$VERSION" VARIANT="${VARIANT:-both}" \
     /bin/bash --noprofile --norc /sources/iso/mkiso-chroot.sh
 
-iso=flash-linux-$VERSION.iso
-mv "$LFS/var/tmp/iso/$iso" "$OUT/$iso"
-[ -z "${SUDO_USER:-}" ] || chown "$SUDO_USER:" "$OUT/$iso"
-echo "==> $OUT/$iso"
+for iso in flash-linux-$VERSION.iso flash-linux-$VERSION-native.iso; do
+    [ -f "$LFS/var/tmp/iso/$iso" ] || continue
+    mv "$LFS/var/tmp/iso/$iso" "$OUT/$iso"
+    [ -z "${SUDO_USER:-}" ] || chown "$SUDO_USER:" "$OUT/$iso"
+    echo "==> $OUT/$iso"
+done

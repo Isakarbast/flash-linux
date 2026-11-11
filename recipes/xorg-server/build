@@ -1,6 +1,6 @@
 cd xorg-server-21.1.25
 meson setup build --prefix=/usr --buildtype=release \
-    -Dxorg=true -Dxvfb=false -Dxnest=false -Dxephyr=false -Dglamor=true -Dudev=true \
+    -Dxorg=true -Dxvfb=true -Dxnest=false -Dxephyr=false -Dglamor=true -Dudev=true \
     -Dsystemd_logind=true -Dsuid_wrapper=true -Dsecure-rpc=false \
     -Dxkb_dir=/usr/share/X11/xkb -Dxkb_output_dir=/var/lib/xkb -Ddtrace=false -Dlibunwind=false \
     -Ddocs=false -Ddevel-docs=false

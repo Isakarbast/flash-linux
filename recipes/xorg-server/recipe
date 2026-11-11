@@ -1,6 +1,6 @@
 name        = xorg-server
 version     = 21.1.25
-release     = 2
+release     = 3
 description = The X.Org display server (Xorg), for X11 desktops such as Xfce, MATE and Cinnamon
 depends     = xwayland pixman libxfont2 libxkbfile libxcvt libepoxy mesa libdrm eudev libpciaccess libxshmfence xkeyboard-config xkbcomp elogind openssl libxau libxdmcp
 source      = https://www.x.org/pub/individual/xserver/xorg-server-21.1.25.tar.xz

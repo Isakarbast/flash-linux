@@ -1,0 +1,8 @@
+name        = ark
+version     = 26.08.2
+release     = 1
+description = KDE's archive manager (Dolphin's Extract here and Compress menus)
+depends     = kio kparts kpty kfilemetadata libarchive libzip 7zip unzip
+makedepends = extra-cmake-modules kdoctools
+source      = https://download.kde.org/stable/release-service/26.08.2/src/ark-26.08.2.tar.xz
+sha256      = ef1e6c47fb17e57271917f71d72cd093eee7c88bcdf679753958498dae6d43a0

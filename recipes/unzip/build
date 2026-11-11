@@ -1,0 +1,4 @@
+# Info-ZIP's unzip is unmaintained and needs ~30 security patches; libarchive's
+# bsdunzip takes the same options.
+mkdir -p "$DESTDIR/usr/bin"
+ln -s bsdunzip "$DESTDIR/usr/bin/unzip"

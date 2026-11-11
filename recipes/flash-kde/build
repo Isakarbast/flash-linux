@@ -1,1 +1,3 @@
-# A package group: it only pulls in its dependencies.
+# A package group: it pulls in its dependencies, and makes Flash Files the
+# file manager on KDE.
+install -Dm644 kde-mimeapps.list "$DESTDIR/etc/xdg/kde-mimeapps.list"

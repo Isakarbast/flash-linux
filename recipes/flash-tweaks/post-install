@@ -1,0 +1,2 @@
+[ "${ROOT:-/}" = / ] || exit 0
+rc-update add flash-tweaks boot >/dev/null 2>&1 || true

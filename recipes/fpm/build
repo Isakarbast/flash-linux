@@ -1,4 +1,4 @@
-cd fpm-0.3.1
+cd "fpm-$version"
 make
 make DESTDIR="$DESTDIR" install
 # Flash Linux's settings instead of the generic example.

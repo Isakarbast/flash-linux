@@ -1,0 +1,11 @@
+# Flash Linux, from CachyOS-Settings.
+# Hardware watchdogs only reboot a hung machine; on a desktop they cost wakeups
+# and some (iTCO) slow down boot.
+blacklist iTCO_wdt
+blacklist sp5100_tco
+blacklist wdat_wdt
+# NVIDIA: don't zero video memory allocations (the kernel does that already).
+options nvidia NVreg_InitializeSystemMemoryAllocations=0
+# Older AMD cards (GCN 1 and 2) work better with amdgpu than radeon.
+options amdgpu si_support=1 cik_support=1
+options radeon si_support=0 cik_support=0

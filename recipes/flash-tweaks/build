@@ -1,0 +1,7 @@
+install -Dm644 70-flash-tweaks.conf "$DESTDIR/usr/lib/sysctl.d/70-flash-tweaks.conf"
+install -Dm644 flash-tweaks.modprobe "$DESTDIR/usr/lib/modprobe.d/flash-tweaks.conf"
+install -Dm644 modules-load.conf "$DESTDIR/usr/lib/modules-load.d/flash-tweaks.conf"
+install -Dm644 60-flash-tweaks.rules "$DESTDIR/usr/lib/udev/rules.d/60-flash-tweaks.rules"
+install -Dm644 20-audio.conf "$DESTDIR/etc/security/limits.d/20-audio.conf"
+install -Dm644 flash-tweaks.confd "$DESTDIR/etc/conf.d/flash-tweaks"
+install -Dm755 flash-tweaks.initd "$DESTDIR/etc/init.d/flash-tweaks"

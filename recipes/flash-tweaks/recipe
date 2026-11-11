@@ -1,0 +1,11 @@
+# CachyOS-style desktop and gaming settings for OpenRC: sysctl, I/O
+# schedulers, zram swap, NTSYNC, low-latency audio. Every file says what it
+# changes and why; each can be overridden in /etc.
+name        = flash-tweaks
+version     = 2026.11
+release     = 1
+description = Desktop and gaming system settings: zram swap, I/O schedulers, NTSYNC, BBR, low-latency audio
+arch        = noarch
+depends     = openrc procps-ng util-linux kmod eudev
+source      = 70-flash-tweaks.conf flash-tweaks.modprobe modules-load.conf 60-flash-tweaks.rules 20-audio.conf flash-tweaks.confd flash-tweaks.initd
+sha256      = 7dd31140d50d8f6abd63d71e1f2a4a517ade166274f0ebf406debbf59c69d86a bc8d04ae44b1a9a791d952b7310e330318fd78943d2fbb5c5679a55cafa89b82 84c7b3df8d0b1f81bafa97731cacbf4f48ea8bdefb53a8dcacac9cd1f4bf4028 b32dc689f5b429d1cce94f6a3e198a06b3916ad07dcd5205260e91317a94bc13 b151f3aaa1cc102a389c8963ea19a156122acee579ebc574807158a553769453 1755f98c9c6f86743f50df91a5a0eacb1bd232752b522a75f0bcd0843c841d26 7e979ef739ccb0e0bd87f7d3f54b04d9fd5accf54c428304a86fa6fd5addb78f

@@ -141,6 +141,11 @@ cp "$LIVE/usr/share/applications/calamares.desktop" "$d/install-flash-linux.desk
 # Our name and logo, also in place of the translated ones.
 sed -i '/^Name\[/d; /^Icon\[/d; s/^Name=.*/Name=Install Flash Linux/; s/^Icon=.*/Icon=flashlinux/' "$d/install-flash-linux.desktop"
 chmod 755 "$d/install-flash-linux.desktop"
+# An install can take a while (the native ISO compiles the kernel): the live
+# session never locks, dims, blanks or suspends.
+mkdir -p "$LIVE/home/live/.config"
+printf '[Daemon]\nAutolock=false\nLockOnResume=false\n' > "$LIVE/home/live/.config/kscreenlockerrc"
+printf '[AC][Display]\nDimDisplayWhenIdle=false\nTurnOffDisplayWhenIdle=false\n\n[AC][SuspendAndShutdown]\nAutoSuspendAction=0\n\n[Battery][Display]\nDimDisplayWhenIdle=false\nTurnOffDisplayWhenIdle=false\n\n[Battery][SuspendAndShutdown]\nAutoSuspendAction=0\n' > "$LIVE/home/live/.config/powerdevilrc"
 chroot "$LIVE" chown -R live:live /home/live
 # NVIDIA's driver is on the live system but mustn't always win over nouveau:
 # the initramfs blacklists one of them for the GPU it finds (iso/init). This
@@ -201,14 +206,37 @@ mkfs.fat -C -n FLASH_EFI "$efi" $(( $(du -k "$ISO/EFI/BOOT/BOOTX64.EFI" | cut -f
 mmd -i "$efi" ::/EFI ::/EFI/BOOT
 mcopy -i "$efi" "$ISO/EFI/BOOT/BOOTX64.EFI" ::/EFI/BOOT/
 
-step "Writing the ISO"
-out=$W/flash-linux-$VERSION.iso
-rm -f "$out"
-xorriso -as mkisofs -iso-level 3 -full-iso9660-filenames -joliet -joliet-long -rational-rock \
-    -volid "$LABEL" -appid "Flash Linux $VERSION" \
-    -partition_offset 16 \
-    -append_partition 2 C12A7328-F81F-11D2-BA4B-00A0C93EC93B "$efi" -appended_part_as_gpt \
-    -eltorito-alt-boot -e --interval:appended_partition_2:all:: -no-emul-boot \
-    -output "$out" "$ISO" 2>&1 | tail -3
-echo
-echo "ISO written: $out ($(du -h "$out" | cut -f1))"
+# Two ISOs from the same build (VARIANT: both, prebuilt or native). The
+# native one adds native/: the kernel's source, so its installer compiles
+# linux-native (-march=native) for the PC it installs on. The rest is shared.
+write_iso() {
+    local out=$1; shift
+    rm -f "$out"
+    xorriso -as mkisofs -iso-level 3 -full-iso9660-filenames -joliet -joliet-long -rational-rock \
+        -volid "$LABEL" -appid "Flash Linux $VERSION" \
+        -partition_offset 16 \
+        -append_partition 2 C12A7328-F81F-11D2-BA4B-00A0C93EC93B "$efi" -appended_part_as_gpt \
+        -eltorito-alt-boot -e --interval:appended_partition_2:all:: -no-emul-boot \
+        -graft-points -output "$out" "/=$ISO" "$@" 2>&1 | tail -3
+    echo "ISO written: $out ($(du -h "$out" | cut -f1))"
+}
+VARIANT=${VARIANT:-both}
+case $VARIANT in both|prebuilt|native) ;; *) die "VARIANT must be both, prebuilt or native" ;; esac
+if [ "$VARIANT" != native ]; then
+    step "Writing the ISO (prebuilt kernel)"
+    write_iso "$W/flash-linux-$VERSION.iso"
+fi
+if [ "$VARIANT" != prebuilt ]; then
+    step "Writing the ISO (kernel compiled for the PC it installs on)"
+    native=$W/native
+    mkdir -p "$native"
+    for src in $(sed -n 's/^source *= *//p' /var/db/fpm/recipes/main/linux-native/recipe); do
+        case $src in *://*) ;; *) continue ;; esac
+        f=${src%%::*}
+        [ "$f" = "$src" ] && f=${src##*/}
+        [ -f "/var/cache/fpm/sources/$f" ] || die "kernel source $f isn't in fpm's cache"
+        ln -f "/var/cache/fpm/sources/$f" "$native/$f" 2>/dev/null || cp "/var/cache/fpm/sources/$f" "$native/$f"
+    done
+    echo native > "$native/VARIANT"
+    write_iso "$W/flash-linux-$VERSION-native.iso" "/native=$native"
+fi

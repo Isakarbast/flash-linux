@@ -29,6 +29,7 @@ way Linux From Scratch does.
 | 9f | GObject Introspection data for the GTK stack, PyGObject, SpiderMonkey 128 + cjs, tray icons | `stage9f.sh` |
 | 9g | Cinnamon 6.6 with Muffin, Nemo and the X-Apps | `stage9g.sh` |
 | 10a | Flatpak with Flathub (apps without a recipe each), GnuPG, OSTree | `stage10a.sh` |
+| 10b | Flash Monitor and Flash Files, Flash Linux's own apps (Rust) | `stage10b.sh` |
 | ISO | Live system and graphical installer (Calamares) with every package on it | `build-iso.sh` |
 
 ## Stage 1
@@ -119,6 +120,20 @@ sudo SOURCE_CACHE=$HOME/.cache/distro-sources ./stage6a.sh
 - **Kernel**: Fedora's full config, every driver as a module (the same kernel
   runs on any PC; eudev loads only what the hardware needs). `linux-devel`
   holds the build files for out-of-tree modules, like Arch's linux-headers.
+  Tuned for desktops and games (like CachyOS, but without its patches):
+  1000 Hz timer, BBR network congestion control by default, NTSYNC built in
+  for Wine/Proton, zstd for zram. `linux-native` is the same kernel with
+  "Build and optimize for local/native CPU" (`-march=native`): compiled on a
+  PC, for that PC, in 30-90 minutes (`sudo fpm install linux-native`; it
+  replaces `linux`, and `sudo fpm install linux` goes back).
+- **System settings** (`flash-tweaks`, part of `flash-base`): CachyOS's
+  sysctl values (swappiness, dirty-page limits, BBR with fq, quiet console,
+  hidden kernel addresses), plus SteamOS's `vm.max_map_count` and no
+  split-lock slowdown for old games; I/O schedulers per disk type (BFQ for
+  hard disks, mq-deadline for SATA SSDs, Kyber for NVMe); zram swap the size
+  of RAM, compressed with zstd (`/etc/conf.d/flash-tweaks`); watchdogs off;
+  `/dev/ntsync` usable by games; real-time audio for the audio group. Each
+  file says what it changes and why.
 - **Firmware**: `linux-firmware` keeps the shared files; vendor firmware is in
   `linux-firmware-{amdgpu,radeon,intel,nvidia,realtek,mediatek,atheros,broadcom,qcom,cirrus,mellanox,netronome}`.
   The script installs the ones matching this PC's PCI devices.
@@ -388,6 +403,13 @@ its list.
   each. GnuPG checks Flathub's signatures, OSTree stores the apps and AppStream
   reads their metadata; Flathub is added when Flatpak is installed. It only
   needs a base system, so it also runs on a system installed from the ISO.
+- **10b** builds Flash Linux's own apps from the `flash-apps` repository (Rust,
+  egui): **Flash Monitor**, a system monitor that reads NVIDIA cards through
+  NVML and AMD cards through sysfs, and **Flash Files**, the file manager that
+  replaces Dolphin on KDE (`/etc/xdg/kde-mimeapps.list` makes it the folder
+  default). One recipe, `flash-apps`, vendors the crates from `Cargo.lock` and
+  splits into the two packages; `sync.sh` makes its tarball from the checkout
+  next to fpm's. The tiling desktops get Flash Monitor too.
 
 ## The ISO
 
@@ -422,8 +444,16 @@ machine. It runs `iso/mkiso-chroot.sh` in the chroot, which:
    and the installer then suggests it; anything else gets mesa. Without this
    an RTX card would run Plasma on the CPU (llvmpipe), since mesa's nouveau
    driver has no 3D support for it.
-6. Writes a UEFI-only hybrid image: GRUB with live and safe-graphics
-   (`nomodeset`) entries, booting from a USB stick or DVD.
+6. Writes UEFI-only hybrid images: GRUB with live and safe-graphics
+   (`nomodeset`) entries, booting from a USB stick or DVD. Two of them, from
+   the same build:
+   - `flash-linux-2026.11.iso` installs the prebuilt kernel.
+   - `flash-linux-2026.11-native.iso` also carries the kernel's source (in
+     `native/` on the medium), and its installer compiles `linux-native` for
+     the PC it installs on, after the packages (30-90 minutes more). If that
+     fails the prebuilt kernel stays, so the system still boots.
+
+   `VARIANT=prebuilt` or `VARIANT=native` makes just one.
 
 The installer asks for the language, time zone, keyboard, desktop (KDE
 Plasma, Xfce, Cinnamon, MATE, Hyprland, Sway, MangoWC or none), graphics driver (Mesa or NVIDIA), extras (gaming), disk and

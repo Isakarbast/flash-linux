@@ -1,0 +1,7 @@
+# The tarball has no top directory. Built without the assembler parts (they need
+# uasm), and without -Werror (newer GCC warnings stop the build).
+sed -i 's/-Werror //' CPP/7zip/7zip_gcc.mak
+make -C CPP/7zip/Bundles/Alone2 -f ../../cmpl_gcc.mak LFLAGS_STRIP= \
+    CC="cc $CFLAGS $LDFLAGS" CXX="g++ $CXXFLAGS $LDFLAGS"
+install -Dm755 CPP/7zip/Bundles/Alone2/b/g/7zz "$DESTDIR/usr/bin/7zz"
+ln -s 7zz "$DESTDIR/usr/bin/7z"

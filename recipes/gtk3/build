@@ -1,6 +1,6 @@
 cd gtk-3.24.52
-# Introspection data needs GLib's (stage 9f builds it, then rebuilds this).
-if [ -e /usr/share/gir-1.0/GObject-2.0.gir ]; then gi=true; else gi=false; fi
+# Introspection data needs GLib's and the scanner (stage 9f installs both, then rebuilds this).
+if command -v g-ir-scanner >/dev/null && [ -e /usr/share/gir-1.0/GObject-2.0.gir ]; then gi=true; else gi=false; fi
 meson setup build --prefix=/usr --buildtype=release \
     -Dx11_backend=true -Dwayland_backend=true -Dbroadway_backend=false \
     -Dprint_backends=cups,file -Dcolord=no -Dcloudproviders=false -Dtracker3=false \

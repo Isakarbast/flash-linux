@@ -1,8 +1,8 @@
 name        = flash-hyprland
 version     = 2026.11
-release     = 3
+release     = 4
 description = Hyprland desktop with Waybar, fuzzel, mako, hyprlock, Thunar, kitty, Firefox and the LightDM login screen
 arch        = noarch
-depends     = hyprland xdg-desktop-portal-hyprland hyprlock hypridle waybar fuzzel mako-notifier swaybg grim slurp wl-clipboard xdg-desktop-portal-gtk kitty firefox thunar gvfs polkit-gnome network-manager-applet dconf adwaita-icon-theme lightdm lightdm-gtk-greeter flash-branding
+depends     = hyprland xdg-desktop-portal-hyprland hyprlock hypridle waybar fuzzel mako-notifier swaybg grim slurp wl-clipboard xdg-desktop-portal-gtk kitty flash-monitor firefox thunar gvfs polkit-gnome network-manager-applet dconf adwaita-icon-theme lightdm lightdm-gtk-greeter flash-branding
 source      = 50-flash-hyprland.conf
 sha256      = 6f8ab4c20ad3bd188eb46aca84f292756b18c289f9b2c35aa276885c63efb3c9

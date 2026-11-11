@@ -1,0 +1,6 @@
+name        = unzip
+version     = 3.8.11
+release     = 1
+description = unzip command (libarchive's bsdunzip, a maintained unzip-compatible tool)
+arch        = noarch
+depends     = libarchive

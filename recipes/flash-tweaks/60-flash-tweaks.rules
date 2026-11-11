@@ -1,0 +1,23 @@
+# Flash Linux, from CachyOS-Settings.
+
+# I/O schedulers: BFQ for spinning disks (keeps the desktop responsive while
+# copying), mq-deadline for SATA SSDs and SD cards, Kyber for NVMe.
+ACTION=="add|change", KERNEL=="sd[a-z]*", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"
+ACTION=="add|change", KERNEL=="sd[a-z]*|mmcblk[0-9]*", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="mq-deadline"
+ACTION=="add|change", KERNEL=="nvme[0-9]*", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="kyber"
+
+# SATA links at full speed (power saving here can cause stutters).
+ACTION=="add", SUBSYSTEM=="scsi_host", KERNEL=="host*", ATTR{link_power_management_supported}=="1", ATTR{link_power_management_policy}=="*", ATTR{link_power_management_policy}="max_performance"
+
+# NVIDIA: let the card power down when idle (laptops), back on when unbound.
+ACTION=="add|bind", SUBSYSTEM=="pci", DRIVERS=="nvidia", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", TEST=="power/control", ATTR{power/control}="auto"
+ACTION=="remove|unbind", SUBSYSTEM=="pci", DRIVERS=="nvidia", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", TEST=="power/control", ATTR{power/control}="on"
+
+# Low-latency audio: the audio group may use the timers and ask for low CPU
+# wake-up latency.
+KERNEL=="rtc0", GROUP="audio"
+KERNEL=="hpet", GROUP="audio"
+DEVPATH=="/devices/virtual/misc/cpu_dma_latency", OWNER="root", GROUP="audio", MODE="0660"
+
+# NTSYNC is meant for normal programs (Wine/Proton): everyone may open it.
+KERNEL=="ntsync", MODE="0666"

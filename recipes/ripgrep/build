@@ -1,0 +1,22 @@
+# Offline crates.io: the crates from Cargo.lock (sources crate-*.crate).
+mkdir vendor
+for f in crate-*.crate; do
+    n=${f#crate-}
+    n=${n%.crate}
+    mkdir "vendor/$n"
+    tar --no-same-owner -xzf "$f" -C "vendor/$n" --strip-components=1
+    printf '{"files":{},"package":"%s"}' "$(sha256sum "$f" | cut -d' ' -f1)" > "vendor/$n/.cargo-checksum.json"
+done
+export CARGO_HOME="$PWD/cargo-home"
+mkdir -p "$CARGO_HOME"
+cat > "$CARGO_HOME/config.toml" <<EOF2
+[source.crates-io]
+replace-with = "vendored"
+[source.vendored]
+directory = "$PWD/vendor"
+[net]
+offline = true
+EOF2
+cd ripgrep-15.2.0
+cargo install --path . --root "$DESTDIR/usr" --locked --offline
+rm -f "$DESTDIR/usr/.crates.toml" "$DESTDIR/usr/.crates2.json"

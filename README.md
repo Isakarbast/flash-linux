@@ -27,6 +27,28 @@ programming and gaming.
 | Live ISO with a graphical installer (Calamares), offline | done, verified in a VM |
 | More desktops in the installer: Xfce, Cinnamon, MATE, Hyprland, Sway, MangoWC | done, verified in a VM |
 
+## Adding a package
+
+`tools/new-recipe` writes a recipe from a download link:
+
+```sh
+tools/new-recipe https://github.com/htop-dev/htop/releases/download/3.5.3/htop-3.5.3.tar.xz
+```
+
+It downloads the source, pins its checksum and recognizes meson, CMake,
+autotools, Cargo (pinning every crate in `Cargo.lock` so the build works
+offline), Python and plain Makefiles. It writes `recipes/NAME/recipe` and
+`build`, and lists the libraries the project asks for. Put the matching
+recipe names in `depends`, then:
+
+```sh
+sudo fpm build NAME
+```
+
+For GitHub tag links (`.../archive/refs/tags/v1.2.tar.gz`) it names the file
+`NAME-1.2.tar.gz` and fetches the description from GitHub. A second argument
+sets the name; `--force` overwrites an existing recipe.
+
 ## License
 
 GNU General Public License v3.0, see [LICENSE](LICENSE). This covers the
